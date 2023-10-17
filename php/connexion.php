@@ -16,12 +16,10 @@ $dbName = $_ENV['DB_NAME'];
 $dbUser = $_ENV['DB_USER'];
 $dbPassword = $_ENV['DB_PASSWORD'];
 
-
 try {
     $conn = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPassword);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     echo "Erreur : " . $e->getMessage();
 }
-
 ?>
