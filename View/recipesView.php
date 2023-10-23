@@ -6,6 +6,9 @@
     <title>Recettes</title>
 </head>
 <body>
-    
+    <?php require_once '../Controller/RecipesController.php';
+    $control = new RecipesController();
+    $control->getAllRecipes();
+    ?>
 </body>
 </html>
