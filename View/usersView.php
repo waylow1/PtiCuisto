@@ -6,6 +6,13 @@
     <title>Utilisateurs</title>
 </head>
 <body>
+
+    <form method="post" action="../Controller/UsersController.php">
+        <p>Entrez votre pseudo</p>
+        <input type="text" id="pseudo">
+        <p>Entrez votre mot de passe</p>
+        <input type="text" id="mdp">
+    </form>
     
 </body>
 </html>
