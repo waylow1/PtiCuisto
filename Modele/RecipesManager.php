@@ -1,11 +1,17 @@
 <?php
 
+
 class RecipesManager extends Manager{
-
-   public function getRecipes(){
-        $db = $this->con();
+   public function getAllRecipes(){
+      $connexion = $this->con();
+      $recipes = $connexion->prepare('SELECT RE_ID,RES_ID,US_ID,CA_ID,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_CATEGORY,RE_REGDATE,RE_IMAGE,RE_CREATIONDATE,RE_MODIFDATE from RECIPE order by RE_ID');
+      return $recipes;
    }
-
+    
+    public function getRecipe($re_id){
+      $connexion = $this->con();
+      $recipe =  $connexion->prepare("SELECT RE_ID,RES_ID,US_ID,CA_ID,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_CATEGORY,RE_REGDATE,RE_IMAGE,RE_CREATIONDATE,RE_MODIFDATE from RECIPE where RE_ID ='$re_id'");
+      return $recipe;
+   }
 }
-
-?>
+?> 

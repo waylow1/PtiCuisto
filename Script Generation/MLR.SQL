@@ -229,3 +229,51 @@ ALTER TABLE UTILIZE
   ADD FOREIGN KEY FK_UTILIZE_INGREDIENT (IN_ID)
       REFERENCES INGREDIENT (IN_ID) ;
 
+-- Inserting a user as an admin
+INSERT INTO users (us_id, ust_id, uss_jd, us_pseudo, us_mail, us_firstname, us_lastname, us_regdate, us_password)
+VALUES (1, 1, 1, 'admin123', 'admin@example.com', 'Admin', 'User', '2023-10-17 00:00:00', 'adminpassword');
+
+-- Inserting a regular user
+INSERT INTO users (us_id, ust_id, uss_jd, us_pseudo, us_mail, us_firstname, us_lastname, us_regdate, us_password)
+VALUES (2, 2, 2, 'user123', 'user@example.com', 'Regular', 'User', '2023-10-17 00:00:00', 'userpassword');
+
+-- Inserting recipes for the admin
+INSERT INTO recipe (re_id, res_id, us_id, ca_id, re_title, re_content, re_summary, re_category, re_regdate, re_image, re_creationdate, re_modifdate)
+VALUES (1, 1, 1, 1, 'Admin Recipe 1', 'Admin Recipe Content 1', 'Admin Recipe Summary 1', 'Admin Recipe Category 1', '2023-10-17 00:00:00', 'image1.jpg', '2023-10-17 00:00:00', '2023-10-17 00:00:00');
+
+-- Inserting recipes for the regular user
+INSERT INTO recipe (re_id, res_id, us_id, ca_id, re_title, re_content, re_summary, re_category, re_regdate, re_image, re_creationdate, re_modifdate)
+VALUES (2, 2, 2, 2, 'User Recipe 1', 'User Recipe Content 1', 'User Recipe Summary 1', 'User Recipe Category 1', '2023-10-17 00:00:00', 'image2.jpg', '2023-10-17 00:00:00', '2023-10-17 00:00:00');
+
+-- Inserting comments for the admin's recipe
+INSERT INTO comment (co_id, re_id, us_id, co_content, co_date, co_status, co_title)
+VALUES (1, 1, 1, 'This is a comment on Admin Recipe 1.', '2023-10-17 00:00:00', 1, 'Admin Comment 1');
+
+-- Inserting comments for the regular user's recipe
+INSERT INTO comment (co_id, re_id, us_id, co_content, co_date, co_status, co_title)
+VALUES (2, 2, 2, 'This is a comment on User Recipe 1.', '2023-10-17 00:00:00', 1, 'User Comment 1');
+
+
+
+-- Add more ingredient entries as needed
+
+INSERT INTO INGREDIENT (IN_ID, IN_TITLE, IN_DESCRIPTION)
+VALUES (1, 'Ingredient 1', 'Description 1');
+
+INSERT INTO INGREDIENT (IN_ID, IN_TITLE, IN_DESCRIPTION)
+VALUES (2, 'Ingredient 2', 'Description 2');
+
+
+
+
+-- Add more utilization entries as needed
+
+INSERT INTO UTILIZE (RE_ID, IN_ID)
+VALUES (1, 1);
+
+INSERT INTO UTILIZE (RE_ID, IN_ID)
+VALUES (2, 2);
+
+
+
+

@@ -378,6 +378,7 @@
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
     <?php
-        require_once 'php/connexion.php';
+
+    
     ?>
 </html>
