@@ -12,6 +12,7 @@
         <input type="text" id="pseudo">
         <p>Entrez votre mot de passe</p>
         <input type="text" id="mdp">
+        <input type="submit" value="Envoyer">
     </form>
     
 </body>

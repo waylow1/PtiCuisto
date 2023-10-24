@@ -1,6 +1,9 @@
 <?php
 
-class Controller{
-    protected $manager;  
+
+class Controller{ 
+    protected $manager;
+
+    
 }
 ?>
