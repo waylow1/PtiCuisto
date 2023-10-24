@@ -24,7 +24,7 @@
   --bs-black: #000;
   --bs-white: #fff;
   --bs-gray: #999;
-  --bs-gray-dark: #343a40;
+  --bs-gray-dark: #2c3e50;
   --bs-gray-100: #f8f9fa;
   --bs-gray-200: #e9ecef;
   --bs-gray-300: #dee2e6;
@@ -35,7 +35,7 @@
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
   --bs-primary: #2a3990;
-  --bs-secondary: #2c3e50;
+  --bs-secondary: #7890cd;
   --bs-success: #2a3990;
   --bs-info: #0dcaf0;
   --bs-warning: #ffc107;
@@ -43,7 +43,7 @@
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
   --bs-primary-rgb: 120, 144, 205;
-  --bs-secondary-rgb: 44, 62, 80;
+  --bs-secondary-rgb: 120, 144, 205;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
   --bs-warning-rgb: 255, 193, 7;
@@ -98,6 +98,31 @@ Custom CSS Styling
 .main-logo {
   max-width: 20%;
   max-height: 20%
+}
+
+.two-thirds-width {
+  width: 60%;
+  margin: 40px;
+}
+
+.one-third-width {
+  width:40%;
+  margin: 40px;
+}
+
+.container-flex {
+  display: flex;
+}
+
+.bg-body {
+  background-color: var(--bs-body-bg);
+}
+
+.section-primary {
+  background-color: var(--bs-primary);
+  padding: 40px;
+  border-radius: 20px;
+  height: 100%;
 }
 
 /*
@@ -6675,7 +6700,7 @@ textarea.form-control-lg {
 
 .text-bg-secondary {
   color: #fff !important;
-  background-color: RGBA(44, 62, 80, var(--bs-bg-opacity, 1)) !important;
+  background-color: RGBA(120, 144, 205, var(--bs-bg-opacity, 1)) !important;
 }
 
 .text-bg-success {
@@ -8054,7 +8079,7 @@ textarea.form-control-lg {
 
 .text-secondary {
   --bs-text-opacity: 1;
-  color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important;
+  color: rgba(44, 62, 80, var(--bs-text-opacity)) !important;
 }
 
 .text-success {
@@ -10995,6 +11020,10 @@ html {
   width: 15rem;
 }
 
+.masthead-avatar-small {
+  width: 25%;
+}
+
 @media (min-width: 992px) {
   .masthead {
     padding-top: calc(6rem + 104px);
@@ -11008,7 +11037,7 @@ html {
     font-size: 1.5rem;
   }
 }
-.portfolio .portfolio-item {
+.collection .collection-item {
   cursor: pointer;
   position: relative;
   display: block;
@@ -11016,7 +11045,7 @@ html {
   border-radius: 0.5rem;
   overflow: hidden;
 }
-.portfolio .portfolio-item .portfolio-item-caption {
+.collection .collection-item .collection-item-caption {
   position: absolute;
   top: 0;
   left: 0;
@@ -11024,24 +11053,24 @@ html {
   opacity: 0;
   background-color: rgba(#2a3990, 0.9);
 }
-.portfolio .portfolio-item .portfolio-item-caption:hover {
+.collection .collection-item .collection-item-caption:hover {
   opacity: 1;
 }
-.portfolio .portfolio-item .portfolio-item-caption .portfolio-item-caption-content {
+.collection .collection-item .collection-item-caption .collection-item-caption-content {
   font-size: 1.5rem;
 }
 
-.portfolio-modal .btn-close {
+.collection-modal .btn-close {
   color: #2a3990;
   font-size: 2rem;
   padding: 1rem;
 }
-.portfolio-modal .portfolio-modal-title {
+.collection-modal .collection-modal-title {
   font-size: 2.25rem;
   line-height: 2rem;
 }
 @media (min-width: 992px) {
-  .portfolio-modal .portfolio-modal-title {
+  .collection-modal .collection-modal-title {
     font-size: 3rem;
     line-height: 2.5rem;
   }
@@ -11050,7 +11079,7 @@ html {
 .footer {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  background-color: var(--bs-gray);
+  background-color: var(--bs-success);
   color: #fff;
 }
 
