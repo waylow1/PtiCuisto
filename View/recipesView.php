@@ -8,7 +8,16 @@
 <body>
     <?php require_once '../Controller/RecipesController.php';
     $control = new RecipesController();
-    $control->getAllRecipes();
+    $result = $control->getAllRecipes();
+    
+    for($i = 0; $i< count($result);$i++){
+        echo 'Titre : ', $result[$i]['RE_TITLE']  ;
+        echo '<br>';
+        echo 'Catégorie :', $result[$i]['CA_TITLE'];
+        echo '<br>';
+        echo 'Recette : ', $result[$i]['RE_CONTENT'];
+        echo '<br> <br>';
+    }
     ?>
 </body>
 </html>

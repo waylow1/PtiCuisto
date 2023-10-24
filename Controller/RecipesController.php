@@ -9,7 +9,7 @@ class RecipesController extends Controller {
     
     public function getAllRecipes(){
         $res = $this->manager->getAllRecipes();
-    
+        return $res;
     }
 }
 
