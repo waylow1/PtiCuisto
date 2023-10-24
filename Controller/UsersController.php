@@ -9,7 +9,7 @@ class UsersController extends Controller{
     public function verifpseudo(){
         $count = 0;
             if(isset($_POST['pseudo'])){
-                $users = $this->manager->getAllUsers();
+                $users = $this->manager->verifpseudo($_POST['pseudo']);
                 return $users;
             }
         

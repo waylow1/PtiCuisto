@@ -16,8 +16,10 @@ class UsersManager extends Manager{
         $reponse->bindParam(1, $pseudo);
         $reponse->execute();
         $res = $reponse->fetchall();
-        $count = count($res);
-        return $count;
+        if(isset($res)){
+            return var_dump($res);
+        }
+        return 'la';
       
 
     }
