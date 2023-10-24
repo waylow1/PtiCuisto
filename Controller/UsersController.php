@@ -1,5 +1,5 @@
 <?php
-require_once '../Manager/UsersManager.php';
+require_once '../Modele/UsersManager.php';
 require_once 'Controller.php';
 class UsersController extends Controller{
 
@@ -8,10 +8,9 @@ class UsersController extends Controller{
     }
     public function verifpseudo(){
         $count = 0;
-        var_dump($this->manager) ;
             if(isset($_POST['pseudo'])){
-                $this->manager->getAllUsers();
-            
+                $users = $this->manager->getAllUsers();
+                return $users;
             }
         
     }
@@ -20,6 +19,6 @@ class UsersController extends Controller{
 
 
 $controller = new UsersController();
-$controller->verifpseudo();
+$users = $controller->verifpseudo();
 include('../View/usersView.php');
 ?>

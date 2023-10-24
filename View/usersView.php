@@ -15,8 +15,8 @@
         <input type="submit" value="Envoyer">
     </form>
 <?php
- if (isset($count)) {
-    echo "Nombre de correspondances trouvées : " . $count;
+ if (isset($users)) {
+    echo "Nombre de correspondances trouvées : " . $users;
 }
 ?>
     
