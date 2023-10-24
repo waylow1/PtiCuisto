@@ -3,7 +3,5 @@
 
 class Controller{ 
     protected $manager;
-
-    
 }
 ?>
