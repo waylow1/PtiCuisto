@@ -3,7 +3,7 @@
 class Manager {
 
     protected function con(){
-        $envPath='.env';
+        $envPath='../.env';
         if (file_exists($envPath)) {
             $env = parse_ini_file($envPath);
             foreach ($env as $key => $value) {
@@ -11,7 +11,7 @@ class Manager {
                 putenv("$key=$value");
             }
         }
-        
+       
         $dbHost = $_ENV['DB_HOST'];
         $dbName = $_ENV['DB_NAME'];
         $dbUser = $_ENV['DB_USER'];

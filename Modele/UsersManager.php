@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 <?php 
+=======
+<?php
+require_once 'Manager.php';
+>>>>>>> main
 
 class UsersManager extends Manager{
     public function getAllUsers(){
