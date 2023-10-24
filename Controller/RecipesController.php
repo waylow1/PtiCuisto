@@ -11,6 +11,16 @@ class RecipesController extends Controller {
         $res = $this->manager->getAllRecipes();
         return $res;
     }
+
+    public function getRecipe($re_id){
+        $res = $this->manager->getRecipe($re_id);
+        return $res;
+    }   
+
+    public function getRecipesOfUser($us_id){
+        $res = $this->manager->getRecipesOfUser($us_id);
+        return $res;
+    }
 }
 
 
