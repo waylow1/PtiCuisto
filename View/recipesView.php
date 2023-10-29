@@ -33,7 +33,7 @@
     echo '<br> <br>';
 
 
-    $result = $contrl->getRecipesOfUser(1);
+    $result = $control->getRecipesOfUser(1);
     echo 'getRecipesOfUser() : <br>';
     for($i = 0; $i< count($result);$i++){
         echo 'Titre: ', $result[$i]['RE_TITLE']  ;
@@ -45,6 +45,22 @@
         echo 'Utilisateur ', $result[$i]['US_PSEUDO'];
         echo '<br> <br>';
     }
+
+    
+    echo 'getRecipesByIngredient() : <br>';
+   
+    echo 'getRecipesByTags() : <br>';
+    
+    echo 'getLatestRecipe() : <br>';
+    $result = $control->getLatestRecipe();
+    echo 'Titre: ', $result[0]['RE_TITLE']  ;
+        echo '<br>';
+        echo 'Catégorie: ', $result[0]['CA_TITLE'];
+        echo '<br>';
+        echo 'Recette: ', $result[0]['RE_CONTENT'];
+        echo '<br>';
+        echo 'Utilisateur ', $result[0]['US_PSEUDO'];
+        echo '<br> <br>';
     ?>
 
 
