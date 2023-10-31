@@ -35,6 +35,10 @@ class RecipesController extends Controller {
         $res = $this->manager->getLatestRecipe();
         return $res;
     }
+    
+    public function run(){
+        include 'recipesView.php';
+    }
 }
 
 
