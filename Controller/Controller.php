@@ -1,6 +1,6 @@
 <?php
 
 class Controller{
-    protected $manager;
-    
+    protected $manager;  
 }
+?>
