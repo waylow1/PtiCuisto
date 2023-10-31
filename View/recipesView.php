@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recettes</title>
-</head>
+<?php
+ob_start();
+?>
 <body>
     <?php require_once 'PtitCuistot/Controlle/RecipesController.php';
     $control = new RecipesController();
@@ -14,4 +10,8 @@
 
 
 </body>
+<?php
+    $content = ob_get_clean();
+    include 'layout.php';
+?>
 </html>

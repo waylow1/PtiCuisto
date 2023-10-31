@@ -11,12 +11,10 @@ class Manager {
                 putenv("$key=$value");
             }
         }
-       
         $dbHost = $_ENV['DB_HOST'];
         $dbName = $_ENV['DB_NAME'];
         $dbUser = $_ENV['DB_USER'];
         $dbPassword = $_ENV['DB_PASSWORD'];
-        
         try {
             $conn = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPassword);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

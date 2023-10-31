@@ -1,6 +1,7 @@
 <?php
 
-class Controller{
+abstract class  Controller{
     protected $manager;  
+    protected abstract function run();
 }
 ?>
