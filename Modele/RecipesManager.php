@@ -43,8 +43,7 @@ class RecipesManager extends Manager{
       join USERS using(US_ID)
       join UTILIZE using(re_id)
       join INGREDIENT using(in_id)
-      where in_title like '%$in_title%'
-      ");
+      where in_title like '%$in_title%'");
       $res = $recipe->fetchAll(PDO::FETCH_ASSOC);
       return $res;
    }
@@ -57,8 +56,7 @@ class RecipesManager extends Manager{
       join USERS using(US_ID)
       join COMPOSE using(re_id)
       join TAGS using(ta_id)
-      where ta_title like '%$ta_title%'
-      ");
+      where ta_title like '%$ta_title%'");
       $res = $recipe->fetchAll(PDO::FETCH_ASSOC);
       return $res;
    }

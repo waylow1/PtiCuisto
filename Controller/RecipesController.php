@@ -27,8 +27,8 @@ class RecipesController extends Controller {
         return $res;
     }
 
-    public function getRecipesByTags($ta_title){
-        $res = $this->manager->getRecipesByTags($ta_title);
+    public function getRecipesByTag($ta_title){
+        $res = $this->manager->getRecipesByTag($ta_title);
         return $res;
     }
 
