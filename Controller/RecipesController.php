@@ -1,6 +1,7 @@
  <?php
-require_once 'Controller.php';
-require_once '../Modele/RecipesManager.php';
+
+require_once $_SESSION['dir'].'/Controller/Controller.php';
+require_once $_SESSION['dir'].'/Modele/RecipesManager.php';
 
 class RecipesController extends Controller {
     public function __construct() {
@@ -37,7 +38,7 @@ class RecipesController extends Controller {
     }
     
     public function run(){
-        include 'recipesView.php';
+        include $_SESSION['dir']. '/View/recipesView.php';
     }
 }
 

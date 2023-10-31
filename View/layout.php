@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,13 +15,18 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../css/styles.css" rel="stylesheet" />
+        <?php  
+            echo '<link href="css/styles.css" rel="stylesheet" /> '?>
+        
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
                 <a href="#page-top">
-                    <img class="main-logo" src="../assets/Logo.png" alt="main_logo">
+                    <?php 
+                    echo '<img class="main-logo" src="assets/Logo.png" alt="main_logo">'
+                    ?>
+                    
                 </a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
@@ -28,7 +34,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=">collection</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=">Collection</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Recipes">Editorial</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Users">Connexion</a></li>
                     </ul>
@@ -73,5 +79,6 @@
         <div class="copyright py-4 text-center text-white">
             <div class="container"><small>Copyright &copy; Les bons cuistos 2023</small></div>
         </div>
+        <script src="js/scripts.js"></script>
 </body>
 </html>
