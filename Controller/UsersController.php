@@ -1,6 +1,7 @@
-<?php
-require_once '../Modele/UsersManager.php';
-require_once 'Controller.php';
+<?php 
+
+require_once $_SESSION['dir']. '/Controller/Controller.php';
+require_once $_SESSION['dir']. '/Modele/UsersManager.php';
 class UsersController extends Controller{
 
     public function __construct(){
@@ -14,9 +15,11 @@ class UsersController extends Controller{
             }
         
     }
-   
-}
+    public function run(){
+        include $_SESSION['dir']. '/View/usersView.php';
+    }
 
+}
 
 $controller = new UsersController();
 $users = $controller->verifpseudo();
