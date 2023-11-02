@@ -12,6 +12,7 @@ class UsersManager extends Manager{
     }
 
     public function verifPseudo($pseudo){
+        echo "<br><br><br><br><br>";
         $db = $this->con();
         $reponse = $db->prepare('SELECT * from USERS where US_PSEUDO = ?');
         $reponse->bindParam(1, $pseudo);
@@ -20,8 +21,6 @@ class UsersManager extends Manager{
         if(isset($res)){
             return var_dump($res);
         }
-        return 'la';
-      
 
     }
 

@@ -7,19 +7,15 @@
 </head>
 <body>
     <br><br><br><br><br><br><br>
-    <form method="post" action= <?php $_SESSION['dir']. '/Controller/UsersController.php' ?>>
+    <form method="post" action= "<?php $_SESSION['dir']. '/Controller/UsersController.php' ?>">
         <p>Entrez votre pseudo</p>
         <input type="text" id="pseudo" name="pseudo">
         <p>Entrez votre mot de passe</p>
         <input type="text" id="mdp" name="mdp">
         <input type="submit" value="Envoyer">
     </form>
-<?php
- if (isset($users)) {
-    echo "Nombre de correspondances trouvées : " . $users;
-}
-?>
-    
+ 
+
 </body>
 </html>
 
