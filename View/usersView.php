@@ -6,7 +6,6 @@
     <title>Utilisateurs</title>
 </head>
 <body>
-
     <form method="post" action="../Controller/UsersController.php">
         <p>Entrez votre pseudo</p>
         <input type="text" id="pseudo" name="pseudo">
@@ -25,9 +24,6 @@
 
 <?php
     ob_start();
-
-?>
-<?php
     $content = ob_get_clean();
     include $_SESSION['dir']. '/View/layout.php';
 ?>

@@ -17,10 +17,9 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <?php  
             echo '<link href="css/styles.css" rel="stylesheet" /> '?>
-        
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" style="margin-bottom:50ox"  id="mainNav">
             <div class="container">
                 <a href="/index.php">
                     <?php 
@@ -30,20 +29,23 @@
                 </a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
-                    <i class="fas fa-bars"></i>
+                <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=">Collection</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=">Voir recettes</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Recipes">Ajouter une recette</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Users">Connexion</a></li>
                     </ul>
                 </div>
             </div>
-        </nav>    
+</nav>    
+
+
+
     
 <div class="content"><?= $content ?></div>
-
+<br><br><br><br><br>
 <footer class="footer text-center" id="contact">
             <div class="container">
                 <div class="row">
