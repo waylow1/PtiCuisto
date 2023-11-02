@@ -6,7 +6,8 @@
     <title>Utilisateurs</title>
 </head>
 <body>
-    <form method="post" action="../Controller/UsersController.php">
+    <br><br><br><br><br><br><br>
+    <form method="post" action= <?php $_SESSION['dir']. '/Controller/UsersController.php' ?>>
         <p>Entrez votre pseudo</p>
         <input type="text" id="pseudo" name="pseudo">
         <p>Entrez votre mot de passe</p>
