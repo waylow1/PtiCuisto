@@ -11088,3 +11088,6 @@ html {
 .copyright {
   background-color: #1a252f;
 }
+img{
+  user-select: none;
+}
