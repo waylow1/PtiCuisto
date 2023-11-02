@@ -1,10 +1,13 @@
 <?php 
     session_start();
     $_SESSION['dir'] = __DIR__;
-    
     if (isset($_GET['action']) && $_GET['action']!==''){
         $controller=$_GET['action'];
-        require 'Controller/'.$controller.'Controller.php';
+        if(!file_exists('Controller/'.$controller.'Controller.php')){
+            include $_SESSION['dir'] .'/View/Template.php';
+        }else{
+            require 'Controller/'.$controller.'Controller.php';
+        }  
         if($controller=="Recipes"){
             $Users = new RecipesController();
             $Users->run();
@@ -14,7 +17,7 @@
             $Users->run();
         }
     }
-    else {
+    else{
         include $_SESSION['dir'] .'/View/Template.php';
     }
 ?>
