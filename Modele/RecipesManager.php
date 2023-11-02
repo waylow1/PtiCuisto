@@ -6,7 +6,7 @@ class RecipesManager extends Manager{
    public function getAllRecipes(){
       $connexion = $this->con();
       $recipes = $connexion->query('SELECT RE_ID, US_ID,CA_ID,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_IMAGE,CA_TITLE,US_PSEUDO
-      from RECIPE 
+      from RECIPE
       join CATEGORY using(CA_ID) 
       join USERS using(US_ID)');
       $res = $recipes->fetchAll(PDO::FETCH_ASSOC);
@@ -69,6 +69,13 @@ class RecipesManager extends Manager{
       join USERS using(US_ID)
       where RE_CREATIONDATE = 
       (select max(RE_CREATIONDATE) from RECIPE)");
+      $res = $recipe->fetchAll(PDO::FETCH_ASSOC);
+      return $res;
+   }
+
+   public function deleteRecipe($re_id){
+      $connexion = $this->con();
+      $recipe = $connexion->query("DELETE from RECIPE where RE_ID = '$re_id'");
       $res = $recipe->fetchAll(PDO::FETCH_ASSOC);
       return $res;
    }
