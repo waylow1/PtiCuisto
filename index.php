@@ -16,6 +16,10 @@
             $Users = new UsersController();
             $Users->run();
         }
+        if($controller=="Login"){
+            $Users = new UsersController();
+            $Users->login();
+        }
     }
     else{
         include $_SESSION['dir'] .'/View/Template.php';
