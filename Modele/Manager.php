@@ -3,9 +3,7 @@
 class Manager {
    
     protected function con(){
-        $envPath=$_SESSION['dir'] .'/.env';
-        echo $envPath;
-        
+        $envPath= $_SESSION['dir'] . '/.env';
         if (file_exists($envPath)) {
             $env = parse_ini_file($envPath);
             foreach ($env as $key => $value) {
