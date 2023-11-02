@@ -22,7 +22,7 @@ ob_start();
             <section class="page-section collection two-thirds-width" id="collection">
                 <div class="container">
                     <!-- collection Section Heading-->
-                    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Latest recipes</h2>
+                    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Dernières recettes</h2>
                     <!-- Icon Divider-->
                     <div class="divider-custom">
                         <div class="divider-custom-line"></div>
@@ -96,7 +96,7 @@ ob_start();
                         <img class="masthead-avatar-small mb-5" src="assets\Pticuisto.png" alt="..." />
                     </div>
                     <!-- About Section Heading-->
-                    <h2 class="page-section-heading text-center text-uppercase text-white">Editorial</h2>
+                    <h2 class="page-section-heading text-center text-uppercase text-white">Edito</h2>
                     <!-- Icon Divider-->
                     <div class="divider-custom divider-light">
                         <div class="divider-custom-line"></div>
