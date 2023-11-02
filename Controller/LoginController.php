@@ -7,13 +7,7 @@ class LoginController extends Controller{
     public function __construct(){
         $this->manager = new UsersManager();
     }
-
     public function run(){
         include $_SESSION['dir']. '/View/LoginView.php';
     }
-
-
 }
-
-
-?>
