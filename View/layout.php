@@ -45,7 +45,6 @@
 
     
 <div class="content"><?= $content ?></div>
-<br><br><br><br><br>
 <footer class="footer text-center" id="contact">
             <div class="container">
                 <div class="row">

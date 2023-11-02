@@ -19,7 +19,6 @@
     echo "Nombre de correspondances trouvées : " . $users;
 }
 ?>
-    
 </body>
 </html>
 
