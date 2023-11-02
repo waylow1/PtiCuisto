@@ -37,6 +37,13 @@ class RecipesController extends Controller {
         return $res;
     }
     
+    public function deleteRecipe($re_id){
+        $res = $this->manager->deleteRecipe();
+    }
+
+    public function createRecipe(){
+        $res = $this->manager->createRecipe();
+    }
     public function run(){
         include $_SESSION['dir']. '/View/recipesView.php';
     }

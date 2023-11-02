@@ -242,6 +242,16 @@ ul ol {
   margin-bottom: 0;
 }
 
+.nav-under{
+  display:none;
+  list-style: none;
+}
+
+#filtre:hover .nav-under{
+  display:block;
+}
+
+
 dt {
   font-weight: 700;
 }
@@ -2028,7 +2038,7 @@ progress {
 .form-text {
   margin-top: 0.25rem;
   font-size: 0.875em;
-  color: #6c757d;
+  color: var(--bs-gray-900);
 }
 
 .form-control {

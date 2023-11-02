@@ -21,7 +21,5 @@ class UsersController extends Controller{
 
 }
 
-$controller = new UsersController();
-$users = $controller->verifpseudo();
-include ($_SESSION['dir']. '/View/usersView.php');
+
 ?>
