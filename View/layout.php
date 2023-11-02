@@ -33,12 +33,16 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/index.php">Accueil</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=">Nos recettes</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Recipes">Filtres</a></li>
-                        <ul class="navbar-nav ms-auto">
-                            
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Users">Connexion</a></li>
+                    <li class="nav-item mx-0 mx-lg-1" id="filter"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/index.php">Accueil</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=allRecipes">Nos recettes</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"  href="?action=CreateRecipe">Filtres</a></li>
+                        <ul class="nav-under">
+                            <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Category">Catégories</a></li>
+                            <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Title">Titre</a></li>
+                            <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Ingredient">Ingrédients</a></li>
+                        </ul>
+                        
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Login">Connexion</a></li>
                     </ul>
                 </div>
             </div>
@@ -83,6 +87,8 @@
         <div class="copyright py-4 text-center text-white">
             <div class="container"><small>Copyright &copy; Les bons cuistos 2023</small></div>
         </div>
-        <script src="js/scripts.js"></script>
+        <?php  
+            echo '<script src="script/styles.css" rel="stylesheet" /> '?>
+ 
 </body>
 </html>

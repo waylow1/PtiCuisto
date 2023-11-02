@@ -8,18 +8,23 @@
         }else{
             require 'Controller/'.$controller.'Controller.php';
         }  
-        if($controller=="Recipes"){
+        if($controller=="CreateRecipe"){
             $Users = new RecipesController();
             $Users->run();
         }
-        if($controller=="Users"){
-            $Users = new UsersController();
-            $Users->run();
-        }
         if($controller=="Login"){
-            $Users = new UsersController();
-            $Users->login();
+            $Login = new LoginController();
+            $Login->run();
         }
+        if($controller=="SignIn"){
+            $SignIn = new SignInController();
+            $SignIn->run();
+        }
+        if($controller=="Profile"){
+            $Profile = new ProfileController();
+            $Profile->run();
+        }
+
     }
     else{
         include $_SESSION['dir'] .'/View/Template.php';

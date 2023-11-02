@@ -79,5 +79,12 @@ class RecipesManager extends Manager{
       $res = $recipe->fetchAll(PDO::FETCH_ASSOC);
       return $res;
    }
+
+   public function createRecipe(){
+      $connexion = $this->con();
+      //$recipe = $connexion->query("SELECT max(RE_ID) +1 from RECIPE");    à compléter
+      $res = $recipe->fetchAll(PDO::FETCH_ASSOC);
+      return $res;
+   }
 }
 ?> 

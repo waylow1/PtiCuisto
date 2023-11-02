@@ -19,20 +19,7 @@ class UsersController extends Controller{
         include $_SESSION['dir']. '/View/usersView.php';
     }
 
-    function login() {
-        include $_SESSION['dir']. '/View/loginView.php';
-    }
-
-    function signin() {
-        include $_SESSION['dir']. '/View/signinView.php';
-    }
-
-    function profile() {
-        include $_SESSION['dir']. '/View/profileView.php';
-    }
 }
 
-$controller = new UsersController();
-$users = $controller->verifpseudo();
-include ($_SESSION['dir']. '/View/usersView.php');
+
 ?>
