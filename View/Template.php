@@ -107,10 +107,10 @@ ob_start();
                 <!-- About Section Content-->
                 <div class="row">
                     <div class="col-lg-4 ms-auto">
-                        <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p>
+                        <p class="lead">Bienvenue sur PtitCuistot, le site pour trouver les meilleures recettes de vos plats préférés! <br>Vous pourrez y trouver des recettes d'entrées, de plat principaux ou encore de dessert.</p>
                     </div>
                     <div class="col-lg-4 me-auto">
-                        <p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p>
+                        <p class="lead">Partagez vous aussi vos propres recettes avec la communauté en cliquant sur l'onglet "Connexion"!</p>
                     </div>
                 </div>
 

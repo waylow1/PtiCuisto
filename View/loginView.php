@@ -24,7 +24,7 @@ ob_start();
                         <!-- Email input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="loginName"> Pseudo </label>
-                            <input type="email" id="loginName" class="form-control" required />
+                            <input type="text" id="loginName" class="form-control" required />
 
                         </div>
 
