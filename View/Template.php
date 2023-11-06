@@ -9,7 +9,7 @@ ob_start();
     <header class="masthead bg-primary text-white text-center">
         <div class="container d-flex align-items-center flex-column">
             <!-- Masthead Avatar Image-->
-            <img class="masthead-avatar mb-5" src="assets\Pticuisto.png" alt="..." />
+            <img class="masthead-avatar mb-5" src="..\assets\Pticuisto.png" alt="..." />
             <!-- Icon Divider-->
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
@@ -38,7 +38,7 @@ ob_start();
                             <div class="collection-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="collection-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/dish/cream.jpg" alt="..." /> <!--reicpe image main page-->
+                            <img class="img-fluid" src="..\assets/dish/cream.jpg" alt="..." /> <!--reicpe image main page-->
                         </div>
                     </div>
                     <!-- collection Item 2-->
@@ -47,7 +47,7 @@ ob_start();
                             <div class="collection-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="collection-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/dish/goulash.jpg" alt="..." />
+                            <img class="img-fluid" src="..\assets/dish/goulash.jpg" alt="..." />
                         </div>
                     </div>
                     <!-- collection Item 3-->
@@ -56,7 +56,7 @@ ob_start();
                             <div class="collection-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="collection-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/dish/pork.jpg" alt="..." />
+                            <img class="img-fluid" src="..\assets/dish/pork.jpg" alt="..." />
                         </div>
                     </div>
                     <!-- collection Item 4-->
@@ -65,7 +65,7 @@ ob_start();
                             <div class="collection-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="collection-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/dish/potatoe.jpg" alt="..." />
+                            <img class="img-fluid" src="..\assets/dish/potatoe.jpg" alt="..." />
                         </div>
                     </div>
                     <!-- collection Item 5-->
@@ -74,7 +74,7 @@ ob_start();
                             <div class="collection-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="collection-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/dish/ratatouille.jpg" alt="..." />
+                            <img class="img-fluid" src="..\assets/dish/ratatouille.jpg" alt="..." />
                         </div>
                     </div>
                     <!-- collection Item 6-->
@@ -83,7 +83,7 @@ ob_start();
                             <div class="collection-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="collection-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/dish/spinach.jpg" alt="..." />
+                            <img class="img-fluid" src="..\assets/dish/spinach.jpg" alt="..." />
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@ ob_start();
             <div class="container section-primary">
                 <div class="container d-flex align-items-center flex-column">
                     <!-- Masthead Avatar Image-->
-                    <img class="masthead-avatar-small mb-5" src="assets\Pticuisto.png" alt="..." />
+                    <img class="masthead-avatar-small mb-5" src="..\assets\Pticuisto.png" alt="..." />
                 </div>
                 <!-- About Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-white">Edito</h2>
@@ -139,7 +139,7 @@ ob_start();
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- collection Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="assets/dish/cream.jpg" alt="..." /><!--reicpe image after click-->
+                                <img class="img-fluid rounded mb-5" src="..\assets/dish/cream.jpg" alt="..." /><!--reicpe image after click-->
                                 <!-- collection Modal - Text-->
                                 <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
@@ -171,7 +171,7 @@ ob_start();
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- collection Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="assets/dish/goulash.jpg" alt="..." />
+                                <img class="img-fluid rounded mb-5" src="..\assets/dish/goulash.jpg" alt="..." />
                                 <!-- collection Modal - Text-->
                                 <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
@@ -203,7 +203,7 @@ ob_start();
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- collection Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="assets/dish/pork.jpg" alt="..." />
+                                <img class="img-fluid rounded mb-5" src="..\assets/dish/pork.jpg" alt="..." />
                                 <!-- collection Modal - Text-->
                                 <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
@@ -235,7 +235,7 @@ ob_start();
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- collection Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="assets/dish/potatoe.jpg" alt="..." />
+                                <img class="img-fluid rounded mb-5" src="..\assets/dish/potatoe.jpg" alt="..." />
                                 <!-- collection Modal - Text-->
                                 <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
@@ -267,7 +267,7 @@ ob_start();
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- collection Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="assets/dish/ratatouille.jpg" alt="..." />
+                                <img class="img-fluid rounded mb-5" src="..\assets/dish/ratatouille.jpg" alt="..." />
                                 <!-- collection Modal - Text-->
                                 <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
@@ -299,7 +299,7 @@ ob_start();
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- collection Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="assets/dish/spinach.jpg" alt="..." />
+                                <img class="img-fluid rounded mb-5" src="..\assets/dish/spinach.jpg" alt="..." />
                                 <!-- collection Modal - Text-->
                                 <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">

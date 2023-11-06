@@ -1,6 +1,9 @@
 <?php
 session_start();
-$_SESSION['dir'] = __DIR__;
+$_SESSION['dir'] =__DIR__;
+echo $_SESSION['dir']."<br>";
+echo $_SERVER['DOCUMENT_ROOT']."<br>";
+echo $_SESSION['dir'] . '/View/Template.php'."<br>";
 if (isset($_GET['action']) && $_GET['action'] !== '') {
     $controller = $_GET['action'];
     if (!file_exists('Controller/' . $controller . 'Controller.php')) {
@@ -24,6 +27,7 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         $Profile = new ProfileController();
         $Profile->run();
     }
-} else {
+} 
+else {
     include $_SESSION['dir'] . '/View/Template.php';
 }
