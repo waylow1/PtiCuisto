@@ -98,7 +98,7 @@ class RecipesManager extends Manager{
       $insert =$connexion->prepare('INSERT INTO RECIPE(re_id,res_id,us_id,ca_id,re_title,re_content,re_summary,RE_REGDATE,RE_IMAGE,RE_CREATIONDATE,RE_MODIFDATE) VALUES(:re_id,:res_id,:us_id,:ca_id,:re_title,:re_content,:re_summary,now(),:re_image,now(),now())');
       $insert->execute(array(
       're_id'=>(int)$recipeID[0]['max'],
-      'res_id'=>2,
+      'res_id'=>1,
       'us_id'=>(int)$userID[0]['US_ID'],
       'ca_id'=>(int)$categoryID[0]['CA_ID'],
       're_title'=>$_POST['recipeName'],
