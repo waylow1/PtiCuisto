@@ -17,7 +17,7 @@ ob_start();
         <label class="form-label" for="recipePicture">Choisir une image</label>
         <input type="file" id="recipePicture" class="form-control" accept="image/png, image/jpeg" required />
     </div>
-    <button type="submit" class="btn btn-primary btn-block mb-3">Envoyer</button>
+    <button type="submit" action="<?php $_SESSION['dir'] . '/Controller/LoginController'?>"class="btn btn-primary btn-block mb-3">Envoyer</button>
     <?php
     $content = ob_get_clean();
     include $_SESSION['dir'] . '/View/Layout.php';

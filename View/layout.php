@@ -48,9 +48,7 @@
             </div>
         </div>
     </nav>
-
-
-
+    
 
     <div class="content"><?= $content ?></div>
     <footer class="footer text-center" id="contact">

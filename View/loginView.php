@@ -51,7 +51,7 @@ ob_start();
                         </div>
 
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-block mb-4">Se connecter</button>
+                        <button type="submit"  class="btn btn-primary btn-block mb-4">Se connecter</button>
 
                         <!-- Register buttons -->
                         <div class="text-center">
