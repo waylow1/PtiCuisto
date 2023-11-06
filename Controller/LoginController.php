@@ -8,6 +8,17 @@ class LoginController extends Controller{
         $this->manager = new UsersManager();
     }
     public function run(){
-        include $_SESSION['dir']. '/View/LoginView.php';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->manager = new UsersManager();
+            $verif = $this->manager->verifInformations($_POST['username'],$_POST['password']);
+            if(isset($verif)){
+                $_SESSION['username'] = $_POST['username'];
+                $_SESSION['password'] = $_POST['password'];
+                include $_SESSION['dir']. '/View/ProfileView.php';
+            }
+        }
+        else{
+            include $_SESSION['dir']. '/View/LoginView.php';
+        }
     }
 }

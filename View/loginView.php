@@ -19,19 +19,19 @@ ob_start();
             <!-- Pills content -->
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-                    <form>
+                    <form method="post" action= <?php $_SESSION['dir'] . '/Controller/LoginController.php' ?> >
                         <br><br>
                         <!-- Email input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="loginName"> Pseudo </label>
-                            <input type="text" id="loginName" class="form-control" required />
+                            <input type="text" id="loginName" class="form-control" name="username" required />
 
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="loginPassword">Mot de passe</label>
-                            <input type="password" id="loginPassword" class="form-control" required />
+                            <input type="password" id="loginPassword" class="form-control" name ="password" required />
                         </div>
 
                         <!-- 2 column grid Layout -->

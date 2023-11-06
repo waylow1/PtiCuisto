@@ -11,18 +11,20 @@ class UsersManager extends Manager{
         return $res;
     }
 
-    public function verifPseudo($pseudo){
+    public function verifInformations($pseudo,$password){
         $db = $this->con();
-        $reponse = $db->prepare('SELECT * from USERS where US_PSEUDO = ?');
+        $reponse = $db->prepare('SELECT * from USERS where US_PSEUDO = ? and US_PASSWORD = ?');
         $reponse->bindParam(1, $pseudo);
+        $reponse->bindParam(2,$password);
         $reponse->execute();
         $res = $reponse->fetchall();
         if(isset($res)){
-            return var_dump($res);
+            return $res;
         }
-        return 'la';
+    
       
 
     }
+
 
 }
