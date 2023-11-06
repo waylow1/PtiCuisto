@@ -14,11 +14,15 @@ class LoginController extends Controller{
             if(isset($verif)){
                 $_SESSION['username'] = $_POST['username'];
                 $_SESSION['password'] = $_POST['password'];
+               
+                $_SESSION['type'] = $verif[0]["UST_ID"];
                 include $_SESSION['dir']. '/View/ProfileView.php';
+
             }
         }
         else{
             include $_SESSION['dir']. '/View/LoginView.php';
         }
     }
+   
 }

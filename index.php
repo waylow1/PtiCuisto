@@ -24,6 +24,8 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         $Profile = new ProfileController();
         $Profile->run();
     }
+    
 } else {
     include $_SESSION['dir'] . '/View/Template.php';
+
 }

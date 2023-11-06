@@ -21,10 +21,13 @@ class UsersManager extends Manager{
         if(isset($res)){
             return $res;
         }
+    } 
     
-      
-
+    public function logOut(){
+        session_destroy($_SESSION['username'],$_SESSION['password'],$_SESSION['type']);
     }
+
+
 
 
 }

@@ -42,9 +42,14 @@
                         <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Title">Titre</a></li>
                         <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Ingredient">Ingrédients</a></li>
                     </ul>
+                    <? if (isset($_SESSION) && isset($_SESSION)) { ?>   
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Profile">Mon profil </a></li>
+                    <?}
+                    else{?>
+                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Login">Connexion</a></li>
+                    <? } ?>
+                </ul>                   
 
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Login">Connexion</a></li>
-                </ul>
             </div>
         </div>
     </nav>
@@ -86,8 +91,8 @@
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright &copy; Les bons cuistos 2023</small></div>
     </div>
-    <?php
-    echo '<script src="script/script.js" rel="stylesheet" /> ' ?>
+    
+    <script src="<?php $_SESSION['dir'] . '/script/script.js' ?>" > </script> 
 
 </body>
 
