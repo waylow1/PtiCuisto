@@ -42,12 +42,12 @@
                         <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Title">Titre</a></li>
                         <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Ingredient">Ingrédients</a></li>
                     </ul>
-                    <? if (isset($_SESSION) && isset($_SESSION)) { ?>   
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Profile">Mon profil </a></li>
-                    <?}
-                    else{?>
-                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Login">Connexion</a></li>
-                    <? } ?>
+                    <?php if (isset($_SESSION['type'])) { 
+                        echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Profile">Mon profil </a></li>';
+                    }
+                    else{
+                     echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Login">Connexion </a></li>';
+                    }  ?>
                 </ul>                   
 
             </div>

@@ -22,12 +22,5 @@ class UsersManager extends Manager{
             return $res;
         }
     } 
-    
-    public function logOut(){
-        session_destroy($_SESSION['username'],$_SESSION['password'],$_SESSION['type']);
-    }
-
-
-
 
 }
