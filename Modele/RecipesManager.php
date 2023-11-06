@@ -80,11 +80,11 @@ class RecipesManager extends Manager{
       return $res;
    }
 
-   public function createRecipe(){
+   public function createRecipe($tab){
       $connexion = $this->con();
-      //$recipe = $connexion->query("SELECT max(RE_ID) +1 from RECIPE");    à compléter
-      //$res = $recipe->fetchAll(PDO::FETCH_ASSOC);
-      //return $res;
+      $recipe = $connexion->query("SELECT max(RE_ID) +1 from RECIPE");
+      $recipeID = $recipe->fetchAll(PDO::FETCH_ASSOC);
+      return $res;
       
    }
 }

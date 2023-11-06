@@ -13,7 +13,9 @@ class CreateRecipeController extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if(isset($_POST['recipeName'])){
-                
+                if(isset($_POST['userName'])){
+                    $this->manager->createRecipe($_POST);
+                }
             }
         }
         else{
