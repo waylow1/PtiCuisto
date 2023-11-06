@@ -11,6 +11,13 @@ class CreateRecipeController extends Controller
     }
     public function run()
     {
-        include $_SESSION['dir'] . '/View/RecipesView.php';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if(isset($_POST['recipeName'])){
+                
+            }
+        }
+        else{
+            include $_SESSION['dir'] . '/View/RecipesView.php';
+        }
     }
 }

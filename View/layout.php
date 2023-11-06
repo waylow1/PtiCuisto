@@ -87,7 +87,7 @@
         <div class="container"><small>Copyright &copy; Les bons cuistos 2023</small></div>
     </div>
     <?php
-    echo '<script src="script/styles.css" rel="stylesheet" /> ' ?>
+    echo '<script src="script/script.js" rel="stylesheet" /> ' ?>
 
 </body>
 
