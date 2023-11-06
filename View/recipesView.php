@@ -21,9 +21,9 @@ ob_start();
     
         <label class="form-label" for="recipeType">Type de Plat</label><br>
         <ul>
-            <li><input type="radio" name ="recipeType" id="Entrée"/><p>Entrée</p></li>
-            <li><input type="radio" name ="recipeType" id="Plat Principal"/><p>Plat Principal</p></li>
-            <li><input type="radio" name ="recipeType" id="Dessert"/><p>Dessert</p></li>
+            <li><input type="radio" name ="recipeType" value="Entrée"/><p>Entrée</p></li>
+            <li><input type="radio" name ="recipeType" value="Plat Principal"/><p>Plat Principal</p></li>
+            <li><input type="radio" name ="recipeType" value="Dessert"/><p>Dessert</p></li>
         </ul>
         
     <div class="form-outline mb-4">

@@ -82,11 +82,11 @@ class RecipesManager extends Manager{
 
    public function createRecipe($fileName){
       $connexion = $this->con();
-      $recipe = $connexion->query("SELECT max(RE_ID) +1 from RECIPE");
+      $recipe = $connexion->query("SELECT max(RE_ID)+1 as max from RECIPE");
       $recipeID = $recipe->fetchAll(PDO::FETCH_ASSOC);
 
       $user = $connexion->prepare('SELECT US_ID from USERS where US_PSEUDO like :name');
-      $user->bindParam('name', $_POST['username']);
+      $user->bindParam('name', $_POST['userName']);
       $user->execute();
       $userID = $user->fetchall();
 
@@ -95,16 +95,17 @@ class RecipesManager extends Manager{
       $category->execute();
       $categoryID = $category->fetchall();
 
-      $insert =$connexion->prepare('INSERT INTO RECIPE VALUES(:re_id,:res_id,:us_id,:re_title,:re_content,:re_summary,now(),:re_image,now(),now())');
-      $insert->execute(array('re_id',
-      'res_id'=>$recipeID,
-      'us_id'=>$userID,
+      $insert =$connexion->prepare('INSERT INTO RECIPE(re_id,res_id,us_id,ca_id,re_title,re_content,re_summary,RE_REGDATE,RE_IMAGE,RE_CREATIONDATE,RE_MODIFDATE) VALUES(:re_id,:res_id,:us_id,:ca_id,:re_title,:re_content,:re_summary,now(),:re_image,now(),now())');
+      $insert->execute(array(
+      're_id'=>(int)$recipeID[0]['max'],
+      'res_id'=>2,
+      'us_id'=>(int)$userID[0]['US_ID'],
+      'ca_id'=>(int)$categoryID[0]['CA_ID'],
       're_title'=>$_POST['recipeName'],
       're_content'=>$_POST['recipeContent'],
       're_summary'=>$_POST['recipeDescription'],
       're_image'=>$fileName
    ));
-   
    }
 }
 ?> 
