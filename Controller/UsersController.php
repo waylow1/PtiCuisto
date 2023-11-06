@@ -12,10 +12,9 @@ class UsersController extends Controller
    
     public function logOut(){
         $this->manager->logOut();
-        include $_SESSION['dir'] . '/View/Template.php';
     }
     public function run()
     {
-        include $_SESSION['dir'] . '/View/usersView.php';
-    }
+     
+        include $_SESSION['dir'];    }
 }

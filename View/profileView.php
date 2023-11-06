@@ -10,7 +10,7 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
 <br><br><br><br><br><br><br><br><br><br>
 
 <form method="post">
-<button type=submit name= 'logout' value="Déconnexion"> </button>
+<button type=submit name= 'logout' value="Déconnexion"> Déconnexion </button>
 </form>
 
 
@@ -18,8 +18,8 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
 <?php 
 if(isset($_POST['logout'])){
     $control = new UsersController();
+    $control->run();
     $control->logOut();
-
 }
 
 include $_SESSION['dir'] . '/View/Layout.php';
