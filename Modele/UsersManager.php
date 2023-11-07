@@ -22,7 +22,6 @@ class UsersManager extends Manager{
             return $res;
         }
     } 
-<<<<<<< HEAD
     
     public function logOut(){
         session_destroy($_SESSION['username'],$_SESSION['password'],$_SESSION['type']);
@@ -47,7 +46,4 @@ class UsersManager extends Manager{
         $userID = $user->fetchall();
         return $userID;
     }
-=======
-
->>>>>>> main
 }
