@@ -3,14 +3,17 @@ ob_start();
 $content = ob_get_clean();
 
 if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
-
-
+    $current_user_info = $_SESSION['current_user_info'];
 ?>
 
 <br><br><br><br><br>
 <div class="container-flex">
     <section class="page-section bg-body collection one-third-width" id="user_info">
         <div class="container section-primary text-center">
+            <!-- Logged user info-->
+            <?php
+                print_r($current_user_info);
+            ?>
             <form method="post">
                 <button type=submit class="btn btn-danger btn-block mb-4 " name='logout' value="Déconnexion">Déconnexion</button>
             </form>
@@ -32,17 +35,12 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
 
 
 <?php 
-if(isset($_POST['logout'])){
-    $control = new UsersController();
-    $control->run();
-    $control->logOut();
-}
+    if(isset($_POST['logout'])){
+        $control = new UsersController();
+        $control->run();
+        $control->logOut();
+    }
 
-include $_SESSION['dir'] . '/View/Layout.php';
+    include $_SESSION['dir'] . '/View/Layout.php';
 }
-else{
-    echo "Pour accéder à votre profil, veuillez vous connecter. ";
-
-}
-
 ?>
