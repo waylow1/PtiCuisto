@@ -5,7 +5,7 @@ ob_start();
 <br><br><br><br><br><br><br><br><br><br>
 
 <form method="post" action=<?php $_SESSION['dir'] . '/Controller/UsersController.php'?>>
-<button type=submit name='logout' value="Déconnexion" href=""> Déconnexion </button>
+<button type=submit name='logout' value="Déconnexion" > Déconnexion </button>
 </form>
 
 

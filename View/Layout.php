@@ -41,8 +41,8 @@
                         <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Title">Titre</a></li>
                         <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Ingredient">Ingrédients</a></li>
                     </ul>
-                    <?php if (isset($_SESSION['type'])) { 
-                        echo $_SESSION['type'];
+                    <?php if (isset($_SESSION['username'])) { 
+                    
                         echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Profile">Mon profil </a></li>';
                     }
                     else{
@@ -91,12 +91,7 @@
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright &copy; Les bons cuistos 2023</small></div>
     </div>
-<<<<<<< HEAD:View/layout.php
-    
-    <script src="../js/script.js" > </script> 
-=======
     <script src="../js/scripts.js"></script>
->>>>>>> main:View/Layout.php
 
 </body>
 

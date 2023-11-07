@@ -26,7 +26,7 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
     }
     if ($controller == "Edito"){
         $Edito = new UsersController();
-        $Edito->run();
+        $Edito->modifEdito();
     }
 } 
 else {

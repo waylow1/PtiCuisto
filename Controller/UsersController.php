@@ -10,10 +10,14 @@ class UsersController extends Controller{
     }
    
     public function logOut(){
-        $dir = $_SESSION['dir'];
-        session_destroy();
-        include $dir;
-        print_r($_SESSION);
+        if(isset($_POST['logout'])){
+            var_dump(($_SESSION['dir']));
+            var_dump($_POST['logout']);
+            $dir = $_SESSION['dir'];
+            session_destroy();
+            var_dump($_SESSION);
+        }
+           
     }
     public function run()
     {
