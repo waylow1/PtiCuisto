@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>P'ti Cuisto</title>
+    <title>P'ti Cuistot</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="..\assets\favicon.ico" />
     <!-- Font Awesome icons (free version)-->
@@ -82,7 +82,7 @@
                     <p class="lead mb-0">
                         Freelance is a free to use, MIT licensed Bootstrap theme created by
                         <a href="http://startbootstrap.com">Start Bootstrap</a>
-                        .
+                        
                     </p>
                 </div>
             </div>
@@ -92,7 +92,7 @@
         <div class="container"><small>Copyright &copy; Les bons cuistos 2023</small></div>
     </div>
     
-    <script src="<?php $_SESSION['dir'] . '/script/script.js' ?>" > </script> 
+    <script src="../js/script.js" > </script> 
 
 </body>
 

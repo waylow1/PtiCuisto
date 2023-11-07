@@ -21,8 +21,7 @@ class UsersController extends Controller{
     }
 
     public function modifEdito(){
-        if($_SESSION['type'] = 1 ){
-            
+        if($_SESSION['type'] = 1 ){            
         }
     }
 }
