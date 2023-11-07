@@ -14,7 +14,7 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
             <?php
                 print_r($current_user_info);
             ?>
-            <form method="post">
+            <form method="post" action=<?php $_SESSION['dir'] . '/Controller/UsersController.php'?>>
                 <button type=submit class="btn btn-danger btn-block mb-4 " name='logout' value="Déconnexion">Déconnexion</button>
             </form>
         </div>
