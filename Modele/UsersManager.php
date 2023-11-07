@@ -22,6 +22,20 @@ class UsersManager extends Manager{
             return $res;
         }
     } 
+
+    public function insertUser($pseudo, $password, $mail, $firstname, $lastname){
+        $db = $this->con();
+        $reponse = $db->prepare("insert into USERS values('2','2','" . $pseudo . "', '" .$mail ."', '" . $firstname . "', '" . $lastname . "', sysdate, '" . $password . "'");
+        $reponse->execute();
+    }
+
+    public function selectMaxID(){
+        $db = $this->con();
+        $reponse = $db->prepare('select max(US_ID) from USERS');
+        $reponse->execute();
+        $res = $reponse->fetchall();
+        return $res;
+    }
     
     public function logOut(){
         session_destroy($_SESSION['username'],$_SESSION['password'],$_SESSION['type']);

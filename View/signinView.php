@@ -19,34 +19,40 @@ ob_start();
             <!-- Pills content -->
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-                    <form>
+                    <form method="POST" action= <?php $_SESSION['dir'] . '/Controller/SignInController.php' ?> >
                         <div class="form-outline mb-4">
                             <label class="form-label" for="registerName">Nom</label>
-                            <input type="text" id="registerName" class="form-control" required />
+                            <input type="text" id="firstname" class="form-control" required />
+
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="registerUsername">Prenom</label>
+                            <input type="text" id="lastname" class="form-control" required />
 
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="registerUsername">Pseudo</label>
-                            <input type="text" id="registerUsername" class="form-control" required />
+                            <input type="text" id="pseudo" class="form-control" required />
 
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="registerEmail">Adresse Mail</label>
-                            <input type="email" id="registerEmail" class="form-control" required />
+                            <input type="email" id="mail" class="form-control" required />
 
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="registerPassword">Mot de passe</label>
-                            <input type="password" id="registerPassword" class="form-control" required />
+                            <input type="password" id="password1" class="form-control" required />
 
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="registerRepeatPassword">Confirmez mot de passe</label>
-                            <input type="password" id="registerRepeatPassword" class="form-control" required />
+                            <input type="password" id="password2" class="form-control" required />
 
                         </div>
 

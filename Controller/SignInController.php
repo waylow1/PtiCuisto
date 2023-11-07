@@ -10,8 +10,19 @@ class SignInController extends Controller
         $this->manager = new UsersManager();
     }
 
-    public function run()
+
+        public function run()
     {
-        include $_SESSION['dir'] . '/View/SignInView.php';
-    }
+        echo $this->manager->selectMaxID();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pseudo'], $_POST['password2'], $_POST['mail'],$_POST['firstname'], $_POST['lastname']))  {
+            $this->manager = new UsersManager();
+            $insert= $this->manager->insertUser($_POST['pseudo'], $_POST['password2'], $_POST['mail'],$_POST['firstname'], $_POST['lastname']);
+            if(isset($insert)){
+                include $_SESSION['dir']. '/View/ProfileView.php';
+            }
+            
+        }
+        include $_SESSION['dir'] . '/View/SignInView.php'; 
+     }
+        
 }
