@@ -97,7 +97,13 @@ ob_start();
                     <img class="masthead-avatar-small mb-5" src="..\assets\Pticuisto.png" alt="..." />
                 </div>
                 <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">Edito</h2>
+                <?php if($_SESSION['type'] = 1){
+                    echo '<h2 class="page-section-heading text-center text-uppercase text-white"><a href="?Edito"> Edito </a></h2>';
+                }
+                else{
+                    echo '<h2 class="page-section-heading text-center text-uppercase text-white">Edito</h2>';
+                }?> 
+                
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>

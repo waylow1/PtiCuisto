@@ -17,5 +17,12 @@ class UsersController extends Controller{
     }
     public function run()
     {
-        include $_SESSION['dir'];    }
+        include $_SESSION['dir'];    
+    }
+
+    public function modifEdito(){
+        if($_SESSION['type'] = 1 ){
+            
+        }
+    }
 }

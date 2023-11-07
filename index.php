@@ -26,5 +26,5 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
     }
 } 
 else {
-    include 'View/Template.php';
+    include $_SESSION['dir'] . '/View/Template.php';
 }

@@ -42,6 +42,7 @@
                         <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Ingredient">Ingrédients</a></li>
                     </ul>
                     <?php if (isset($_SESSION['type'])) { 
+                        echo $_SESSION['type'];
                         echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Profile">Mon profil </a></li>';
                     }
                     else{
@@ -73,7 +74,7 @@
                     <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
                     <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
                     <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+                    
                 </div>
                 <!-- Footer About Text-->
                 <div class="col-lg-4">
@@ -90,12 +91,8 @@
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright &copy; Les bons cuistos 2023</small></div>
     </div>
-<<<<<<< HEAD
     
     <script src="<?php $_SESSION['dir'] . '/script/script.js' ?>" > </script> 
-=======
-    <script src="../js/scripts.js"></script>
->>>>>>> Maxence
 
 </body>
 
