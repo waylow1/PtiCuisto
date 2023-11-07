@@ -1,7 +1,7 @@
 <?php
 
 class Manager {
-
+   
     protected function con(){
         $envPath=$_SESSION['dir'].'/.env';
         if (file_exists($envPath)) {
