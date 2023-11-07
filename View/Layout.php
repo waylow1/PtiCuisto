@@ -91,8 +91,12 @@
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright &copy; Les bons cuistos 2023</small></div>
     </div>
+<<<<<<< HEAD:View/layout.php
     
     <script src="../js/script.js" > </script> 
+=======
+    <script src="../js/scripts.js"></script>
+>>>>>>> main:View/Layout.php
 
 </body>
 
