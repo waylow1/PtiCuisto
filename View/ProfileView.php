@@ -34,13 +34,8 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
 
 
 
-<?php 
-    if(isset($_POST['logout'])){
-        $control = new UsersController();
-        $control->run();
-        $control->logOut();
-    }
-
+<?php
+    $content = ob_get_clean();
     include $_SESSION['dir'] . '/View/Layout.php';
 }
 ?>

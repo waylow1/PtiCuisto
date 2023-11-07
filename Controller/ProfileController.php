@@ -12,6 +12,19 @@ class ProfileController extends Controller
 
     public function run()
     {
-        include $_SESSION['dir'] . '/View/ProfileView.php';
+        if(isset($_POST['logout'])){
+            $dir = $_SESSION['dir'];
+            session_destroy();
+            session_start();
+            $_SESSION['dir'] = $dir;        
+        }
+        else{
+            echo "Pour accéder à votre profil, veuillez vous connecter. ";     
+            }
+            include $_SESSION['dir'] . '/View/ProfileView.php';
+        
     }
+            
+       
 }
+

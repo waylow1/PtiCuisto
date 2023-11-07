@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>P'ti Cuisto</title>
+    <title>P'ti Cuistot</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="..\assets\favicon.ico" />
     <!-- Font Awesome icons (free version)-->
@@ -41,12 +41,13 @@
                         <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Title">Titre</a></li>
                         <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Ingredient">Ingrédients</a></li>
                     </ul>
-                    <? if (isset($_SESSION) && isset($_SESSION)) { ?>   
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Profile">Mon profil </a></li>
-                    <?}
-                    else{?>
-                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Login">Connexion</a></li>
-                    <? } ?>
+                    <?php if (isset($_SESSION['username'])) { 
+                    
+                        echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Profile">Mon profil </a></li>';
+                    }
+                    else{
+                     echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Login">Connexion </a></li>';
+                    }  ?>
                 </ul>                   
 
             </div>
@@ -73,7 +74,7 @@
                     <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
                     <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
                     <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+                    
                 </div>
                 <!-- Footer About Text-->
                 <div class="col-lg-4">
@@ -81,7 +82,7 @@
                     <p class="lead mb-0">
                         Freelance is a free to use, MIT licensed Bootstrap theme created by
                         <a href="http://startbootstrap.com">Start Bootstrap</a>
-                        .
+                        
                     </p>
                 </div>
             </div>
