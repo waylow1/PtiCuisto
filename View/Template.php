@@ -98,7 +98,7 @@ ob_start();
                 </div>
                 <!-- About Section Heading-->
                 <?php if($_SESSION['type'] = 1){
-                    echo '<h2 class="page-section-heading text-center text-uppercase text-white"><a href="?Edito"> Edito </a></h2>';
+                    echo '<h2 class="page-section-heading text-center text-uppercase text-white"><a href="?action=Edito"> Edito </a></h2>';
                 }
                 else{
                     echo '<h2 class="page-section-heading text-center text-uppercase text-white">Edito</h2>';

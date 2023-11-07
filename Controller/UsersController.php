@@ -12,8 +12,8 @@ class UsersController extends Controller{
     public function logOut(){
         $dir = $_SESSION['dir'];
         session_destroy();
-        session_start();
-        $_SESSION['dir'] = $dir;
+        include $dir;
+        print_r($_SESSION);
     }
     public function run()
     {
@@ -21,7 +21,8 @@ class UsersController extends Controller{
     }
 
     public function modifEdito(){
-        if($_SESSION['type'] = 1 ){            
+        if($_SESSION['type'] = 1 ){       
+            include $_SESSION['dir'] . '/View/EditoView.php';     
         }
     }
 }
