@@ -23,4 +23,5 @@ class Manager {
             echo "Erreur : " . $e->getMessage();
         }
     }
+    
 }
