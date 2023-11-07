@@ -90,12 +90,7 @@
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright &copy; Les bons cuistos 2023</small></div>
     </div>
-<<<<<<< HEAD
-    
-    <script src="<?php $_SESSION['dir'] . '/script/script.js' ?>" > </script> 
-=======
     <script src="../js/scripts.js"></script>
->>>>>>> Maxence
 
 </body>
 
