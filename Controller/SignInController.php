@@ -13,14 +13,25 @@ class SignInController extends Controller
 
         public function run()
     {
-        echo $this->manager->selectMaxID();
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pseudo'], $_POST['password2'], $_POST['mail'],$_POST['firstname'], $_POST['lastname']))  {
-            $this->manager = new UsersManager();
-            $insert= $this->manager->insertUser($_POST['pseudo'], $_POST['password2'], $_POST['mail'],$_POST['firstname'], $_POST['lastname']);
-            if(isset($insert)){
-                include $_SESSION['dir']. '/View/ProfileView.php';
+        echo '<br>';
+        echo '<br>';
+        echo '<br>';
+        echo '<br>';
+        echo '<br>';
+        echo '<br>';
+        $temp = $this->manager->selectMaxID();
+        $var = $temp[0]['max'] +1;
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['pseudo'], $_POST['password1'], $_POST['password2'], $_POST['mail'],$_POST['firstname'], $_POST['lastname']))  {
+            if ($_POST['password1']==$_POST['password2']){
+                $insert= $this->manager->insertUser($var, $_POST['pseudo'], $_POST['password2'], $_POST['mail'],$_POST['firstname'], $_POST['lastname']);
+                if(isset($insert)){
+                    $_GET['action']='Profile';
+                    header('Location :'.$_SESSION['dir']);
+                }
             }
-            
+            else{
+                echo "mdp pas indentique";
+            }
         }
         include $_SESSION['dir'] . '/View/SignInView.php'; 
      }

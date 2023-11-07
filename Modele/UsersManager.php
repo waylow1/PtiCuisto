@@ -23,15 +23,24 @@ class UsersManager extends Manager{
         }
     } 
 
-    public function insertUser($pseudo, $password, $mail, $firstname, $lastname){
+    public function insertUser($max, $pseudo, $password, $mail, $firstname, $lastname){
         $db = $this->con();
-        $reponse = $db->prepare("insert into USERS values('2','2','" . $pseudo . "', '" .$mail ."', '" . $firstname . "', '" . $lastname . "', sysdate, '" . $password . "'");
-        $reponse->execute();
+    
+    $reponse = $db->prepare('INSERT INTO `USERS`(`US_ID`, `UST_ID`, `USS_JD`, `US_PSEUDO`, `US_MAIL`, `US_FIRSTNAME`, `US_LASTNAME`, `US_REGDATE`, `US_PASSWORD`) VALUES (:max, 2, 2, :pseudo, :mail, :firstname, :lastname, NOW(), :password);');
+
+    $reponse->bindParam(':max', $max);
+    $reponse->bindParam(':pseudo', $pseudo);
+    $reponse->bindParam(':mail', $mail);
+    $reponse->bindParam(':firstname', $firstname);
+    $reponse->bindParam(':lastname', $lastname);
+    $reponse->bindParam(':password', $password);
+
+    $reponse->execute();
     }
 
     public function selectMaxID(){
         $db = $this->con();
-        $reponse = $db->prepare('select max(US_ID) from USERS');
+        $reponse = $db->prepare('select max(US_ID) as max from USERS');
         $reponse->execute();
         $res = $reponse->fetchall();
         return $res;
