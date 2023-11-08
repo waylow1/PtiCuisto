@@ -16,7 +16,9 @@ class ProfileController extends Controller
             $dir = $_SESSION['dir'];
             session_destroy();
             session_start();
-            $_SESSION['dir'] = $dir;        
+            $_SESSION['dir'] = $dir;    
+            $_GET['action'] ='';
+            header('Location: ' . $_SESSION['dir']);
         }
         else{
             echo "Pour accéder à votre profil, veuillez vous connecter. ";     
