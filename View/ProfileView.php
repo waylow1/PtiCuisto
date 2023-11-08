@@ -49,14 +49,9 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-<<<<<<< HEAD
-            </div>
-    </div>
-=======
         </div>
     </section>
 </div>
->>>>>>> Martin
 
 
 
