@@ -13,24 +13,27 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
             <ul class="list-group list-group-flush mb-5">
                 <li class="list-group-item">Type de compte : 
                     <?php
-                        if($_SESSION['current_user_informations'] == 1) {
+                        if($_SESSION['current_user_informations'][1] == 1) {
                             echo ' Administrateur';
                         }
-                        elseif($_SESSION['current_user_informations'] == 2) {
+                        elseif($_SESSION['current_user_informations'][1] == 2) {
                             echo ' Utilisateur';
                         }
                         else{
                             echo ' Inactif';
                         } 
                     ?></li>
-                <li class="list-group-item">Pseudonyme : <?php $_SESSION['current_user_informations']['US_PSEUDO']?></li>
-                <li class="list-group-item">Adresse mail : <?php $_SESSION['current_user_informations']['US_MAIL']?></li>
-                <li class="list-group-item">Prénom : <?php $_SESSION['current_user_informations']['US_FIRSTNAME']?></li>
-                <li class="list-group-item">Pseudonyme : <?php $_SESSION['current_user_informations']['US_LASTNAME']?></li>
+                <li class="list-group-item">Pseudonyme : <?php echo $_SESSION['current_user_informations']['US_PSEUDO']?></li>
+                <li class="list-group-item">Adresse mail : <?php echo $_SESSION['current_user_informations']['US_MAIL']?></li>
+                <li class="list-group-item">Prénom : <?php echo $_SESSION['current_user_informations']['US_FIRSTNAME']?></li>
+                <li class="list-group-item">Nom : <?php echo $_SESSION['current_user_informations']['US_LASTNAME']?></li>
+                <li class="list-group-item">Création du compte : <?php echo $_SESSION['current_user_informations']['US_REGDATE']?></li>
+                <li class="list-group-item">Mot de passe : <?php 
+                    for($i = 0; $i < strlen($_SESSION['current_user_informations']['US_PASSWORD']); $i++) {
+                        echo '•';
+                    }
+                ?></li>
             </ul>
-            <?php
-                print_r($_SESSION['current_user_informations']);
-            ?>
             <form method="post" action=<?php $_SESSION['dir'] . '/Controller/UsersController.php'?>>
                 <button type=submit class="btn btn-danger btn-block mb-4 " name='logout' value="Déconnexion">Déconnexion</button>
             </form>
