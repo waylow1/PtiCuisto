@@ -8,8 +8,26 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
 <br><br><br><br><br>
 <div class="container-flex">
     <section class="page-section bg-body collection one-third-width" id="user_info">
-        <div class="container section-primary text-center">
+        <div class="container text-center">
             <!-- Logged user info-->
+            <ul class="list-group list-group-flush mb-5">
+                <li class="list-group-item">Type de compte : 
+                    <?php
+                        if($_SESSION['current_user_informations'] == 1) {
+                            echo ' Administrateur';
+                        }
+                        elseif($_SESSION['current_user_informations'] == 2) {
+                            echo ' Utilisateur';
+                        }
+                        else{
+                            echo ' Inactif';
+                        } 
+                    ?></li>
+                <li class="list-group-item">Pseudonyme : <?php $_SESSION['current_user_informations']['US_PSEUDO']?></li>
+                <li class="list-group-item">Adresse mail : <?php $_SESSION['current_user_informations']['US_MAIL']?></li>
+                <li class="list-group-item">Prénom : <?php $_SESSION['current_user_informations']['US_FIRSTNAME']?></li>
+                <li class="list-group-item">Pseudonyme : <?php $_SESSION['current_user_informations']['US_LASTNAME']?></li>
+            </ul>
             <?php
                 print_r($_SESSION['current_user_informations']);
             ?>
@@ -19,16 +37,17 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
         </div>
     </section>  
     <section class="page-section text-white mb-0 two-thirds-width" id="user_recipe">
-        <div class="container text-center">
+        <div class="container text-center section-primary">
                 <!-- collection Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Recettes de l'utilisateur</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-white">Recettes de l'utilisateur</h2>
                 <!-- Icon Divider-->
-                <div class="divider-custom">
+                <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
         </div>
+    </section>
 </div>
 
 
