@@ -24,9 +24,4 @@ class UsersController extends Controller{
         include $_SESSION['dir'];    
     }
 
-    public function modifEdito(){
-        if($_SESSION['type'] = 1 ){       
-            include $_SESSION['dir'] . '/View/EditoView.php';     
-        }
-    }
 }

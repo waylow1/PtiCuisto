@@ -9,8 +9,8 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         require 'Controller/' . $controller . 'Controller.php';
     }
     if ($controller == "CreateRecipe") {
-        $Users = new CreateRecipeController();
-        $Users->run();
+        $createRecipe = new CreateRecipeController();
+        $createRecipe->run();
     }
     if ($controller == "Login") {
         $Login = new LoginController();
@@ -25,8 +25,8 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         $Profile->run();
     }
     if ($controller == "Edito"){
-        $Edito = new UsersController();
-        $Edito->modifEdito();
+        $Edito = new EditoController();
+        $Edito->run();
     }
 } 
 else {
