@@ -23,7 +23,9 @@ class CreateRecipeController extends Controller
                 $this->manager->createRecipe($fileName);
 
                 if (move_uploaded_file($tmpFilePath, $destination)) {
-                    echo 'Le fichier a été téléversé avec succès.';
+                   echo "<script> alert('Recette téléversée'); </script>";
+                    $_GET['action']="";
+                    echo '<script>window.location.href = "index.php";</script>';
                 } 
             }
         } else {
