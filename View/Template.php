@@ -97,15 +97,14 @@ ob_start();
                     <img class="masthead-avatar-small mb-5" src="..\assets\Pticuisto.png" alt="..." />
                 </div>
                 <!-- About Section Heading-->
-                <?php if(isset($_SESSION['type']) && isset($_SESSION['username'])){
-                    if($_SESSION['type'] == 1){
-                    echo '<h2 class="page-section-heading text-center text-uppercase text-white"><a href="?action=Edito"> Edito </a></h2>';
+                <?php if (isset($_SESSION['type']) && isset($_SESSION['username'])) {
+                    if ($_SESSION['type'] == 1) {
+                        echo '<h2 class="page-section-heading text-center text-uppercase text-white"><a href="?action=Edito"> Edito </a></h2>';
                     }
-                }
-                else{
+                } else {
                     echo '<h2 class="page-section-heading text-center text-uppercase text-white">Edito</h2>';
-                }?> 
-                
+                } ?>
+
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -115,13 +114,13 @@ ob_start();
                 <!-- About Section Content-->
                 <div class="row">
                     <div class="col-lg-4 ms-auto">
-                        <p class="lead"> 'Bienvenue sur PtitCuistot, le site pour trouver les meilleures recettes de vos plats préférés! 
+                        <p class="lead"> 'Bienvenue sur PtitCuistot, le site pour trouver les meilleures recettes de vos plats préférés!
                             Vous pourrez y trouver des recettes d'entrées, de plat principaux ou encore de dessert.</p>
 
                     </div>
                     <div class="col-lg-4 me-auto">
                         <p class="lead"> Partagez vous aussi vos propres recettes avec la communauté en cliquant sur l'onglet "Connexion" </p>
-                     
+
                     </div>
                 </div>
 

@@ -22,10 +22,10 @@ class CreateRecipeController extends Controller
                 $this->manager->createRecipe($fileName);
 
                 if (move_uploaded_file($tmpFilePath, $destination)) {
-                   echo "<script> alert('Recette téléversée'); </script>";
-                    $_GET['action']="";
+                    echo "<script> alert('Recette téléversée'); </script>";
+                    $_GET['action'] = "";
                     echo '<script>window.location.href = "index.php";</script>';
-                } 
+                }
             }
         } else {
             include $_SESSION['dir'] . '/View/RecipesView.php';
