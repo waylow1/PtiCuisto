@@ -86,10 +86,10 @@ class RecipesManager extends Manager{
       $recipeID = $recipe->fetchAll(PDO::FETCH_ASSOC);
 
       $user = $connexion->prepare('SELECT US_ID from USERS where US_PSEUDO like :name');
-      $user->bindParam('name', $_POST['userName']);
+      $user->bindParam('name', $_SESSION['username']);
       $user->execute();
       $userID = $user->fetchall();
-
+      
       $category =$connexion->prepare('SELECT CA_ID from CATEGORY where CA_TITLE like :type');
       $category->bindParam('type', $_POST['recipeType']);
       $category->execute();
