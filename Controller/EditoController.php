@@ -9,7 +9,7 @@ class EditoController extends Controller{
     }
     public function run(){
         if($_SESSION['type'] = 1 ){       
-            include $_SESSION['dir'] . '/View/EditoView.php';     
+            include $_SESSION['dir'] . '/View/EditoView.php';  
         }
     }
 }
