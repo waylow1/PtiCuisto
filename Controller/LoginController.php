@@ -9,14 +9,14 @@ class LoginController extends Controller{
     }
     public function run(){
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username']) && isset($_POST['password']))  {
-            $this->manager = new UsersManager();
             $verif = $this->manager->verifInformations($_POST['username'],$_POST['password']);
-            if(isset($verif[0])){
+            if(!(is_null($verif[0]))){
                 $_SESSION['username'] = $_POST['username'];
                 $_SESSION['password'] = $_POST['password'];
                
                 $_SESSION['type'] = $verif[0]["UST_ID"];
-                include $_SESSION['dir']. '/View/ProfileView.php';
+                $_GET['action'] ='Profile';
+                header('Location: ' . $_SESSION['dir']);
             }
             else{
                 echo '<script> alert ("Pseudo ou mot de passe incorrect") </script>';
