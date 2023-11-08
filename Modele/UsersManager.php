@@ -22,12 +22,7 @@ class UsersManager extends Manager{
             return $res;
         }
     } 
-<<<<<<< HEAD
     
-    public function logOut(){
-        session_destroy($_SESSION['username'],$_SESSION['password'],$_SESSION['type']);
-    }
-
     public function getRecipesOfUser($us_id){
         $connexion = $this->con();
         $recipe = $connexion->query("SELECT RE_ID, US_ID,CA_ID,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_IMAGE,CA_TITLE,US_PSEUDO 
@@ -47,7 +42,4 @@ class UsersManager extends Manager{
         $userID = $user->fetchall();
         return $userID;
     }
-=======
-
->>>>>>> main
 }

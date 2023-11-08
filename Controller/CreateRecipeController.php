@@ -13,7 +13,6 @@ class CreateRecipeController extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['recipeName'])) {
-                $_POST['userName']='admin123';
                 $uploadDirectory = $_SESSION['dir'] . '/assets/dish/';
                 $file = $_FILES['recipePicture'];
                 $fileName = $file['name'];
