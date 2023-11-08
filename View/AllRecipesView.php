@@ -4,10 +4,12 @@ $content = ob_get_clean();
 ?>
 <br><br><br><br><br><br><br><br><br><br>
 
+<div id="container"></div>
+
 <script src="../js/RecipeDisplay.js"></script>
 <script>
-    re = new RecipeDisplay(<?php echo json_encode($allRecipes); ?>);
-    console.log("ici");
+    Display = new RecipeDisplay(<?php echo json_encode($allRecipes); ?>);
+    Display.DisplayForAllRecipes();
 </script>
 
 <?php
