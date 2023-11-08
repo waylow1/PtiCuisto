@@ -3,7 +3,6 @@ ob_start();
 $content = ob_get_clean();
 
 if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
-    $current_user_info = $_SESSION['current_user_info'];
 ?>
 
 <br><br><br><br><br>
@@ -12,7 +11,7 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
         <div class="container section-primary text-center">
             <!-- Logged user info-->
             <?php
-                print_r($current_user_info);
+                print_r($_SESSION['current_user_informations']);
             ?>
             <form method="post" action=<?php $_SESSION['dir'] . '/Controller/UsersController.php'?>>
                 <button type=submit class="btn btn-danger btn-block mb-4 " name='logout' value="Déconnexion">Déconnexion</button>

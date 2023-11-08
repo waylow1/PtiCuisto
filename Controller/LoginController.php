@@ -13,7 +13,7 @@ class LoginController extends Controller{
             if(!(is_null($verif[0]))){
                 $_SESSION['username'] = $_POST['username'];
                 $_SESSION['password'] = $_POST['password'];
-               
+                $_SESSION['current_user_informations'] = $verif[0];
                 $_SESSION['type'] = $verif[0]["UST_ID"];
                 $_GET['action'] ='Profile';
                 header('Location: ' . $_SESSION['dir']);
