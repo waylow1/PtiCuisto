@@ -97,11 +97,10 @@ ob_start();
                     <img class="masthead-avatar-small mb-5" src="..\assets\Pticuisto.png" alt="..." />
                 </div>
                 <!-- About Section Heading-->
-                <?php if (isset($_SESSION['type']) && isset($_SESSION['username'])) {
-                    if ($_SESSION['type'] == 1) {
-                        echo '<h2 class="page-section-heading text-center text-uppercase text-white"><a href="?action=Edito"> Edito </a></h2>';
-                    }
-                } else {
+                <?php if($_SESSION['type'] = 1){
+                    echo '<h2 class="page-section-heading text-center text-uppercase text-white"><a href="?action=Edito" style="text-decoration: none;"> Edito </a></h2>';
+                }
+                else{
                     echo '<h2 class="page-section-heading text-center text-uppercase text-white">Edito</h2>';
                 } ?>
 
