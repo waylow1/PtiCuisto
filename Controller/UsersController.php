@@ -21,8 +21,36 @@ class UsersController extends Controller
             var_dump($_SESSION);
         }
     }
+
+    public function deleteAcc() {
+        if (isset($_POST['suppression'])) {
+            ?>
+            <script>
+                function confirmBox(message) {
+                    console.log('aaaaaaaaaaaaa')
+                    if (confirm(confirmBox)) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+
+                if(confirmBox("Confirmer la suppression du compte.")) {
+            <?php
+                var_dump(($_SESSION['dir']));
+                var_dump($_POST['deleteAcc']);
+                $dir = $_SESSION['dir'];
+                session_destroy();
+                var_dump($_SESSION);
+            ?>
+                }
+            </script>
+       <?php}
+    }
+
     public function run()
     {
         include $_SESSION['dir'];
     }
 }
+?>

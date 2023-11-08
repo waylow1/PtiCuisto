@@ -5,7 +5,7 @@ $content = ob_get_clean();
 if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
 ?>
 
-<br><br><br><br><br>
+<br><br>
 <div class="container-flex">
     <section class="page-section bg-body collection one-third-width" id="user_info">
         <div class="container text-center">
@@ -28,7 +28,7 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
                 <li class="list-group-item">Prénom : <?php echo $_SESSION['current_user_informations']['US_FIRSTNAME']?></li>
                 <li class="list-group-item">Nom : <?php echo $_SESSION['current_user_informations']['US_LASTNAME']?></li>
                 <li class="list-group-item">Création du compte : <?php echo $_SESSION['current_user_informations']['US_REGDATE']?></li>
-                <li class="list-group-item">Mot de passe : <?php 
+                <li class="list-group-item">Mot de passe :  <?php 
                     for($i = 0; $i < strlen($_SESSION['current_user_informations']['US_PASSWORD']); $i++) {
                         echo '•';
                     }
@@ -41,20 +41,23 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
     </section>  
     <section class="page-section text-white mb-0 two-thirds-width" id="user_recipe">
         <div class="container text-center section-primary">
-                <!-- collection Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">Recettes de l'utilisateur</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
+        <h2 class="page-section-heading text-center text-uppercase text-white">Recettes de cet utilisateur</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
         </div>
     </section>
 </div>
-
-
-
+<section class="small-masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column align-middle pt-5">
+        <form method="post" action=<?php $_SESSION['dir'] . '/Controller/UsersController.php'?>>
+            <button type=submit class="btn btn-danger btn-block mb-4 " name='suppression' value="suppression">Supprimer mon compte</button>
+        </form>
+    </div>
+</section>
 <?php
     $content = ob_get_clean();
     include $_SESSION['dir'] . '/View/Layout.php';
