@@ -53,8 +53,8 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
 </div>
 <section class="small-masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column align-middle pt-5">
-        <form method="post" action=<?php $_SESSION['dir'] . '/Controller/UsersController.php'?>>
-            <button type=submit class="btn btn-danger btn-block mb-4 " name='suppression' value="suppression">Supprimer mon compte</button>
+        <form method="post" action=<?php $_SESSION['dir'] . '/Controller/ProfileController.php'?>>
+            <button type=submit class="btn btn-danger btn-block mb-4 " name='suppression' value="suppression" id="suppression">Supprimer mon compte</button>
         </form>
     </div>
 </section>

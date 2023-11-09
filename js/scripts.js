@@ -52,3 +52,10 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+
+suppr = document.getElementById('suppression');
+suppr.addEventListener("click",() => {
+    document.cookie = "confirm=" + escape(confirm("Confirmez la suppression du compte.")) + "; path=/";
+    console.log(document.cookie)
+});
