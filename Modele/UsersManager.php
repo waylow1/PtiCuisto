@@ -54,4 +54,14 @@ class UsersManager extends Manager
         $req->bindParam('password', $_SESSION['password']);
         $req->execute();
     }
+    public function getRecipesToAccept(){
+        $db = $this->con();
+        $users = $db->prepare('SELECT RE_ID,RES_ID,US_PSEUDO,CA_TITLE,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_REGDATE 
+        from RECIPE 
+        join USERS using(US_ID) 
+        join CATEGORY using(ca_id)');
+        $users->execute();
+        $res = $users->fetchall();
+        return $res;
+    }
 }
