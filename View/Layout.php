@@ -32,15 +32,20 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item mx-0 mx-lg-1" id="filter"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/index.php">Accueil</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=AllRecipes">Nos recettes</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" >Filtres</a></li>
-                    <ul class="nav-under">
-                        <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=FilterCategory">Catégories</a></li>
-                        <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=FilterTitle">Titre</a></li>
-                        <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=FilterIngredient">Ingrédients</a></li>
-                    </ul>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
                     <?php
                     if (isset($_SESSION['username'])) {
                         if($_SESSION['current_user_informations']['UST_ID'] == 1){
@@ -63,8 +68,7 @@
     <div class="content"><?= $content ?></div>
     <footer class="footer text-center" id="contact">
         <div class="container">
-            <div class="row">
-            
+            <div class="d-flex justify-content-center">
                 <!-- Footer Social Icons-->
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <h4 class="text-uppercase mb-4">Retrouvez-nous ici</h4>
