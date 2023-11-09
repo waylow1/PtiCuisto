@@ -32,18 +32,17 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item mx-0 mx-lg-1" id="filter"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/index.php">Accueil</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=AllRecipes">Nos recettes</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
+                    <li class="nav-item dropdown mt-2">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" data-bs-toggle="dropdown" aria-expanded="false">
+                            Filtres
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color : var(--bs-secondary);">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=FilterCategory">Catégories</a>
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=FilterTitle">Titre</a>
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=FilterIngredient">Ingrédients</a>
                         </div>
                     </li>
                     <?php
@@ -63,12 +62,11 @@
             </div>
         </div>
     </nav>
-
-
     <div class="content"><?= $content ?></div>
     <footer class="footer text-center" id="contact">
         <div class="container">
             <div class="d-flex justify-content-center">
+            
                 <!-- Footer Social Icons-->
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <h4 class="text-uppercase mb-4">Retrouvez-nous ici</h4>
@@ -85,6 +83,7 @@
         <div class="container"><small>Copyright &copy; Les bons cuistos 2023</small></div>
     </div>
     <!-- Add this line to include the Bootstrap JavaScript library -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
 
