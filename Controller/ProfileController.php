@@ -21,20 +21,27 @@ class ProfileController extends Controller
             echo '<script>window.location.href = "index.php";</script>';
         }
         elseif (isset($_POST['suppression'])) {
+            unset($_COOKIE['confirm']);
             ?>
+        
             <script>
                 document.cookie = "confirm=" + escape(confirm("Confirmez la suppression du compte.")) + "; path=/";
+                console.log(document.cookie)
             </script>
             <?php
-            if($_COOKIE['confirm'] == 'true') {
-                $this->manager->deleteUser();
-                $dir = $_SESSION['dir'];
-                session_destroy();
-                session_start();
-                $_SESSION['dir'] = $dir;
-                $_GET['action'] = '';
-                echo '<script>window.location.href = "index.php";</script>';
+            sleep(1);
+            if(isset($_COOKIE['confirm'])){
+                if($_COOKIE['confirm'] == 'true') {
+                    $this->manager->deleteUser();
+                    $dir = $_SESSION['dir'];
+                    session_destroy();
+                    session_start();
+                    $_SESSION['dir'] = $dir;
+                    $_GET['action'] = '';
+                    echo '<script>window.location.href = "index.php";</script>';
+                }
             }
+            
         }
         include $_SESSION['dir'] . '/View/ProfileView.php';
     }
