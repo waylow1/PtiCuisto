@@ -18,16 +18,16 @@ class ProfileController extends Controller
             session_start();
             $_SESSION['dir'] = $dir;
             $_GET['action'] = '';
-            header('Location: ' . $_SESSION['dir']);
+            echo '<script>window.location.href = "index.php";</script>';
         }
-        
         elseif (isset($_POST['suppression'])) {
+            $this->manager->deleteUser();
             $dir = $_SESSION['dir'];
             session_destroy();
             session_start();
             $_SESSION['dir'] = $dir;
             $_GET['action'] = '';
-            header('Location: ' . $_SESSION['dir']);
+            echo '<script>window.location.href = "index.php";</script>';
         }
         include $_SESSION['dir'] . '/View/ProfileView.php';
     }
