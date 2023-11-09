@@ -133,4 +133,6 @@ class RecipesManager extends Manager
       $getIg->bindParam('title',$ingredientName);
       $getIg->execute();
    }
+
+  
 }
