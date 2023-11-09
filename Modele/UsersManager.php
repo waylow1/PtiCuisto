@@ -16,7 +16,7 @@ class UsersManager extends Manager
     public function verifInformations($pseudo, $password)
     {
         $db = $this->con();
-        $reponse = $db->prepare('SELECT * from USERS where US_PSEUDO = ? and US_PASSWORD = ?');
+        $reponse = $db->prepare('SELECT * from USERS where US_PSEUDO = ? and US_PASSWORD = ? and UST_ID <> 3');
         $reponse->bindParam(1, $pseudo);
         $reponse->bindParam(2, $password);
         $reponse->execute();
@@ -45,5 +45,13 @@ class UsersManager extends Manager
         $user->execute();
         $userID = $user->fetchall();
         return $userID;
+    }
+
+    public function deleteUser() {
+        $connexion = $this->con();
+        $req = $connexion->prepare('UPDATE USERS SET UST_ID WHERE US_PSEUDO like :pseudo AND US_PASSWORD like :password');
+        $req->bindParam('pseudo', $_SESSION['username']);
+        $req->bindParam('password', $_SESSION['password']);
+        $req->execute();
     }
 }

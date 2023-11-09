@@ -19,8 +19,15 @@ class ProfileController extends Controller
             $_SESSION['dir'] = $dir;
             $_GET['action'] = '';
             header('Location: ' . $_SESSION['dir']);
-        } else {
-            echo "Pour accéder à votre profil, veuillez vous connecter. ";
+        }
+        
+        elseif (isset($_POST['suppression'])) {
+            $dir = $_SESSION['dir'];
+            session_destroy();
+            session_start();
+            $_SESSION['dir'] = $dir;
+            $_GET['action'] = '';
+            header('Location: ' . $_SESSION['dir']);
         }
         include $_SESSION['dir'] . '/View/ProfileView.php';
     }
