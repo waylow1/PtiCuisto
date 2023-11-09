@@ -1,9 +1,11 @@
 <?php
 
-class Manager {
+class Manager
+{
 
-    protected function con(){
-        $envPath=$_SESSION['dir'].'/.env';
+    protected function con()
+    {
+        $envPath = $_SESSION['dir'] . '/.env';
         if (file_exists($envPath)) {
             $env = parse_ini_file($envPath);
             foreach ($env as $key => $value) {
@@ -23,5 +25,4 @@ class Manager {
             echo "Erreur : " . $e->getMessage();
         }
     }
-    
 }

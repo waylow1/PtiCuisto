@@ -13,7 +13,6 @@ class CreateRecipeController extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['recipeName'])) {
-                $_POST['userName']='admin123';
                 $uploadDirectory = $_SESSION['dir'] . '/assets/dish/';
                 $file = $_FILES['recipePicture'];
                 $fileName = $file['name'];
@@ -23,8 +22,10 @@ class CreateRecipeController extends Controller
                 $this->manager->createRecipe($fileName);
 
                 if (move_uploaded_file($tmpFilePath, $destination)) {
-                    echo 'Le fichier a été téléversé avec succès.';
-                } 
+                    echo "<script> alert('Recette téléversée'); </script>";
+                    $_GET['action'] = "";
+                    echo '<script>window.location.href = "index.php";</script>';
+                }
             }
         } else {
             include $_SESSION['dir'] . '/View/RecipesView.php';
