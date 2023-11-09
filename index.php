@@ -50,6 +50,10 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         $Filters = new FilterTitleController();
         $Filters->run();
     }
+    if ($controller == "Dashboard"){
+        $Dashboard = new DashboardController();
+        $Dashboard->run();
+    }
 } else {
     include $_SESSION['dir'] . '/View/Template.php';
 }

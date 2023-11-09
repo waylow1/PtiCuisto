@@ -41,8 +41,9 @@
                         <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=FilterTitle">Titre</a></li>
                         <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=FilterIngredient">Ingrédients</a></li>
                     </ul>
-                    <?php if (isset($_SESSION['username'])) {
-                        if($_SESSION['type'] = 1){
+                    <?php
+                    if (isset($_SESSION['username'])) {
+                        if($_SESSION['current_user_informations']['UST_ID'] == 1){
                             echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Dashboard">Tableau de bord</a></li>';
                         }
                         else{
@@ -63,32 +64,16 @@
     <footer class="footer text-center" id="contact">
         <div class="container">
             <div class="row">
-                <!-- Footer Location-->
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h4 class="text-uppercase mb-4">Location</h4>
-                    <p class="lead mb-0">
-                        IUT GON, Campus 3
-                        <br />
-                        Anton Tchekov Street
-                    </p>
-                </div>
+            
                 <!-- Footer Social Icons-->
                 <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h4 class="text-uppercase mb-4">Around the Web</h4>
+                    <h4 class="text-uppercase mb-4">Retrouvez-nous ici</h4>
                     <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
                     <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
                     <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
 
                 </div>
-                <!-- Footer About Text-->
-                <div class="col-lg-4">
-                    <h4 class="text-uppercase mb-4">About Freelancer</h4>
-                    <p class="lead mb-0">
-                        Freelance is a free to use, MIT licensed Bootstrap theme created by
-                        <a href="http://startbootstrap.com">Start Bootstrap</a>
-
-                    </p>
-                </div>
+                
             </div>
         </div>
     </footer>

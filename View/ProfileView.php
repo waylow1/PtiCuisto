@@ -41,7 +41,7 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
     </section>  
     <section class="page-section text-white mb-0 two-thirds-width" id="user_recipe">
         <div class="container text-center section-primary">
-        <h2 class="page-section-heading text-center text-uppercase text-white">Vos Recettes</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-white">Mes Recettes</h2>
             <!-- Icon Divider-->
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>

@@ -20,7 +20,6 @@ class LoginController extends Controller
 
                     $_SESSION['current_user_informations'] = $verif[0];
 
-                    $_SESSION['type'] = $verif[0]["UST_ID"];
                     $_GET['action'] = "";
                     echo '<script>window.location.href = "index.php";</script>';
                 }
