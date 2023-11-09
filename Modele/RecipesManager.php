@@ -116,4 +116,21 @@ class RecipesManager extends Manager
          're_image' => $fileName
       ));
    }
+
+   public function getIngredient($ingredientName){
+      $connexion = $this->con();
+      $getIg = $connexion->prepare('SELECT count(*) FROM INGREDIENT WHERE IN_TITLE LIKE :title');
+      $ingredientName = '%' . $ingredientName . '%';
+      $getIg->bindParam('title',$ingredientName);
+      $getIg->execute();
+      $res = $getIg->fetchAll(PDO::FETCH_ASSOC);
+      return $res;
+   }
+
+   public function insertIngredient($ingredientName){
+      $connexion = $this->con();
+      $getIg = $connexion->prepare('INSERT INTO INGREDIENT VALUES((select max(in_id)+1),:title,:title)');
+      $getIg->bindParam('title',$ingredientName);
+      $getIg->execute();
+   }
 }
