@@ -20,7 +20,7 @@ ob_start();
             <!-- Pills content -->
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-                    <form method="post" action= <?php $_SESSION['dir'] . '/Controller/LoginController.php' ?> >
+                    <form method="post" action=<?php $_SESSION['dir'] . '/Controller/LoginController.php' ?>>
                         <br><br>
                         <!-- Email input -->
                         <div class="form-outline mb-4">
@@ -32,7 +32,7 @@ ob_start();
                         <!-- Password input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="loginPassword">Mot de passe</label>
-                            <input type="password" id="loginPassword" class="form-control" name ="password" required />
+                            <input type="password" id="loginPassword" class="form-control" name="password" required />
                         </div>
 
                         <!-- 2 column grid Layout -->
@@ -52,7 +52,7 @@ ob_start();
                         </div>
 
                         <!-- Submit button -->
-                        <button type="submit"  class="btn btn-primary btn-block mb-4">Se connecter</button>
+                        <button type="submit" href="?action=Profile" class="btn btn-primary btn-block mb-4">Se connecter</button>
 
                         <!-- Register buttons -->
                         <div class="text-center">

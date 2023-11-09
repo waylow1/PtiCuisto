@@ -125,7 +125,10 @@ Custom CSS Styling
   height: 100%;
 }
 
-
+.small-masthead {
+  padding-top: calc(1rem + 37px);
+  padding-bottom: 1rem;
+}
 
 /*
 Boostrap
