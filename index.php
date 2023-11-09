@@ -30,6 +30,10 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         $Edito = new EditoController();
         $Edito->run();
     }
+    if ($controller == "AllRecipes") {
+        $AllRecipes = new AllRecipesController();
+        $AllRecipes->run();
+    }
 } else {
     include $_SESSION['dir'] . '/View/Template.php';
 }

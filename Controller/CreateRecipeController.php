@@ -12,7 +12,7 @@ class CreateRecipeController extends Controller
     public function run()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (isset($_POST['recipeName'])) {
+            if (isset($_POST['submitRecipe'])) {
                 $uploadDirectory = $_SESSION['dir'] . '/assets/dish/';
                 $file = $_FILES['recipePicture'];
                 $fileName = $file['name'];
@@ -27,6 +27,7 @@ class CreateRecipeController extends Controller
                     echo '<script>window.location.href = "index.php";</script>';
                 }
             }
+        
         } else {
             include $_SESSION['dir'] . '/View/RecipesView.php';
         }
