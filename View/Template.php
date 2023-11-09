@@ -38,7 +38,7 @@ ob_start();
                             <div class="collection-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="collection-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="..\assets/dish/cream.jpg" alt="..." /> <!--reicpe image main page-->
+                            <img class="img-fluid" src="../assets/dish/<?php echo $Latest['1']['RE_IMAGE']?>" alt="..." /> <!--recipe image main page-->
                         </div>
                     </div>
                     <!-- collection Item 2-->
