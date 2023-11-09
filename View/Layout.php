@@ -35,16 +35,21 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item mx-0 mx-lg-1" id="filter"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/index.php">Accueil</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=AllRecipes">Nos recettes</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=CreateRecipe">Filtres</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" >Filtres</a></li>
                     <ul class="nav-under">
-                        <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Category">Catégories</a></li>
-                        <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Title">Titre</a></li>
-                        <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Ingredient">Ingrédients</a></li>
+                        <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=FilterCategory">Catégories</a></li>
+                        <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=FilterTitle">Titre</a></li>
+                        <li class="nav-under-item"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=FilterIngredient">Ingrédients</a></li>
                     </ul>
                     <?php if (isset($_SESSION['username'])) {
-
+                        if($_SESSION['type'] = 1){
+                            echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Dashboard">Tableau de bord</a></li>';
+                        }
+                        else{
                         echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Profile">Mon profil </a></li>';
-                    } else {
+                        }
+                    } 
+                    else{
                         echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Login">Connexion </a></li>';
                     }  ?>
                 </ul>

@@ -41,13 +41,14 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
     </section>  
     <section class="page-section text-white mb-0 two-thirds-width" id="user_recipe">
         <div class="container text-center section-primary">
-        <h2 class="page-section-heading text-center text-uppercase text-white">Recettes de cet utilisateur</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-white">Vos Recettes</h2>
             <!-- Icon Divider-->
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
                 <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
+            <input type="button" value ="Poster une recette" onclick="location.href ='?action=CreateRecipe';">
         </div>
     </section>
 </div>
@@ -56,6 +57,15 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
         <form method="post" action=<?php $_SESSION['dir'] . '/Controller/ProfileController.php'?>>
             <button type=submit class="btn btn-danger btn-block mb-4 " name='suppression' value="suppression" id="suppression">Supprimer mon compte</button>
         </form>
+        <script>
+
+        suppr = document.getElementById('suppression');
+        suppr.addEventListener("click",() => {
+            document.cookie = "confirm=" + escape(confirm("Confirmez la suppression du compte.")) + "; path=/";
+            console.log(document.cookie)
+        });
+        </script>
+
     </div>
 </section>
 <?php
