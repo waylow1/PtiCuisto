@@ -113,12 +113,12 @@ ob_start();
                 <!-- About Section Content-->
                 <div class="row">
                     <div class="col-lg-4 ms-auto">
-                        <p class="lead"> 'Bienvenue sur PtitCuistot, le site pour trouver les meilleures recettes de vos plats préférés!
-                            Vous pourrez y trouver des recettes d'entrées, de plat principaux ou encore de dessert.</p>
+                        <?php echo '<p class="lead">' . $_SESSION['edito1']  . '</p>';?>
 
                     </div>
                     <div class="col-lg-4 me-auto">
-                        <p class="lead"> Partagez vous aussi vos propres recettes avec la communauté en cliquant sur l'onglet "Connexion" </p>
+                        <?php echo '<p class="lead">' . $_SESSION['edito2']  .'</p> ' ;?>
+                        
 
                     </div>
                 </div>
