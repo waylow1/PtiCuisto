@@ -23,6 +23,14 @@ class UsersManager extends Manager{
         }
     } 
 
+    public function selectPass($pseudo){
+        $db = $this->con();
+        $reponse = $db->prepare('select US_PASSWORD from USERS where US_PSEUDO = "' . $pseudo . '" ');
+        $reponse->execute();
+        $res = $reponse->fetchall();
+        return $res;
+    }
+
     public function insertUser($max, $pseudo, $password, $mail, $firstname, $lastname){
         $db = $this->con();
     
@@ -45,6 +53,7 @@ class UsersManager extends Manager{
         $res = $reponse->fetchall();
         return $res;
     }
+
     
     public function logOut(){
         session_destroy($_SESSION['username'],$_SESSION['password'],$_SESSION['type']);

@@ -10,7 +10,8 @@ class LoginController extends Controller{
     public function run(){
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username']) && isset($_POST['password']))  {
             $this->manager = new UsersManager();
-            $verif = $this->manager->verifInformations($_POST['username'],$_POST['password']);
+            $verifPassword = $this->manager->selectPass($_POST['password']);
+            $verif = $this->manager->verifInformations($_POST['username'],password_verify($_POST['password'], $verifPassword[0]['US_PASSWORD']));
             if(isset($verif[0])){
                 $_SESSION['username'] = $_POST['username'];
                 $_SESSION['password'] = $_POST['password'];
