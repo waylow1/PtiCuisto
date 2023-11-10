@@ -150,7 +150,7 @@ ob_start();
                                 <!-- collection Modal - Image-->
                                 <img class="img-fluid rounded mb-5" src="/assets/dish/<?php echo $Latest['0']['RE_IMAGE']?>" alt="..." /><!--reicpe image after click-->
                                 <!-- collection Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                <p class="mb-4"><?php echo $Latest['0']['RE_CONTENT']?></p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
                                     Close Window
@@ -182,7 +182,7 @@ ob_start();
                                 <!-- collection Modal - Image-->
                                 <img class="img-fluid rounded mb-5" src="/assets/dish/<?php echo $Latest['1']['RE_IMAGE']?>" alt="..." />
                                 <!-- collection Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                <p class="mb-4"><?php echo $Latest['1']['RE_CONTENT']?></p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
                                     Close Window
@@ -214,7 +214,7 @@ ob_start();
                                 <!-- collection Modal - Image-->
                                 <img class="img-fluid rounded mb-5" src="/assets/dish/<?php echo $Latest['2']['RE_IMAGE']?>" alt="..." />
                                 <!-- collection Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                <p class="mb-4"><?php echo $Latest['2']['RE_CONTENT']?></p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
                                     Close Window
@@ -246,7 +246,7 @@ ob_start();
                                 <!-- collection Modal - Image-->
                                 <img class="img-fluid rounded mb-5" src="/assets/dish/<?php echo $Latest['3']['RE_IMAGE']?>" alt="..." />
                                 <!-- collection Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                <p class="mb-4"><?php echo $Latest['3']['RE_CONTENT']?></p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
                                     Close Window
@@ -278,7 +278,7 @@ ob_start();
                                 <!-- collection Modal - Image-->
                                 <img class="img-fluid rounded mb-5" src="/assets/dish/<?php echo $Latest['4']['RE_IMAGE']?>" alt="..." />
                                 <!-- collection Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                <p class="mb-4"><?php echo $Latest['4']['RE_CONTENT']?></p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
                                     Close Window
@@ -310,7 +310,7 @@ ob_start();
                                 <!-- collection Modal - Image-->
                                 <img class="img-fluid rounded mb-5" src="/assets/dish/<?php echo $Latest['5']['RE_IMAGE']?>" alt="..." />
                                 <!-- collection Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                <p class="mb-4"><?php echo $Latest['5']['RE_CONTENT']?></p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
                                     Close Window
