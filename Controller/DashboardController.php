@@ -37,14 +37,27 @@ class DashboardController extends Controller
             }
             
         }
-        elseif (isset($_POST['validateRecipe'])){
+        elseif (isset($_POST['modifyUser']) && isset($_POST['radioUsers'])){
+            $user =  $_POST['radioUsers'] ;
+             
+            $_GET['action'] = '';
+            echo '<script>window.location.href = "index.php";</script>';       
+        }
+        elseif(isset($_POST['denyUser'])&& isset($_POST['radioUsers'])){
+            $user  = $_POST['radioUsers'] ;
+            $this->manager->deleteUser($user);
+
+            $_GET['action'] = '';
+            echo '<script>window.location.href = "index.php";</script>';  
+        }
+        elseif (isset($_POST['validateRecipe']) && isset($_POST['checkboxesRecipe'])){
             foreach($_POST['checkboxesRecipe'] as $recette){
                 $this->manager->acceptRecipe($recette);
             }    
             $_GET['action'] = '';
             echo '<script>window.location.href = "index.php";</script>';       
         }
-        elseif(isset($_POST['denyRecipe'])){
+        elseif(isset($_POST['denyRecipe']) && isset($_POST['checkboxesRecipe'])){
             foreach($_POST['checkboxesRecipe'] as $recette){
                 $this->manager->denyRecipe($recette);
             }

@@ -32,11 +32,10 @@ class AdminManager extends Manager
     }
 
 
-    public function deleteUser() {
+    public function deleteUser($us_id) {
         $connexion = $this->con();
-        $req = $connexion->prepare('UPDATE USERS SET USS_JD = 2 WHERE US_PSEUDO like :pseudo AND US_PASSWORD like :password');
-        $req->bindParam('pseudo', $_SESSION['username']);
-        $req->bindParam('password', $_SESSION['password']);
+        $req = $connexion->prepare('UPDATE USERS SET USS_JD = 2 WHERE US_ID like :id ');
+        $req->bindParam('id', $us_id);
         $req->execute();
     }
     public function getRecipesToAccept(){
@@ -64,4 +63,7 @@ class AdminManager extends Manager
         $recipe->bindParam('re_id',$re_id);
         $recipe->execute();
     }
+
+    
 }
+
