@@ -11104,3 +11104,8 @@ html {
 img{
 user-select: none;
 }
+.smaller-image {
+  max-width: 400px; /* Ajustez la largeur maximale selon vos besoins */
+  height: auto;
+  border-radius: 15px; /* Ajustez la hauteur en conséquence ou laissez-la automatique */
+}
