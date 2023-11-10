@@ -1,13 +1,13 @@
 <?php
 
 require_once $_SESSION['dir'] . '/Controller/Controller.php';
-require_once $_SESSION['dir'] . '/Modele/UsersManager.php';
+require_once $_SESSION['dir'] . '/Modele/AdminManager.php';
 class DashboardController extends Controller
 {
 
     public function __construct()
     {
-        $this->manager = new UsersManager();
+        $this->manager = new AdminManager();
     }
 
     public function run()
@@ -36,6 +36,16 @@ class DashboardController extends Controller
                 }
             }
             
+        }
+        elseif (isset($_POST['validateRecipe'])){
+            
+            for($i = 0; $i<$_POST['validateRecipe'];$i++){
+                echo $_POST['validateRecipe'][$i]['RE_ID'];
+                $this->manager->acceptRecipe($_POST['validateRecipe'][$i]['RE_ID']);
+            }
+            
+        }
+        elseif(isset($_POST['denyRecipe'])){
         }
         else{
             $_SESSION['allUsers'] = $this->manager->getAllUsers();

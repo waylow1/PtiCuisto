@@ -4,15 +4,6 @@ require_once $_SESSION['dir'] . '/Modele/Manager.php';
 
 class UsersManager extends Manager
 {
-    public function getAllUsers()
-    {
-        $db = $this->con();
-        $users = $db->prepare('SELECT * from USERS');
-        $users->execute();
-        $res = $users->fetchall();
-        return $res;
-    }
-
     public function verifInformations($pseudo, $password)
     {
         $db = $this->con();
@@ -37,10 +28,28 @@ class UsersManager extends Manager
         return $res;
     } 
 
+    public function selectPass($pseudo){
+        $db = $this->con();
+        $reponse = $db->prepare('SELECT US_PASSWORD FROM USERS WHERE US_PSEUDO = ?');
+        $reponse->bindParam(1, $pseudo);
+        $reponse->execute();
+        $res = $reponse->fetchall();
+        return $res;
+    }
+
+    public function selectPseudo($pseudo){
+        $db = $this->con();
+        $reponse = $db->prepare('SELECT US_PSEUDO FROM USERS WHERE US_PSEUDO = ?');
+        $reponse->bindParam(1, $pseudo);
+        $reponse->execute();
+        $res = $reponse->fetchall();
+        return $res;
+    }
+
     public function insertUser($max, $pseudo, $password, $mail, $firstname, $lastname){
         $db = $this->con();
     
-    $reponse = $db->prepare('INSERT INTO `USERS`(`US_ID`, `UST_ID`, `USS_JD`, `US_PSEUDO`, `US_MAIL`, `US_FIRSTNAME`, `US_LASTNAME`, `US_REGDATE`, `US_PASSWORD`) VALUES (:max, 2, 2, :pseudo, :mail, :firstname, :lastname, NOW(), :password);');
+    $reponse = $db->prepare('INSERT INTO `USERS`(`US_ID`, `UST_ID`, `USS_JD`, `US_PSEUDO`, `US_MAIL`, `US_FIRSTNAME`, `US_LASTNAME`, `US_REGDATE`, `US_PASSWORD`) VALUES (:max, 2, 1, :pseudo, :mail, :firstname, :lastname, NOW(), :password);');
 
     $reponse->bindParam(':max', $max);
     $reponse->bindParam(':pseudo', $pseudo);
@@ -59,6 +68,7 @@ class UsersManager extends Manager
         $res = $reponse->fetchall();
         return $res;
     }
+
     
     public function logOut(){
         session_destroy($_SESSION['username'],$_SESSION['password'],$_SESSION['type']);
