@@ -17,8 +17,12 @@ $content = ob_get_clean();
             <th scope="col"> Nom </th>
             <th scope="col"> Date d'inscription </th>
             <th scope="col"> Mot de passe </th>
+            <th scope="col"> Action </th>
+
         </tr> 
     </thead>
+    <form method="post" action=<?php $_SESSION['dir'] . '/Controller/DashboardController.php'?>>
+
     <tbody>
         <?php 
             for($i = 0 ; $i < (count($_SESSION['allUsers']));$i++){
@@ -26,11 +30,16 @@ $content = ob_get_clean();
                 for($j  = 0; $j < (count($_SESSION['allUsers'][$i])/2); $j++){
                     echo '<td>' . $_SESSION['allUsers'][$i][$j] . '</td> ' ;                 
                 }
+                echo '<td> <input class="form-check form-check-input" type ="radio" name="radioUsers" value="'. $_SESSION['allUsers'][$i]['US_ID']. '"';
                 echo '</tr>';
-
             }
         ?> 
-    </tbody>     
+        
+    </tbody>  
+    <button type=submit class="btn btn-warning btn-block mb-4 " name='modifyUser' value="Modifier l'utilisateur">Modifier l'utilisateur</button>
+    <button type=submit class="btn btn-danger btn-block mb-4 " name='denyUser' value="Supprimer l'utilisateur">Supprimer l'utilisateur</button>
+    </form>
+   
    
 </table>
         
@@ -59,7 +68,7 @@ $content = ob_get_clean();
                     for($j  = 0; $j < (count($_SESSION['recipesToAccept'][$i])/2); $j++){
                         echo '<td>' . $_SESSION['recipesToAccept'][$i][$j] . '</td> ' ;                 
                     }
-                    echo '<td> <input type ="checkbox" name="checkboxesRecipe[]" value="'. $_SESSION['recipesToAccept'][$i]['RE_ID']. '"';
+                    echo '<td> <input class="form-check form-check-input" type ="checkbox" name="checkboxesRecipe[]" value="'. $_SESSION['recipesToAccept'][$i]['RE_ID']. '"';
                     echo '</tr>';
 
                 }
@@ -78,7 +87,6 @@ $content = ob_get_clean();
 </form>
 
         <script>
-
         suppr = document.getElementById('suppr');
         suppr.addEventListener("click",() => {
             document.cookie = "confirm=" + escape(confirm("Confirmez la suppression du compte.")) + "; path=/";
