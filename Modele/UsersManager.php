@@ -4,15 +4,6 @@ require_once $_SESSION['dir'] . '/Modele/Manager.php';
 
 class UsersManager extends Manager
 {
-    public function getAllUsers()
-    {
-        $db = $this->con();
-        $users = $db->prepare('SELECT * from USERS');
-        $users->execute();
-        $res = $users->fetchall();
-        return $res;
-    }
-
     public function verifInformations($pseudo, $password)
     {
         $db = $this->con();
