@@ -48,7 +48,7 @@ class UsersManager extends Manager
 
     public function selectPseudo($pseudo){
         $db = $this->con();
-        $reponse = $db->prepare('SELECT pseudo FROM USERS WHERE US_PSEUDO = ?');
+        $reponse = $db->prepare('SELECT US_PSEUDO FROM USERS WHERE US_PSEUDO = ?');
         $reponse->bindParam(1, $pseudo);
         $reponse->execute();
         $res = $reponse->fetchall();
