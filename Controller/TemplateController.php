@@ -10,8 +10,7 @@ class TemplateController extends Controller
     }
     public function run()
     {
-        $Latest = $this->manager->getLatestRecipes(6);
-
+        $Latest = $this->manager->getLatestRecipes();
         include $_SESSION['dir'] . '/View/Template.php';
     }
 }

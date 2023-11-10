@@ -60,7 +60,7 @@ ob_start();
             return;
         }
         else{
-            window.location.href = url + "/?Ingredient="+`${ingredientName.value}`; 
+            window.location.href = url + "&Ingredient="+`${ingredientName.value}`; 
         }
     });
 </script>
@@ -80,7 +80,6 @@ ob_start();
         if (charactersRemainingName <= 0) {
             alert("Trop de caractere dans le nom de la recette");
             recipeNameInput.value = "";
-
         }
     });
 
