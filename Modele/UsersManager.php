@@ -4,15 +4,6 @@ require_once $_SESSION['dir'] . '/Modele/Manager.php';
 
 class UsersManager extends Manager
 {
-    public function getAllUsers()
-    {
-        $db = $this->con();
-        $users = $db->prepare('SELECT * from USERS');
-        $users->execute();
-        $res = $users->fetchall();
-        return $res;
-    }
-
     public function verifInformations($pseudo, $password)
     {
         $db = $this->con();
@@ -99,5 +90,15 @@ class UsersManager extends Manager
         $req->bindParam('pseudo', $_SESSION['username']);
         $req->bindParam('password', $_SESSION['password']);
         $req->execute();
+    }
+    public function getRecipesToAccept(){
+        $db = $this->con();
+        $users = $db->prepare('SELECT RE_ID,RES_ID,US_PSEUDO,CA_TITLE,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_REGDATE 
+        from RECIPE 
+        join USERS using(US_ID) 
+        join CATEGORY using(ca_id)');
+        $users->execute();
+        $res = $users->fetchall();
+        return $res;
     }
 }
