@@ -65,7 +65,9 @@ $content = ob_get_clean();
                 }
             ?>        
         </tbody>
-    <button type=submit class="btn btn-success btn-block mb-4 " name="validateRecipe" value="Valider la recette">Valider la ou les recette(s)</button>
+    <button type=submit class="btn btn-success btn-block mb-4 " name='validateRecipe' value="Valider la recette">Valider la ou les recette(s)</button>
+    <button type=submit class="btn btn-danger btn-block mb-4 " name='denyRecipe' value="Supprimer la recette">Supprimer la ou les recette(s)</button>
+
     </form>
 </table>
 
