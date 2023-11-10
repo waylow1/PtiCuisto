@@ -38,7 +38,7 @@ ob_start();
                             <div class="collection-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="collection-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="..\assets/dish/cream.jpg" alt="..." /> <!--reicpe image main page-->
+                            <img class="img-fluid" src="/assets/dish/<?php echo $Latest['0']['RE_IMAGE']?>" alt="..." /> <!--recipe image main page-->
                         </div>
                     </div>
                     <!-- collection Item 2-->
@@ -47,7 +47,7 @@ ob_start();
                             <div class="collection-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="collection-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="..\assets/dish/goulash.jpg" alt="..." />
+                            <img class="img-fluid" src="/assets/dish/<?php echo $Latest['1']['RE_IMAGE']?>" alt="..." />
                         </div>
                     </div>
                     <!-- collection Item 3-->
@@ -56,7 +56,7 @@ ob_start();
                             <div class="collection-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="collection-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="..\assets/dish/pork.jpg" alt="..." />
+                            <img class="img-fluid" src="/assets/dish/<?php echo $Latest['2']['RE_IMAGE']?>" alt="..." />
                         </div>
                     </div>
                     <!-- collection Item 4-->
@@ -65,7 +65,7 @@ ob_start();
                             <div class="collection-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="collection-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="..\assets/dish/potatoe.jpg" alt="..." />
+                            <img class="img-fluid" src="/assets/dish/<?php echo $Latest['3']['RE_IMAGE']?>" alt="..." />
                         </div>
                     </div>
                     <!-- collection Item 5-->
@@ -74,7 +74,7 @@ ob_start();
                             <div class="collection-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="collection-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="..\assets/dish/ratatouille.jpg" alt="..." />
+                            <img class="img-fluid" src="/assets/dish/<?php echo $Latest['4']['RE_IMAGE']?>" alt="..." />
                         </div>
                     </div>
                     <!-- collection Item 6-->
@@ -83,7 +83,7 @@ ob_start();
                             <div class="collection-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="collection-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="..\assets/dish/spinach.jpg" alt="..." />
+                            <img class="img-fluid" src="/assets/dish/<?php echo $Latest['5']['RE_IMAGE']?>" alt="..." />
                         </div>
                     </div>
                 </div>
@@ -148,7 +148,7 @@ ob_start();
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <!-- collection Modal - Title-->
-                                <h2 class="collection-modal-title text-secondary text-uppercase mb-0">Log Cabin</h2>
+                                <h2 class="collection-modal-title text-secondary text-uppercase mb-0"><?php echo $Latest['0']['RE_TITLE']?></h2>
                                 <!-- Icon Divider-->
                                 <div class="divider-custom">
                                     <div class="divider-custom-line"></div>
@@ -156,9 +156,9 @@ ob_start();
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- collection Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="..\assets/dish/cream.jpg" alt="..." /><!--reicpe image after click-->
+                                <img class="img-fluid rounded mb-5" src="/assets/dish/<?php echo $Latest['0']['RE_IMAGE']?>" alt="..." /><!--reicpe image after click-->
                                 <!-- collection Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                <p class="mb-4"><?php echo $Latest['0']['RE_CONTENT']?></p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
                                     Close Window
@@ -180,7 +180,7 @@ ob_start();
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <!-- collection Modal - Title-->
-                                <h2 class="collection-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
+                                <h2 class="collection-modal-title text-secondary text-uppercase mb-0"><?php echo $Latest['1']['RE_TITLE']?></h2>
                                 <!-- Icon Divider-->
                                 <div class="divider-custom">
                                     <div class="divider-custom-line"></div>
@@ -188,9 +188,9 @@ ob_start();
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- collection Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="..\assets/dish/goulash.jpg" alt="..." />
+                                <img class="img-fluid rounded mb-5" src="/assets/dish/<?php echo $Latest['1']['RE_IMAGE']?>" alt="..." />
                                 <!-- collection Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                <p class="mb-4"><?php echo $Latest['1']['RE_CONTENT']?></p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
                                     Close Window
@@ -212,7 +212,7 @@ ob_start();
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <!-- collection Modal - Title-->
-                                <h2 class="collection-modal-title text-secondary text-uppercase mb-0">Circus Tent</h2>
+                                <h2 class="collection-modal-title text-secondary text-uppercase mb-0"><?php echo $Latest['2']['RE_TITLE']?></h2>
                                 <!-- Icon Divider-->
                                 <div class="divider-custom">
                                     <div class="divider-custom-line"></div>
@@ -220,9 +220,9 @@ ob_start();
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- collection Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="..\assets/dish/pork.jpg" alt="..." />
+                                <img class="img-fluid rounded mb-5" src="/assets/dish/<?php echo $Latest['2']['RE_IMAGE']?>" alt="..." />
                                 <!-- collection Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                <p class="mb-4"><?php echo $Latest['2']['RE_CONTENT']?></p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
                                     Close Window
@@ -244,7 +244,7 @@ ob_start();
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <!-- collection Modal - Title-->
-                                <h2 class="collection-modal-title text-secondary text-uppercase mb-0">Controller</h2>
+                                <h2 class="collection-modal-title text-secondary text-uppercase mb-0"><?php echo $Latest['3']['RE_TITLE']?></h2>
                                 <!-- Icon Divider-->
                                 <div class="divider-custom">
                                     <div class="divider-custom-line"></div>
@@ -252,9 +252,9 @@ ob_start();
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- collection Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="..\assets/dish/potatoe.jpg" alt="..." />
+                                <img class="img-fluid rounded mb-5" src="/assets/dish/<?php echo $Latest['3']['RE_IMAGE']?>" alt="..." />
                                 <!-- collection Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                <p class="mb-4"><?php echo $Latest['3']['RE_CONTENT']?></p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
                                     Close Window
@@ -276,7 +276,7 @@ ob_start();
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <!-- collection Modal - Title-->
-                                <h2 class="collection-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
+                                <h2 class="collection-modal-title text-secondary text-uppercase mb-0"><?php echo $Latest['4']['RE_TITLE']?></h2>
                                 <!-- Icon Divider-->
                                 <div class="divider-custom">
                                     <div class="divider-custom-line"></div>
@@ -284,9 +284,9 @@ ob_start();
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- collection Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="..\assets/dish/ratatouille.jpg" alt="..." />
+                                <img class="img-fluid rounded mb-5" src="/assets/dish/<?php echo $Latest['4']['RE_IMAGE']?>" alt="..." />
                                 <!-- collection Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                <p class="mb-4"><?php echo $Latest['4']['RE_CONTENT']?></p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
                                     Close Window
@@ -308,7 +308,7 @@ ob_start();
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <!-- collection Modal - Title-->
-                                <h2 class="collection-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
+                                <h2 class="collection-modal-title text-secondary text-uppercase mb-0"><?php echo $Latest['5']['RE_TITLE']?></h2>
                                 <!-- Icon Divider-->
                                 <div class="divider-custom">
                                     <div class="divider-custom-line"></div>
@@ -316,9 +316,9 @@ ob_start();
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- collection Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="..\assets/dish/spinach.jpg" alt="..." />
+                                <img class="img-fluid rounded mb-5" src="/assets/dish/<?php echo $Latest['5']['RE_IMAGE']?>" alt="..." />
                                 <!-- collection Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                <p class="mb-4"><?php echo $Latest['5']['RE_CONTENT']?></p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
                                     Close Window

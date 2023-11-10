@@ -10,7 +10,9 @@ if(!(isset($_SESSION['edito2']))) {
 if (isset($_GET['action']) && $_GET['action'] !== '') {
     $controller = $_GET['action'];
     if (!file_exists('Controller/' . $controller . 'Controller.php')) {
-        include $_SESSION['dir'] . '/View/Template.php';
+        require 'Controller/TemplateController.php';
+        $Contro = new TemplateController();
+        $Contro->run(); 
     } else {
         require 'Controller/' . $controller . 'Controller.php';
     }
@@ -55,5 +57,7 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         $Dashboard->run();
     }
 } else {
-    include $_SESSION['dir'] . '/View/Template.php';
+    require 'Controller/TemplateController.php';
+        $Contro = new TemplateController();
+        $Contro->run(); 
 }
