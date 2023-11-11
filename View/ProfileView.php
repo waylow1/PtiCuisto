@@ -29,7 +29,7 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
                 <li class="list-group-item">Nom : <?php echo $_SESSION['current_user_informations']['US_LASTNAME']?></li>
                 <li class="list-group-item">Création du compte : <?php echo $_SESSION['current_user_informations']['US_REGDATE']?></li>
                 <li class="list-group-item">Mot de passe :  <?php 
-                    for($i = 0; $i < strlen($_SESSION['current_user_informations']['US_PASSWORD']); $i++) {
+                    for($i = 0; $i < strlen($_SESSION['password']); $i++) {
                         echo '•';
                     }
                     ?>
