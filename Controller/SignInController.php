@@ -21,12 +21,12 @@ class SignInController extends Controller
         echo '<br>';
         $temp = $this->manager->selectMaxID();
         $var = $temp[0]['max'] + 1;
-    
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['pseudo'], $_POST['password1'], $_POST['password2'], $_POST['mail'], $_POST['firstname'], $_POST['lastname'])) {
             $verifPseudo = $this->manager->selectPseudo($_POST['pseudo']);
-            if(empty($verifPseudo)){
+            if (empty($verifPseudo)) {
                 if (preg_match('/^[a-zA-Z]+$/', $_POST['firstname']) && preg_match('/^[a-zA-Z]+$/', $_POST['lastname'])) {
-                    if ($_POST['password1'] == $_POST['password2']) {           
+                    if ($_POST['password1'] == $_POST['password2']) {
                         $insert = $this->manager->insertUser($var, $_POST['pseudo'], password_hash($_POST['password2'], PASSWORD_DEFAULT), $_POST['mail'], $_POST['firstname'], $_POST['lastname']);
                         if ($insert) {
                             $_GET['action'] = 'Profile';
@@ -39,11 +39,11 @@ class SignInController extends Controller
                 } else {
                     echo '<script>alert("Le nom et le prénom ne doivent contenir que des lettres")</script>';
                 }
-            }else{
+            } else {
                 echo '<script>alert("Ce pseudo existe déjà")</script>';
             }
         }
         include $_SESSION['dir'] . '/View/SignInView.php';
     }
-        
 }
+?>
