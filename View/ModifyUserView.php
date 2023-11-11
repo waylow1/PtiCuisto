@@ -38,22 +38,22 @@ ob_start();
                     echo '<td> <input class="form-control" type="number"  placeholder="' . $_SESSION['radioUsers'][0][$i] . '" disabled >  </td> ' ;   
                     break;
                 case 1: 
-                    echo '<td> <input class="form-control" type="number" name="modified_UST_ID" placeholder="' . $_SESSION['radioUsers'][0][$i] . '" > </td> ' ;  
+                    echo '<td> <input class="form-control" type="number" name="modified_UST_ID" placeholder="' . $_SESSION['radioUsers'][0][$i] . '" value="' . $_SESSION['radioUsers'][0][$i] . '" > </td> ' ;  
                     break;
                 case 2: 
-                    echo '<td> <input class="form-control" type="number" name="modified_USS_JD" placeholder="' . $_SESSION['radioUsers'][0][$i] . '" ></td> ' ;  
+                    echo '<td> <input class="form-control" type="number" name="modified_USS_JD" placeholder="' . $_SESSION['radioUsers'][0][$i] . '" value="' . $_SESSION['radioUsers'][0][$i] . '"></td> ' ;  
                     break;
                 case 3: 
-                    echo '<td> <input class="form-control" type="text" name="modified_US_PSEUDO" placeholder="' . $_SESSION['radioUsers'][0][$i] . '" > </td> ' ;  
+                    echo '<td> <input class="form-control" type="text" name="modified_US_PSEUDO" placeholder="' . $_SESSION['radioUsers'][0][$i] . '" value="' . $_SESSION['radioUsers'][0][$i] . '"> </td> ' ;  
                     break;
                 case 4: 
-                    echo '<td> <input class="form-control" type="email" name="modified_US_MAIL" placeholder="' . $_SESSION['radioUsers'][0][$i] . '" >  </td> ' ;  
+                    echo '<td> <input class="form-control" type="email" name="modified_US_MAIL" placeholder="' . $_SESSION['radioUsers'][0][$i] . '" value="' . $_SESSION['radioUsers'][0][$i] . '">  </td> ' ;  
                     break;
                 case 5: 
-                    echo '<td> <input  class="form-control" type="text" name="modified_US_FIRSTNAME" placeholder="' . $_SESSION['radioUsers'][0][$i] . '" >  </td> ' ;  
+                    echo '<td> <input  class="form-control" type="text" name="modified_US_FIRSTNAME" placeholder="' . $_SESSION['radioUsers'][0][$i] . '" value="' . $_SESSION['radioUsers'][0][$i] . '">  </td> ' ;  
                     break;
                 case 6: 
-                    echo '<td> <input  class="form-control" type="text" name="modified_US_LASTNAME" placeholder="' . $_SESSION['radioUsers'][0][$i] . '" >  </td> ' ;  
+                    echo '<td> <input  class="form-control" type="text" name="modified_US_LASTNAME" placeholder="' . $_SESSION['radioUsers'][0][$i] . '" value="' . $_SESSION['radioUsers'][0][$i] . '">  </td> ' ;  
                     break;
                            
             }
@@ -68,7 +68,7 @@ ob_start();
     </table>
     <div class="container text-center">
         <button type=submit class="btn btn-success btn-block mb-4 " name='validateUserModif' value="Valider la modification">Valider</button>
-        <button type=submit class="btn btn-danger btn-block mb-4 " name='validateUserModif' value="Annuler la modification">Annuler</button>
+        <button type=submit class="btn btn-danger btn-block mb-4 " name='annulateUserModif' value="Annuler la modification">Annuler</button>
     </div>
     </form>
 

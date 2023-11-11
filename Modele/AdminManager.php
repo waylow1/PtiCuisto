@@ -82,36 +82,36 @@ class AdminManager extends Manager
     }
     public function userModifyUssJd($uss_jd,$us_id){
         $connexion = $this->con();
-        $recipe = $connexion->prepare('UPDATE USERS SET UST_ID = :ust_id where US_ID like :us_id' );
-        $recipe->bindParam('ust_id',$ust_id);
+        $recipe = $connexion->prepare('UPDATE USERS SET USS_JD = :uss_jd where US_ID like :us_id' );
+        $recipe->bindParam('uss_jd',$uss_jd);
         $recipe->bindParam('us_id',$us_id);
         $recipe->execute();
     }
     public function userModifyUsPseudo($us_pseudo,$us_id){
         $connexion = $this->con();
-        $recipe = $connexion->prepare('UPDATE USERS SET UST_ID = :ust_id where US_ID like :us_id' );
-        $recipe->bindParam('ust_id',$ust_id);
+        $recipe = $connexion->prepare('UPDATE USERS SET US_PSEUDO = :us_pseudo where US_ID like :us_id' );
+        $recipe->bindParam('us_pseudo',$us_pseudo);
         $recipe->bindParam('us_id',$us_id);
         $recipe->execute();
     }
     public function userModifyUsMail($us_mail,$us_id){
         $connexion = $this->con();
-        $recipe = $connexion->prepare('UPDATE USERS SET UST_ID = :ust_id where US_ID like :us_id' );
-        $recipe->bindParam('ust_id',$ust_id);
+        $recipe = $connexion->prepare('UPDATE USERS SET US_MAIL = :us_mail where US_ID like :us_id' );
+        $recipe->bindParam('us_mail',$us_mail);
         $recipe->bindParam('us_id',$us_id);
         $recipe->execute();
     }
-    public function userModifyUsFirstName($us_firstname,$us_id){
+    public function userModifyUsFirstName($us_firstname,$us_id){        
         $connexion = $this->con();
-        $recipe = $connexion->prepare('UPDATE USERS SET UST_ID = :ust_id where US_ID like :us_id' );
-        $recipe->bindParam('ust_id',$ust_id);
+        $recipe = $connexion->prepare('UPDATE USERS SET US_FIRSTNAME = :us_firstname where US_ID like :us_id' );
+        $recipe->bindParam('us_firstname',$us_firstname);
         $recipe->bindParam('us_id',$us_id);
         $recipe->execute();
     }
     public function userModifyUsLastName($us_lastname,$us_id){
         $connexion = $this->con();
-        $recipe = $connexion->prepare('UPDATE USERS SET UST_ID = :ust_id where US_ID like :us_id' );
-        $recipe->bindParam('ust_id',$ust_id);
+        $recipe = $connexion->prepare('UPDATE USERS SET US_LASTNAME = :us_lastname where US_ID like :us_id' );
+        $recipe->bindParam('us_lastname',$us_lastname);
         $recipe->bindParam('us_id',$us_id);
         $recipe->execute();
     }
