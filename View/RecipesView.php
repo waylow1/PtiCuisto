@@ -37,11 +37,12 @@ ob_start();
 
     <div class="form-outline mb-4">
         <label class="form-label" for="ingredientName">Nom de l'ingrédient</label>
-        <input type="text" id="ingredientName" name="ingredientName" class="form-control" />
+        <input type="text" id="ingredientName" list="ingredientSuggestions" name="ingredientName" class="form-control" />
+        <datalist id="ingredientSuggestions"></datalist>
     </div>
-    <button type="button" name="addIngredientButton" id="addIngredientButton" class="btn btn-primary">Ajouter un ingrédient</button>
+    
 
-
+    <ul id="ingredientList"></ul>
 
 
     <div class="form-outline mb-4">
@@ -51,27 +52,54 @@ ob_start();
     <button type="submit" name="submitRecipe" class="btn btn-primary btn-block mb-3">Envoyer</button>
 </form>
 
-<script>
-   const addIngredientButton = document.getElementById("addIngredientButton");
-   const ingredientName= document.getElementById("ingredientName");
-   const url = new URL(window.location.href);
-   addIngredientButton.addEventListener("click", () => {
-        if (ingredientName.value==""){
-            return;
-        }
-        else{
-            window.location.href = url + "&Ingredient="+`${ingredientName.value}`; 
-        }
-    });
-</script>
-
 
 <script>
+    const addIngredientButton = document.getElementById("addIngredientButton");
+    const ingredientName = document.getElementById("ingredientName");
+    const url = new URL(window.location.href);
     const maxContentCharacters = 512;
     const recipeNameInput = document.getElementById("recipeName");
     const recipeDescriptionInput = document.getElementById("recipeDescription");
     const recipeContentInput = document.getElementById("recipeContent");
+   
+    var allIngredient = <?php echo json_encode($allIngredient); ?>;
+    var ingredientSuggestions = document.getElementById("ingredientSuggestions");
 
+    ingredientName.addEventListener("input", function() {
+        var searchTerm = ingredientName.value.toLowerCase();
+        var filteredIngredients = allIngredient.filter(function(ingredient) {
+            return ingredient.IN_TITLE.toLowerCase().startsWith(searchTerm);
+        });
+        ingredientSuggestions.innerHTML = "";
+        filteredIngredients.forEach(function(ingredient) {   
+            var option = document.createElement("option");
+            option.value = ingredient.IN_TITLE;
+            ingredientSuggestions.appendChild(option);
+        });
+    });
+
+    ingredientName.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" && ingredientName.value.trim() !== "") {
+        event.preventDefault();
+
+        const currentURL = new URL(window.location.href);
+        const ingredientValue = encodeURIComponent(ingredientName.value);
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', currentURL + `&Ingredient=${ingredientValue}`, true);
+        xhr.withCredentials = true; 
+        xhr.send();
+
+        const recipeIngredientsList = document.getElementById("ingredientList");
+        const listItem = document.createElement("li");
+        listItem.textContent = ingredientName.value;
+        recipeIngredientsList.appendChild(listItem);
+
+        ingredientName.value = ""; 
+    }
+});
+
+    
 
     recipeNameInput.addEventListener("input", function() {
         const currentLength = recipeNameInput.value.length;
