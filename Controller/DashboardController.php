@@ -36,15 +36,11 @@ class DashboardController extends Controller
                 }
             }
             
-<<<<<<< HEAD
-        }        
-=======
         }
         else{
             $_SESSION['allUsers'] = $this->manager->getAllUsers();
             $_SESSION['recipesToAccept'] = $this->manager->getRecipesToAccept();
         }
->>>>>>> noé
         include $_SESSION['dir'] . '/View/DashboardView.php';
     }
 }
