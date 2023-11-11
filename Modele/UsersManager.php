@@ -101,9 +101,14 @@ class UsersManager extends Manager
 
     public function changePassword($newPassword) {
         $db = $this->con();
-        $req = $connexion->prepare('UPDATE TABLE users SET US_PASSWORD = :password WHERE US_ID = :userId');
-        $req->bindParam('password', password_hash($newPassword));
-        $req->bindParam('userID', $this->getCurrentUserID());
+        $user = $db->prepare('SELECT US_ID from USERS where US_PSEUDO like :name');
+        $user->bindParam('name', $_SESSION['username']);
+        $user->execute();
+        $userID = $user->fetchall()['0']['US_ID'];
+        $req = $db->prepare('UPDATE USERS SET US_PASSWORD = ? WHERE US_ID = ?');
+        print_r($password);
+        $req->bindParam(1, $password);
+        $req->bindParam(2, $userID);
         $req->execute();
     }
 }

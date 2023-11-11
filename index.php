@@ -56,7 +56,8 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         $Dashboard = new DashboardController();
         $Dashboard->run();
     }
-    if ($controller == "ModifMdp"){
+    if ($controller == "Mdp"){
+        echo "<script>console.log('aa')</script>";
         $Mdp = new MdpController();
         $Mdp->run();
     }

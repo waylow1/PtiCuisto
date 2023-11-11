@@ -34,7 +34,7 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
                     }
                     ?>
                     <div class="pt-2">
-                        <input type="button" id="modifMDP" class="btn btn-light btn-outline-success btn-block mb-4" value ="Modifier le mot de passe" onclick="location.href ='?action=ModifMdp';">
+                        <input type="button" id="modifMDP" class="btn btn-light btn-outline-success btn-block mb-4" value ="Modifier le mot de passe" onclick="location.href ='?action=Mdp';">
                     </div>
                 </li>
             </ul>
