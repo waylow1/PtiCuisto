@@ -32,11 +32,10 @@ class AdminManager extends Manager
     }
 
 
-    public function deleteUser() {
+    public function deleteUser($us_id) {
         $connexion = $this->con();
-        $req = $connexion->prepare('UPDATE USERS SET USS_JD = 2 WHERE US_PSEUDO like :pseudo AND US_PASSWORD like :password');
-        $req->bindParam('pseudo', $_SESSION['username']);
-        $req->bindParam('password', $_SESSION['password']);
+        $req = $connexion->prepare('UPDATE USERS SET USS_JD = 2 WHERE US_ID like :id ');
+        $req->bindParam('id', $us_id);
         $req->execute();
     }
     public function getRecipesToAccept(){
@@ -47,7 +46,7 @@ class AdminManager extends Manager
         join CATEGORY using(ca_id)
         where RES_ID = 1');
         $recipes->execute();
-        $res = $recipes->fetchall();
+        $res = $recipes->fetchAll();
         return $res;
     }
 
@@ -64,4 +63,57 @@ class AdminManager extends Manager
         $recipe->bindParam('re_id',$re_id);
         $recipe->execute();
     }
+
+    public function getUser($us_id){
+        $connexion = $this->con();
+        $user = $connexion->prepare('SELECT * FROM USERS  WHERE US_ID like :us_id');
+        $user->bindParam('us_id',$us_id);
+        $user->execute();
+        $res = $user->fetchAll();
+        return $res;
+    }
+
+    public function userModifyUstId($ust_id,$us_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('UPDATE USERS SET UST_ID = :ust_id where US_ID like :us_id' );
+        $recipe->bindParam('ust_id',$ust_id);
+        $recipe->bindParam('us_id',$us_id);
+        $recipe->execute();
+    }
+    public function userModifyUssJd($uss_jd,$us_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('UPDATE USERS SET USS_JD = :uss_jd where US_ID like :us_id' );
+        $recipe->bindParam('uss_jd',$uss_jd);
+        $recipe->bindParam('us_id',$us_id);
+        $recipe->execute();
+    }
+    public function userModifyUsPseudo($us_pseudo,$us_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('UPDATE USERS SET US_PSEUDO = :us_pseudo where US_ID like :us_id' );
+        $recipe->bindParam('us_pseudo',$us_pseudo);
+        $recipe->bindParam('us_id',$us_id);
+        $recipe->execute();
+    }
+    public function userModifyUsMail($us_mail,$us_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('UPDATE USERS SET US_MAIL = :us_mail where US_ID like :us_id' );
+        $recipe->bindParam('us_mail',$us_mail);
+        $recipe->bindParam('us_id',$us_id);
+        $recipe->execute();
+    }
+    public function userModifyUsFirstName($us_firstname,$us_id){        
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('UPDATE USERS SET US_FIRSTNAME = :us_firstname where US_ID like :us_id' );
+        $recipe->bindParam('us_firstname',$us_firstname);
+        $recipe->bindParam('us_id',$us_id);
+        $recipe->execute();
+    }
+    public function userModifyUsLastName($us_lastname,$us_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('UPDATE USERS SET US_LASTNAME = :us_lastname where US_ID like :us_id' );
+        $recipe->bindParam('us_lastname',$us_lastname);
+        $recipe->bindParam('us_id',$us_id);
+        $recipe->execute();
+    }
 }
+
