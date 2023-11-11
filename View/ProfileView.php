@@ -44,7 +44,7 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
         </div>
     </section>  
     <section class="page-section text-white mb-0 two-thirds-width" id="user_recipe">
-        <div class="container text-center section-primary">
+        <div class="container text-center section-primary" style="overflow:scroll; height:500px">
         <h2 class="page-section-heading text-center text-uppercase text-white">Mes Recettes</h2>
             <!-- Icon Divider-->
             <div class="divider-custom divider-light">
@@ -52,6 +52,18 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
                 <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
+            <?php 
+            if(isset($_SESSION['current_user_recipes'])){
+                
+                foreach($_SESSION['current_user_recipes'] as $recipes){   
+                    echo 'Titre : ' . $recipes['RE_TITLE'] . '<br>';
+                    echo 'Catégorie : ' . $recipes['CA_TITLE'] . '<br>';
+                    echo 'Résumé : ' . $recipes['RE_SUMMARY'] . '<br>';
+                    echo 'Contenu : ' . $recipes['RE_CONTENT'] . '<br>';
+                    echo $recipes['RE_IMAGE'] . '<br>';
+                }
+            }?>
+           
             <input type="button" class="btn btn-light btn-outline-success btn-block mb-4 " value ="+ Recette" onclick="location.href ='?action=CreateRecipe';">
         </div>
     </section>

@@ -16,14 +16,14 @@ class UsersManager extends Manager
             return $res;
         }
     }
-    public function getRecipesOfUser($us_id)
+    public function getRecipesOfUser($us_pseudo)
     {
         $connexion = $this->con();
         $recipe = $connexion->query("SELECT RE_ID, US_ID,CA_ID,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_IMAGE,CA_TITLE,US_PSEUDO 
         from RECIPE 
         join CATEGORY using(CA_ID) 
         join USERS using(US_ID)
-        where US_ID='$us_id'");
+        where US_PSEUDO ='$us_pseudo'");
         $res = $recipe->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     } 

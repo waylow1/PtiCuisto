@@ -19,8 +19,8 @@ class LoginController extends Controller
                     if (!(is_null($verif[0]))) {
                         $_SESSION['username'] = $_POST['username'];
                         $_SESSION['password'] = $_POST['password'];
-
                         $_SESSION['current_user_informations'] = $verif[0];
+                        $_SESSION['current_user_recipes'] = $this->manager->getRecipesOfUser($_SESSION['username']);
 
                         $_GET['action'] = "";
                         echo '<script>window.location.href = "index.php";</script>';

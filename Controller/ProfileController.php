@@ -37,6 +37,7 @@ class ProfileController extends Controller
             }
             
         }
+        
         include $_SESSION['dir'] . '/View/ProfileView.php';
     }
 }
