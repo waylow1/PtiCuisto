@@ -21,7 +21,7 @@ this.tab.forEach((element, index) => {
   `;
 
   const recipeImage = recipeContainer.querySelector(".recipe-image");
-  recipeImage.src = "../assets/dish/" + element.RE_IMAGE;
+  recipeImage.src = "..\\assets/" + element.RE_IMAGE;
 
   container.appendChild(recipeContainer);
 
