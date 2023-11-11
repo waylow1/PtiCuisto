@@ -55,6 +55,11 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
     if ($controller == "Dashboard"){
         $Dashboard = new DashboardController();
         $Dashboard->run();
+        
+    }
+    if ($controller =="ModifyUser"){
+        $User = new ModifyUserController();
+        $User->run();
     }
 } else {
     require 'Controller/TemplateController.php';

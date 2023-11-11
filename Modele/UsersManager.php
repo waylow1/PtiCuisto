@@ -47,18 +47,16 @@ class UsersManager extends Manager
     }
 
     public function insertUser($max, $pseudo, $password, $mail, $firstname, $lastname){
-        $db = $this->con();
-    
-    $reponse = $db->prepare('INSERT INTO `USERS`(`US_ID`, `UST_ID`, `USS_JD`, `US_PSEUDO`, `US_MAIL`, `US_FIRSTNAME`, `US_LASTNAME`, `US_REGDATE`, `US_PASSWORD`) VALUES (:max, 2, 1, :pseudo, :mail, :firstname, :lastname, NOW(), :password);');
+        $db = $this->con();    
+        $reponse = $db->prepare('INSERT INTO `USERS`(`US_ID`, `UST_ID`, `USS_JD`, `US_PSEUDO`, `US_MAIL`, `US_FIRSTNAME`, `US_LASTNAME`, `US_REGDATE`, `US_PASSWORD`) VALUES (:max, 2, 1, :pseudo, :mail, :firstname, :lastname, NOW(), :password);');
+        $reponse->bindParam(':max', $max);
+        $reponse->bindParam(':pseudo', $pseudo);
+        $reponse->bindParam(':mail', $mail);
+        $reponse->bindParam(':firstname', $firstname);
+        $reponse->bindParam(':lastname', $lastname);
+        $reponse->bindParam(':password', $password);
 
-    $reponse->bindParam(':max', $max);
-    $reponse->bindParam(':pseudo', $pseudo);
-    $reponse->bindParam(':mail', $mail);
-    $reponse->bindParam(':firstname', $firstname);
-    $reponse->bindParam(':lastname', $lastname);
-    $reponse->bindParam(':password', $password);
-
-    $reponse->execute();
+        $reponse->execute();
     }
 
     public function selectMaxID(){
