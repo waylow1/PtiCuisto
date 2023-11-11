@@ -11,6 +11,7 @@ class CreateRecipeController extends Controller
     }
     public function run()
     {
+        $allIngredient = $this->manager->getAllIngredients();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['submitRecipe'])) {
                 $uploadDirectory = $_SESSION['dir'] . '/assets/dish/';
@@ -28,9 +29,10 @@ class CreateRecipeController extends Controller
                     echo '<script>window.location.href = "index.php";</script>';
                 }
             }
-        
-        } else {
-            include $_SESSION['dir'] . '/View/RecipesView.php';
         }
+        if (isset($_GET['Ingredient'])){
+           
+        }
+        include $_SESSION['dir'] . '/View/RecipesView.php';
     }
 }

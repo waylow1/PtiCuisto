@@ -124,6 +124,15 @@ class RecipesManager extends Manager
       return $res;
    }
 
+   public function getAllIngredients(){
+      $connexion = $this->con();
+      $getAllIg = $connexion->prepare('Select * from INGREDIENT');
+      $getAllIg->execute();
+      $res = $getAllIg->fetchAll(PDO::FETCH_ASSOC);
+      return $res;
+   }
+
+
    public function insertIngredient($ingredientName){
       $connexion = $this->con();
       $getIg = $connexion->prepare('INSERT INTO INGREDIENT VALUES((select max(in_id)+1),:title,:title)');
