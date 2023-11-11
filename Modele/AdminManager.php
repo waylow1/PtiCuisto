@@ -46,7 +46,7 @@ class AdminManager extends Manager
         join CATEGORY using(ca_id)
         where RES_ID = 1');
         $recipes->execute();
-        $res = $recipes->fetchall();
+        $res = $recipes->fetchAll();
         return $res;
     }
 
@@ -64,6 +64,56 @@ class AdminManager extends Manager
         $recipe->execute();
     }
 
-    
+    public function getUser($us_id){
+        $connexion = $this->con();
+        $user = $connexion->prepare('SELECT * FROM USERS  WHERE US_ID like :us_id');
+        $user->bindParam('us_id',$us_id);
+        $user->execute();
+        $res = $user->fetchAll();
+        return $res;
+    }
+
+    public function userModifyUstId($ust_id,$us_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('UPDATE USERS SET UST_ID = :ust_id where US_ID like :us_id' );
+        $recipe->bindParam('ust_id',$ust_id);
+        $recipe->bindParam('us_id',$us_id);
+        $recipe->execute();
+    }
+    public function userModifyUssJd($uss_jd,$us_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('UPDATE USERS SET UST_ID = :ust_id where US_ID like :us_id' );
+        $recipe->bindParam('ust_id',$ust_id);
+        $recipe->bindParam('us_id',$us_id);
+        $recipe->execute();
+    }
+    public function userModifyUsPseudo($us_pseudo,$us_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('UPDATE USERS SET UST_ID = :ust_id where US_ID like :us_id' );
+        $recipe->bindParam('ust_id',$ust_id);
+        $recipe->bindParam('us_id',$us_id);
+        $recipe->execute();
+    }
+    public function userModifyUsMail($us_mail,$us_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('UPDATE USERS SET UST_ID = :ust_id where US_ID like :us_id' );
+        $recipe->bindParam('ust_id',$ust_id);
+        $recipe->bindParam('us_id',$us_id);
+        $recipe->execute();
+    }
+    public function userModifyUsFirstName($us_firstname,$us_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('UPDATE USERS SET UST_ID = :ust_id where US_ID like :us_id' );
+        $recipe->bindParam('ust_id',$ust_id);
+        $recipe->bindParam('us_id',$us_id);
+        $recipe->execute();
+    }
+    public function userModifyUsLastName($us_lastname,$us_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('UPDATE USERS SET UST_ID = :ust_id where US_ID like :us_id' );
+        $recipe->bindParam('ust_id',$ust_id);
+        $recipe->bindParam('us_id',$us_id);
+        $recipe->execute();
+    }
 }
 

@@ -35,18 +35,21 @@ class DashboardController extends Controller
                     echo '<script>window.location.href = "index.php";</script>';
                 }
             }
-            
         }
+       
         elseif (isset($_POST['modifyUser']) && isset($_POST['radioUsers'])){
-            $user =  $_POST['radioUsers'] ;
-             
-            $_GET['action'] = '';
-            echo '<script>window.location.href = "index.php";</script>';       
+            
+            $user = $_POST['radioUsers'];   
+            
+            $_SESSION['radioUsers'] = $this->manager->getUser($user);
+            
+            echo '<script>window.location.href = "?action=ModifyUser";</script>';
         }
+        
         elseif(isset($_POST['denyUser'])&& isset($_POST['radioUsers'])){
             $user  = $_POST['radioUsers'] ;
+            echo '<script> console.log('. $user . ') </script>' ;
             $this->manager->deleteUser($user);
-
             $_GET['action'] = '';
             echo '<script>window.location.href = "index.php";</script>';  
         }
@@ -55,7 +58,7 @@ class DashboardController extends Controller
                 $this->manager->acceptRecipe($recette);
             }    
             $_GET['action'] = '';
-            echo '<script>window.location.href = "index.php";</script>';       
+            echo '<script>window.location.href = "index.php";</script>';
         }
         elseif(isset($_POST['denyRecipe']) && isset($_POST['checkboxesRecipe'])){
             foreach($_POST['checkboxesRecipe'] as $recette){
