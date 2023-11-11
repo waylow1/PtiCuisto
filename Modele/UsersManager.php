@@ -55,7 +55,6 @@ class UsersManager extends Manager
         $reponse->bindParam(':firstname', $firstname);
         $reponse->bindParam(':lastname', $lastname);
         $reponse->bindParam(':password', $password);
-
         $reponse->execute();
     }
 
@@ -98,5 +97,18 @@ class UsersManager extends Manager
         $users->execute();
         $res = $users->fetchall();
         return $res;
+    }
+
+    public function changePassword($newPassword) {
+        $db = $this->con();
+        $user = $db->prepare('SELECT US_ID from USERS where US_PSEUDO like :name');
+        $user->bindParam('name', $_SESSION['username']);
+        $user->execute();
+        $userID = $user->fetchall()['0']['US_ID'];
+        $req = $db->prepare('UPDATE USERS SET US_PASSWORD = ? WHERE US_ID = ?');
+        print_r($password);
+        $req->bindParam(1, $password);
+        $req->bindParam(2, $userID);
+        $req->execute();
     }
 }

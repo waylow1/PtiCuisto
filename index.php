@@ -61,6 +61,10 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         $User = new ModifyUserController();
         $User->run();
     }
+    if ($controller == "Mdp"){
+        $Mdp = new MdpController();
+        $Mdp->run();
+    }
 } else {
     require 'Controller/TemplateController.php';
         $Contro = new TemplateController();

@@ -32,10 +32,14 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
                     for($i = 0; $i < strlen($_SESSION['current_user_informations']['US_PASSWORD']); $i++) {
                         echo '•';
                     }
-                ?></li>
+                    ?>
+                    <div class="pt-2">
+                        <input type="button" id="modifMDP" class="btn btn-light btn-outline-success btn-block mb-4" value ="Modifier le mot de passe" onclick="location.href ='?action=Mdp';">
+                    </div>
+                </li>
             </ul>
             <form method="post" action=<?php $_SESSION['dir'] . '/Controller/UsersController.php'?>>
-                <button type=submit class="btn btn-danger btn-block mb-4 " name='logout' value="Déconnexion">Déconnexion</button>
+                <button type=submit class="btn btn-danger btn-block mb-4" name='logout' value="Déconnexion">Déconnexion</button>
             </form>
         </div>
     </section>  
@@ -48,25 +52,20 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
                 <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
-            <input type="button" value ="Poster une recette" onclick="location.href ='?action=CreateRecipe';">
+            <input type="button" class="btn btn-light btn-outline-success btn-block mb-4 " value ="+ Recette" onclick="location.href ='?action=CreateRecipe';">
         </div>
     </section>
 </div>
 <section class="small-masthead bg-primary text-white text-center">
-    <div class="container d-flex align-items-center flex-column align-middle pt-5">
-        <form method="post" action=<?php $_SESSION['dir'] . '/Controller/ProfileController.php'?>>
-            <button type=submit class="btn btn-danger btn-block mb-4 " name='suppression' value="suppression" id="suppression">Supprimer mon compte</button>
-        </form>
-        <script>
-
-        suppr = document.getElementById('suppression');
-        suppr.addEventListener("click",() => {
-            document.cookie = "confirm=" + escape(confirm("Confirmez la suppression du compte.")) + "; path=/";
-            console.log(document.cookie)
-        });
-        </script>
-
-    </div>
+    <form method="post" action=<?php $_SESSION['dir'] . '/Controller/ProfileController.php'?>>
+        <button type=submit class="btn btn-danger btn-block mb-4" name='suppression' value="suppression" id="suppression">Supprimer mon compte</button>
+    </form>
+    <script>
+    suppr = document.getElementById('suppression');
+    suppr.addEventListener("click",() => {
+        document.cookie = "confirm=" + escape(confirm("Confirmez la suppression du compte.")) + "; path=/";
+    });
+    </script>
 </section>
 <?php
     $content = ob_get_clean();
