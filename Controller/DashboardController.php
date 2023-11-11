@@ -2,11 +2,9 @@
 
 require_once $_SESSION['dir'] . '/Controller/Controller.php';
 require_once $_SESSION['dir'] . '/Modele/AdminManager.php';
-class DashboardController extends Controller
-{
+class DashboardController extends Controller{
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->manager = new AdminManager();
     }
 
