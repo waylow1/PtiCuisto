@@ -117,3 +117,4 @@ class AdminManager extends Manager
     }
 }
 
+?>

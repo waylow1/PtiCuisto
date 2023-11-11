@@ -130,3 +130,4 @@ class RecipesManager extends Manager
       $getIg->execute();
    }
 }
+?>

@@ -12,8 +12,6 @@ class ModifyUserController extends Controller{
         if(isset($_POST['validateUserModif'])){
            
             if(isset($_POST['modified_UST_ID']) && ($_POST['modified_UST_ID'] !== $_SESSION['radioUsers'][0]['UST_ID'])){
-                echo  $_SESSION['radioUsers'][0]['UST_ID'];
-                var_dump($_POST['modified_UST_ID']);
                 $this->manager->userModifyUstId($_POST['modified_UST_ID'],$_SESSION['radioUsers'][0]['US_ID']);                
             }
             if(isset($_POST['modified_USS_JD']) && $_POST['modified_USS_JD'] != $_SESSION['radioUsers'][0]['USS_JD']){

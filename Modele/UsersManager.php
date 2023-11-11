@@ -19,7 +19,7 @@ class UsersManager extends Manager
     public function getRecipesOfUser($us_pseudo)
     {
         $connexion = $this->con();
-        $recipe = $connexion->query("SELECT RE_ID, US_ID,CA_ID,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_IMAGE,CA_TITLE,US_PSEUDO 
+        $recipe = $connexion->query("SELECT * 
         from RECIPE 
         join CATEGORY using(CA_ID) 
         join USERS using(US_ID)
@@ -88,16 +88,7 @@ class UsersManager extends Manager
         $req->bindParam('password', $_SESSION['password']);
         $req->execute();
     }
-    public function getRecipesToAccept(){
-        $db = $this->con();
-        $users = $db->prepare('SELECT RE_ID,RES_ID,US_PSEUDO,CA_TITLE,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_REGDATE 
-        from RECIPE 
-        join USERS using(US_ID) 
-        join CATEGORY using(ca_id)');
-        $users->execute();
-        $res = $users->fetchall();
-        return $res;
-    }
+    
 
     public function changePassword($newPassword) {
         $db = $this->con();
@@ -108,4 +99,59 @@ class UsersManager extends Manager
         $req->bindParam(2, $_SESSION['username']);
         $req->execute();
     }
+
+    public function deleteRecipe($re_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('DELETE FROM RECIPE where RE_ID like :re_id');
+        $recipe->bindParam('re_id',$re_id);
+        $recipe->execute();
+    }
+
+    public function recipeModifyReTitle($re_title,$re_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('UPDATE RECIPE SET RE_TITLE = :re_title where re_id like :re_id' );
+        $recipe->bindParam('re_title',$re_title);
+        $recipe->bindParam('re_id',$re_id);
+        $recipe->execute();
+    }
+    public function recipeModifyCaTitle($ca_title,$re_id){
+        
+        $connexion = $this->con();
+        $category = $connexion->prepare('SELECT CA_ID FROM CATEGORY WHERE CA_TITLE like :ca_title');
+        $category->bindParam('ca_title',$ca_title);
+        $category->execute();
+        $ca_id = $category->fetchAll();
+        $recipe = $connexion->prepare('UPDATE RECIPE SET CA_ID = :ca_id where re_id like :re_id' );
+        $recipe->bindParam('ca_title',$ca_id[0]['CA_ID']);
+        $recipe->bindParam('re_id',$re_id);
+        $recipe->execute();
+    }
+    public function recipeModifyReSummary($re_summary,$re_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('UPDATE RECIPE SET RE_SUMMARY = :re_summary where re_id like :re_id' );
+        $recipe->bindParam('re_summary',$re_summary);
+        $recipe->bindParam('re_id',$re_id);
+        $recipe->execute();
+    }
+    public function recipeModifyReContent($re_content,$re_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('UPDATE RECIPE SET RE_CONTENT = :re_content where re_id like :re_id' );
+        $recipe->bindParam('re_content',$re_content);
+        $recipe->bindParam('re_id',$re_id);
+        $recipe->execute();
+    }
+
+    public function getRecipe($re_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('SELECT RE_ID,RES_ID,RE_TITLE,CA_ID,CA_TITLE,RE_SUMMARY,RE_CONTENT FROM RECIPE
+        JOIN CATEGORY USING (CA_ID)
+        WHERE RE_ID like :re_id');
+        $recipe->bindParam('re_id',$re_id);
+        $recipe->execute();
+        $recipeID = $recipe->fetchAll();
+        return $recipeID;
+
+    }
+   
 }
+?>

@@ -22,7 +22,6 @@ ob_start();
 
         </tr> 
     </thead>
-    <form method="post" action=<?php $_SESSION['dir'] . '/Controller/ModifyUserController.php'?>>
 
     <tbody>
         <?php 
