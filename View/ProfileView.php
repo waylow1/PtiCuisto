@@ -35,15 +35,6 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
                     ?>
                     <div class="pt-2">
                         <input type="button" id="modifMDP" class="btn btn-light btn-outline-success btn-block mb-4" value ="Modifier le mot de passe" onclick="location.href ='?action=ModifMdp';">
-                        <script>
-                            function myFunction() {
-                                modifMDP = document.getElementById('modifMDP');
-                                let text = prompt("Entrez votre nouveau mot de passe", "azerty c'est pas une bonne idée");
-                                if !(text == null || text == "") {
-                                    document.cookie = "nouveaumpd=" + escape(text) + "; path=/";
-                                }
-                            }
-                        </script>
                     </div>
                 </li>
             </ul>

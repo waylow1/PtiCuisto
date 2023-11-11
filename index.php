@@ -56,6 +56,10 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         $Dashboard = new DashboardController();
         $Dashboard->run();
     }
+    if ($controller == "ModifMdp"){
+        $Mdp = new MdpController();
+        $Mdp->run();
+    }
 } else {
     require 'Controller/TemplateController.php';
         $Contro = new TemplateController();
