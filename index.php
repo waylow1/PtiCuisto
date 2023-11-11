@@ -2,15 +2,17 @@
 session_start();
 $_SESSION['dir'] = __DIR__;
 if(!(isset($_SESSION['edito1']))) {
-    $_SESSION['edito1'] = "Bienvenue sur le site du PtiCuisto ! ";
+    $_SESSION['edito1'] = "Bienvenue sur le site du PtiCuisto !  Le blog pour cuisiner les meilleures recettes pour les pitchounes ";
 }
 if(!(isset($_SESSION['edito2']))) {
-    $_SESSION['edito2'] =  "Connectez-vous";
+    $_SESSION['edito2'] =  "Connectez-vous pour partager vos propres recettes avec les autres cuistos !s";
 }
 if (isset($_GET['action']) && $_GET['action'] !== '') {
     $controller = $_GET['action'];
     if (!file_exists('Controller/' . $controller . 'Controller.php')) {
-        include $_SESSION['dir'] . '/View/Template.php';
+        require 'Controller/TemplateController.php';
+        $Contro = new TemplateController();
+        $Contro->run(); 
     } else {
         require 'Controller/' . $controller . 'Controller.php';
     }
@@ -55,5 +57,7 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         $Dashboard->run();
     }
 } else {
-    include $_SESSION['dir'] . '/View/Template.php';
+    require 'Controller/TemplateController.php';
+        $Contro = new TemplateController();
+        $Contro->run(); 
 }

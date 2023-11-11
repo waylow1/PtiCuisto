@@ -54,19 +54,19 @@ ob_start();
 <script>
    const addIngredientButton = document.getElementById("addIngredientButton");
    const ingredientName= document.getElementById("ingredientName");
-   addIngredientButton.addEventListener("onClick", () => {
+   const url = new URL(window.location.href);
+   addIngredientButton.addEventListener("click", () => {
         if (ingredientName.value==""){
             return;
         }
-
+        else{
+            window.location.href = url + "&Ingredient="+`${ingredientName.value}`; 
+        }
     });
 </script>
 
 
-
-
 <script>
-    console.log("ici");
     const maxContentCharacters = 512;
     const recipeNameInput = document.getElementById("recipeName");
     const recipeDescriptionInput = document.getElementById("recipeDescription");
@@ -80,7 +80,6 @@ ob_start();
         if (charactersRemainingName <= 0) {
             alert("Trop de caractere dans le nom de la recette");
             recipeNameInput.value = "";
-
         }
     });
 
