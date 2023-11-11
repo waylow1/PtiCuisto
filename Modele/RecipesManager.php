@@ -112,6 +112,7 @@ class RecipesManager extends Manager
          're_summary' => $_POST['recipeDescription'],
          're_image' => $fileName
       ));
+      return (int)$recipeID[0]['max'];
    }
 
    public function getIngredient($ingredientName){
@@ -120,8 +121,8 @@ class RecipesManager extends Manager
       $ingredientName = '%' . $ingredientName . '%';
       $getIg->bindParam('title',$ingredientName);
       $getIg->execute();
-      $res = $getIg->fetchAll(PDO::FETCH_ASSOC);
-      return $res;
+      $count = $getIg->fetchColumn();
+      return $count;
    }
 
    public function getAllIngredients(){
@@ -132,11 +133,26 @@ class RecipesManager extends Manager
       return $res;
    }
 
-
    public function insertIngredient($ingredientName){
       $connexion = $this->con();
-      $getIg = $connexion->prepare('INSERT INTO INGREDIENT VALUES((select max(in_id)+1),:title,:title)');
+      $getIg = $connexion->prepare('INSERT INTO INGREDIENT VALUES(0,:title,:title)');
       $getIg->bindParam('title',$ingredientName);
       $getIg->execute();
+   }
+
+   public function insertIngredientInRecipe($ingredientName,$recipeID){
+      $connexion = $this->con();
+
+      $ingredientIdQuery = $connexion->prepare("SELECT IN_ID FROM INGREDIENT WHERE IN_TITLE = :title");
+      $ingredientIdQuery->bindParam(':title', $ingredientName);
+      $ingredientIdQuery->execute();
+  
+      
+      $igID = $ingredientIdQuery->fetchColumn();
+  
+          $insertUtilize = $connexion->prepare('INSERT INTO UTILIZE (RE_ID, IN_ID) VALUES (:recipeID, :igID)');
+          $insertUtilize->bindParam(':recipeID', $recipeID);
+          $insertUtilize->bindParam(':igID', $igID);
+          $insertUtilize->execute();
    }
 }

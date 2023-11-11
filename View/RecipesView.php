@@ -40,7 +40,9 @@ ob_start();
         <input type="text" id="ingredientName" list="ingredientSuggestions" name="ingredientName" class="form-control" />
         <datalist id="ingredientSuggestions"></datalist>
     </div>
-    <button type="button" name="addIngredientButton" id="addIngredientButton" class="btn btn-primary">Ajouter un ingrédient</button>
+    
+
+    <ul id="ingredientList"></ul>
 
 
     <div class="form-outline mb-4">
@@ -63,11 +65,9 @@ ob_start();
     var allIngredient = <?php echo json_encode($allIngredient); ?>;
     var ingredientSuggestions = document.getElementById("ingredientSuggestions");
 
-    console.table(allIngredient);
     ingredientName.addEventListener("input", function() {
         var searchTerm = ingredientName.value.toLowerCase();
         var filteredIngredients = allIngredient.filter(function(ingredient) {
-           
             return ingredient.IN_TITLE.toLowerCase().startsWith(searchTerm);
         });
         ingredientSuggestions.innerHTML = "";
@@ -78,14 +78,28 @@ ob_start();
         });
     });
 
-    addIngredientButton.addEventListener("click", () => {
-        if (ingredientName.value == "") {
-            return;
-        } else {
-            window.location.href = url + "&Ingredient=" + `${ingredientName.value}`;
-        }
-    });
+    ingredientName.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" && ingredientName.value.trim() !== "") {
+        event.preventDefault();
 
+        const currentURL = new URL(window.location.href);
+        const ingredientValue = encodeURIComponent(ingredientName.value);
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', currentURL + `&Ingredient=${ingredientValue}`, true);
+        xhr.withCredentials = true; 
+        xhr.send();
+
+        const recipeIngredientsList = document.getElementById("ingredientList");
+        const listItem = document.createElement("li");
+        listItem.textContent = ingredientName.value;
+        recipeIngredientsList.appendChild(listItem);
+
+        ingredientName.value = ""; 
+    }
+});
+
+    
 
     recipeNameInput.addEventListener("input", function() {
         const currentLength = recipeNameInput.value.length;
