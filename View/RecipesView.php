@@ -93,7 +93,6 @@ ob_start();
 
         ingredientArray.push(ingredientValue);
         ingredientName.value = "";
-        console.log(ingredientArray);
        
         ingredientContainer.value = JSON.stringify(ingredientArray);
 
