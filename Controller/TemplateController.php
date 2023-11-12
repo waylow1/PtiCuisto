@@ -11,6 +11,8 @@ class TemplateController extends Controller
     public function run()
     {
         $Latest = $this->manager->getLatestRecipes();
+        $_SESSION['Recipes'] = $this->manager->getAllRecipes();
+        $_SESSION['Ingredients'] = $this->manager->getAllIngredients();
         include $_SESSION['dir'] . '/View/Template.php';
     }
 }

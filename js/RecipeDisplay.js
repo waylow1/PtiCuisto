@@ -39,7 +39,7 @@ class RecipeDisplay {
         formating = "repice-card";
       }
 
-      recipeContainer.innerHTML = `
+    recipeContainer.innerHTML = `
     <div class="container mx-5 my-2">
       <div class="d-flex flex-row p-3 ${card_color} text-white rounded ${formating}">
         <img class="img recipe-image smaller-image rounded" alt="Recipe Image" src="../assets/dish/${element.RE_IMAGE}"/>

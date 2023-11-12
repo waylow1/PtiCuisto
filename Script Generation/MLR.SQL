@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS CATEGORY
 
 CREATE TABLE IF NOT EXISTS RECIPE
  (
-   RE_ID INTEGER NOT NULL  ,
+   RE_ID INTEGER NOT NULL ,
    RES_ID INTEGER NOT NULL  ,
    US_ID INTEGER NOT NULL  ,
    CA_ID INTEGER NOT NULL  ,
@@ -279,11 +279,11 @@ select * from RECIPE;
 
 select * from CATEGORY;
 
-update CATEGORY set CA_TITLE = 'Entrée' where CA_ID =1;
+update CATEGORY set CA_TITLE = 'Entrï¿½e' where CA_ID =1;
 
 update CATEGORY set CA_TITLE = 'Plat principal' where CA_ID  = 2;
 
-update CATEGORY set CA_DESCRIPTION = 'Cette recette est une entrée' where CA_ID=1;
+update CATEGORY set CA_DESCRIPTION = 'Cette recette est une entrï¿½e' where CA_ID=1;
 
 update CATEGORY set CA_DESCRIPTION = 'Cette recette est un plat principal' where CA_ID=2;
 update CATEGORY set CA_DESCRIPTION = 'Cette recette est un dessert ' where CA_ID=3;

@@ -11,13 +11,20 @@
     <link rel="icon" type="image/x-icon" href="..\assets\favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <script src="../js/modal.js"></script>
+    
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
 </head>
+<script>
+    var AllRecipes = <?php echo json_encode($_SESSION['Recipes']); ?>;
+    var getAllIngredients = <?php echo json_encode($_SESSION['Ingredients']); ?>
+    console.table(AllRecipes);
+    console.table(getAllIngredients);
+</script>
+
 
 <body>
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" style="margin-bottom:50ox" id="mainNav">
@@ -41,9 +48,9 @@
                             Filtres
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color : var(--bs-secondary);">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=FilterCategory" data-bs-toggle="modal" data-bs-target="#filterModal">Catégories</a>
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=FilterCategory" data-bs-toggle="modal" data-bs-target="#filterModal">Titre</a>
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=FilterCategory" data-bs-toggle="modal" data-bs-target="#filterModal">Ingrédients</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded" data-bs-toggle="modal" data-bs-target="#filterModal1" id="Category">Catégories</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded" data-bs-toggle="modal" data-bs-target="#filterModal2" id="Title">Titre</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded" data-bs-toggle="modal" data-bs-target="#filterModal3" id="Ingredients">Ingrédients</a>
                         </div>
                     </li>
                     <?php
@@ -92,35 +99,22 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="../js/scripts.js"></script>
-<!-- Modal -->
-<div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="filterModalLabel">Titre de la Modal</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="modalContent">
-                <!-- Le contenu spécifique du filtre sera ajouté ici dynamiquement -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                <!-- Ajoutez ici les boutons spécifiques à votre filtre -->
-            </div>
-        </div>
-    </div>
-</div>
 
-<!-- Modal Catégorie-->
-<div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
+
+
+
+<!-- Modal Category-->
+<div class="modal fade" id="filterModal1" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="filterModalLabel">Titre de la Modal</h5>
+                <h5 class="modal-title" id="filterModalLabel1">Filtrer par Catégories</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="modalContent">
-                <!-- Le contenu spécifique du filtre sera ajouté ici dynamiquement -->
+            <div class="modal-body" id="md1">
+                <input type="button" id="recipeInputStartDish" value="Entrée">
+                <input type="button" id="recipeInputDish" value="Plat">
+                <input type="button" id="recipeInputDessert" value="Dessert">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -131,14 +125,35 @@
 </div>
 
 <!-- Modal Title-->
-<div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
+<div class="modal fade" id="filterModal2" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="filterModalLabel">Titre de la Modal</h5>
+                <h5 class="modal-title" id="filterModalLabel2">Filtrer par Titres</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="modalContent">
+            <div class="modal-body" id="md2">
+            <label for="recipeInput">Recherche de recette :</label>
+            <input type="text" id="recipeInput" list="recipeListForTitle">
+            <datalist id="recipeListForTitle"></datalist>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                <!-- Ajoutez ici les boutons spécifiques à votre filtre -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Ingredients-->
+<div class="modal fade" id="filterModal3" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="filterModalLabel3">Filtrer par Ingrédients</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="md3">
                 <!-- Le contenu spécifique du filtre sera ajouté ici dynamiquement -->
             </div>
             <div class="modal-footer">
@@ -149,26 +164,7 @@
     </div>
 </div>
 
-<!-- Modal Ingrédients-->
-<div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="filterModalLabel">Titre de la Modal</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="modalContent">
-                <!-- Le contenu spécifique du filtre sera ajouté ici dynamiquement -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                <!-- Ajoutez ici les boutons spécifiques à votre filtre -->
-            </div>
-        </div>
-    </div>
-</div>
-
-
+<script src="../js/modal.js"></script>
 </body>
 
 </html>
