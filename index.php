@@ -5,7 +5,7 @@ if(!(isset($_SESSION['edito1']))) {
     $_SESSION['edito1'] = "Bienvenue sur le site du PtiCuisto !  Le blog pour cuisiner les meilleures recettes pour les pitchounes ";
 }
 if(!(isset($_SESSION['edito2']))) {
-    $_SESSION['edito2'] =  "Connectez-vous pour partager vos propres recettes avec les autres cuistos !s";
+    $_SESSION['edito2'] =  "Connectez-vous pour partager vos propres recettes avec les autres cuistos !";
 }
 if (isset($_GET['action']) && $_GET['action'] !== '') {
     $controller = $_GET['action'];
@@ -59,6 +59,10 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
     }
     if ($controller =="ModifyUser"){
         $User = new ModifyUserController();
+        $User->run();
+    }
+    if ($controller =="ModifyRecipe"){
+        $User = new ModifyRecipeController();
         $User->run();
     }
     if ($controller == "Mdp"){

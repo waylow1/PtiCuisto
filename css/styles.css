@@ -7334,6 +7334,10 @@ textarea.form-control-lg {
   max-width: 100% !important;
 }
 
+.mw-30 {
+  max-width: 30% !important;
+}
+
 .vw-100 {
   width: 100vw !important;
 }
@@ -11103,4 +11107,8 @@ html {
 }
 img{
 user-select: none;
+}
+.smaller-image {
+  max-width: 40vh;
+  height: auto;
 }

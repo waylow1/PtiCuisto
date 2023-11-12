@@ -5,21 +5,23 @@ require_once $_SESSION['dir'] . '/Modele/UsersManager.php';
 
 class MdpController extends Controller
 {
-    public function __construct() {
+    public function __construct()
+    {
         $this->manager = new UsersManager();
     }
 
-    public function run() {
+    public function run()
+    {
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['password1'], $_POST['password2'])) {
             if ($_POST['password1'] == $_POST['password2']) {
                 $this->manager->changePassword($_POST['password1']);
-            }
-            else {
+            } else {
                 echo '<script>alert("Les mots de passe ne correspondent pas")</script>';
             }
-        }
-        else {
+        } else {
             include $_SESSION['dir'] . '/View/MdpView.php';
         }
     }
 }
+
+?>

@@ -11,7 +11,7 @@ class ProfileController extends Controller
     }
 
     public function run()
-    {
+    {   
         if (isset($_POST['logout'])) {
             $dir = $_SESSION['dir'];
             session_destroy();
@@ -19,12 +19,11 @@ class ProfileController extends Controller
             $_SESSION['dir'] = $dir;
             $_GET['action'] = '';
             echo '<script>window.location.href = "index.php";</script>';
-        }
-        elseif (isset($_POST['suppression'])) {
-            
-            if(isset($_COOKIE['confirm'])){
-              
-                if($_COOKIE['confirm'] == 'true') {
+        } elseif (isset($_POST['suppression'])) {
+
+            if (isset($_COOKIE['confirm'])) {
+
+                if ($_COOKIE['confirm'] == 'true') {
                     $this->manager->deleteUser();
                     $dir = $_SESSION['dir'];
                     session_destroy();
@@ -35,8 +34,22 @@ class ProfileController extends Controller
                     echo '<script>window.location.href = "index.php";</script>';
                 }
             }
+        } elseif (isset($_POST['deleteRecipe']) && isset($_POST['radioRecipes'])) {
+            $recipe  = $_POST['radioRecipes'][0];
+            $this->manager->deleteRecipe($recipe);
+            $_GET['action'] = '';
+            echo '<script>window.location.href = "index.php";</script>';
+        } elseif (isset($_POST['modifyRecipe']) && isset($_POST['radioRecipes'])) {
+
+            $recipe = $_POST['radioRecipes'][0];
+            $_SESSION['radioRecipes'] = $this->manager->getRecipe($recipe);
             
+            echo '<script>window.location.href = "?action=ModifyRecipe";</script>';
         }
-        include $_SESSION['dir'] . '/View/ProfileView.php';
-    }
+        else{  
+            $_SESSION['current_user_recipes'] = $this->manager->getRecipesOfUser($_SESSION['username']);
+            include $_SESSION['dir'] . '/View/ProfileView.php';
+        }}
+      
 }
+?>

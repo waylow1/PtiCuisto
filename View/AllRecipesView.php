@@ -1,8 +1,7 @@
 <?php
 ob_start();
-$content = ob_get_clean();
 ?>
-<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
 
 <div id="container"></div>
 
