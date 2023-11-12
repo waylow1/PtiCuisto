@@ -23,7 +23,7 @@ ob_start();
 <form method="post" action=<?php $_SESSION['dir'] . '/Controller/ModifyRecipeController.php'?>>
     <tbody>
                
-        <tr>';
+        <tr>
         <div class="input-group mb-3">
         <div class="input-group-prepend">
        <div>
