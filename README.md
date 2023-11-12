@@ -1,6 +1,6 @@
 # PTICUISTO - Guide d'Utilisation
 
-🍽️ Ce guide fournit des instructions sur la manière d'utiliser le projet PTICUISTO, un site de recettes de cuisine développé en PHP, MySQL, JavaScript, HTML et CSS. PTICUISTO offre des fonctionnalités pour les internautes, les éditeurs et les administrateurs.
+🍽️ Ce guide fournit des instructions sur la manière d'utiliser l'application web PTICUISTO, un site de recettes de cuisine pour enfants développé en PHP, MySQL, JavaScript, HTML et CSS. PTICUISTO offre des fonctionnalités pour les internautes, les éditeurs et les administrateurs.
 
 ## Fonctionnalités :
 
@@ -29,7 +29,7 @@
 - Suspendre ou supprimer un compte utilisateur.
 
 
-## Prérequis
+## 🛠️Prérequis
 
 Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre système :
 
@@ -38,8 +38,8 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 - MySQL (avec une base de données préalablement créée).
 - Un navigateur web moderne.
 
-## Configuration
-🚀 Pour configurer le projet PTICUISTO, suivez ces étapes :
+## 🚀 Configuration
+Pour configurer le projet PTICUISTO, suivez ces étapes :
 1. Clonez le dépôt GitHub sur votre machine locale.
    ```bash
    git clone https://github.com/votre-utilisateur/PTICUISTO.git
@@ -50,14 +50,14 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 
 Démarrez votre serveur web et assurez-vous que PHP est activé.
 
-## Utilisation
-📦 Pour utiliser PTICUISTO, suivez ces étapes :
+## 📦Utilisation
+Pour utiliser PTICUISTO, suivez ces étapes :
 
 1. Accédez au site en ouvrant un navigateur web et en entrant l'URL correspondante.$
 2. Vous pouvez vous connecter en tant qu'internaute, éditeur ou administrateur en utilisant les comptes préexistants ou en créant un nouveau compte.
 3. Explorez les différentes fonctionnalités du site en fonction de votre rôle.
 
-## Contributeurs
+## 👥Contributeurs
 
-## Licence
+## 📄Licence
 Ce projet est sous licence MIT.
