@@ -18,22 +18,6 @@ class CreateRecipeController extends Controller
     {
         // Retrieve all ingredients
         $allIngredient = $this->manager->getAllIngredients();
-<<<<<<< HEAD
-=======
-
-        // Check if an ingredient is being added
-        if (isset($_GET['Ingredient'])) {
-            $ingredientName = $_GET['Ingredient'];
-            $count = $this->manager->getIngredient($ingredientName);
-            if ($count == 0) {
-                // Insert the ingredient if it doesn't exist
-                $this->manager->insertIngredient($ingredientName);
-            }
-            // Handle the case where the ingredient already exists
-        }
-
-        // Check if a recipe is being submitted
->>>>>>> noé
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitRecipe'])) {
             $uploadDirectory = $_SESSION['dir'] . '/assets/dish/';
             $file = $_FILES['recipePicture'];
@@ -41,16 +25,9 @@ class CreateRecipeController extends Controller
             $tmpFilePath = $file['tmp_name'];
             $destination = $uploadDirectory . $fileName;
 
-<<<<<<< HEAD
             $ingredientArray = json_decode($_POST['ingredientContainer']);
 
             $recipeId = $this->manager->createRecipe($fileName);
-=======
-            // Create a new recipe and get its ID
-            $recipeId = $this->manager->createRecipe($fileName);
-
-            // Check if ingredient data is available and insert into the recipe
->>>>>>> noé
             if (!empty($ingredientArray)) {
                 foreach ($ingredientArray as $ingredient) {
                     $count = $this->manager->getIngredient($ingredient);

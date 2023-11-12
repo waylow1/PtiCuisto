@@ -3,11 +3,12 @@ ob_start();
 ?>
 <br><br><br><br><br>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<form id="recipeForm" method="post" enctype="multipart/form-data" action=<?php $_SESSION['dir'] . '/Controller/CreateRecipeController.php' ?>>
-    <div class="form-outline mb-4">
-        <label class="form-label" for="recipeName">Nom de la Recette</label>
-        <input type="text" id="recipeName" name="recipeName" class="form-control" required />
-        <div id="nameCharacterCount">Caractères restants : <span id="remainingCharactersName"></span></div>
+<div class="d-flex justify-content-center">
+<form id="recipeForm" method="post" enctype="multipart/form-data" action=<?php $_SESSION['dir'] . '/Controller/CreateRecipeController.php' ?> class="container">
+    <div class="form-group mb-3">
+        <label for="recipeName"><strong>Nom de la Recette</strong></label>
+        <input type="text" id="recipeName" name="recipeName" class="form-control form-control-sm" required />
+        <small id="nameCharacterCount" class="form-text text-muted">Caractères restants : <span id="remainingCharactersName"></span></small>
     </div>
 
     <div class="form-group mb-3">
@@ -44,17 +45,19 @@ ob_start();
         <datalist id="ingredientSuggestions"></datalist>
     </div>
 
-
-    <ul id="ingredientList"></ul>
+    <ul id="ingredientList" class="list-group mb-3"></ul>
     <input type="hidden" id="ingredientContainer" name="ingredientContainer" value="">
 
-    <div class="form-outline mb-4">
-        <label class="form-label" for="recipePicture">Choisir une image</label>
-        <input type="file" id="recipePicture" name="recipePicture" class="form-control" accept="image/png, image/jpeg" required />
+    <div class="form-group mb-3">
+        <label for="recipePicture"><strong>Choisir une image</strong></label>
+        <input type="file" id="recipePicture" name="recipePicture" class="form-control-file" accept="image/png, image/jpeg" required />
     </div>
-    <button type="submit" name="submitRecipe" id="submitRecipeButton"  class="btn btn-primary btn-block mb-3">Envoyer</button>
+    <div class="d-flex justify-content-center mb-5">
+        <button type="submit" name="submitRecipe" id="submitRecipeButton" class="btn btn-primary">Envoyer</button>
+    </div>
 </form>
 </div>
+
 
 <script>
     const maxContentCharacters=512;
