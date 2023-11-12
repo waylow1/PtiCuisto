@@ -25,8 +25,6 @@
 <script>
     var AllRecipes = <?php echo json_encode($_SESSION['Recipes']); ?>;
     var getAllIngredients = <?php echo json_encode($_SESSION['Ingredients']); ?>
-    console.table(AllRecipes);
-    console.table(getAllIngredients);
 </script>
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" style="margin-bottom:50px" id="mainNav">
         <div class="container">

@@ -40,18 +40,6 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         $AllRecipes = new AllRecipesController();
         $AllRecipes->run();
     }
-    if ($controller == "FilterIngredient"){
-        $Filters = new FilterIngredientController();
-        $Filters->run();
-    }
-    if ($controller == "FilterCategory"){
-        $Filters = new FilterCategoryController();
-        $Filters->run();
-    }
-    if ($controller == "FilterTitle"){
-        $Filters = new FilterTitleController();
-        $Filters->run();
-    }
     if ($controller == "Dashboard"){
         $Dashboard = new DashboardController();
         $Dashboard->run();
@@ -68,6 +56,10 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
     if ($controller == "Mdp"){
         $Mdp = new MdpController();
         $Mdp->run();
+    }
+    if ($controller == "Filter"){
+        $Filter = new FilterController();
+        $Filter->run();
     }
 } else {
     require 'Controller/TemplateController.php';
