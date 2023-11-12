@@ -2,6 +2,7 @@
 // Start output buffering to capture the echoed content
 ob_start();
 ?>
+
 <br><br><br><br><br><br><br>
 
 <div class="container text-center">

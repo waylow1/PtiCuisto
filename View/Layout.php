@@ -46,20 +46,18 @@
                         <a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=FilterCategory" data-bs-toggle="modal" data-bs-target="#filterModal">Ingrédients</a>
                         </div>
                     </li>
-                    <!-- User-specific links (Profile/Dashboard/Login) -->
                     <?php
                     if (isset($_SESSION['username'])) {
-                        // Check user role and display appropriate link
-                        if ($_SESSION['current_user_informations']['UST_ID'] == 1) {
-                            echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Dashboard">Dashboard</a></li>';
-                        } else {
-                            echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Profile">My Profile </a></li>';
+                        if($_SESSION['current_user_informations']['UST_ID'] == 1){
+                            echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Dashboard">Tableau de bord</a></li>';
                         }
-                    } else {
-                        // Display login link if not logged in
-                        echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Login">Login </a></li>';
-                    }
-                    ?>
+                        else{
+                        echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Profile">Mon profil </a></li>';
+                        }
+                    } 
+                    else{
+                        echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="?action=Login">Connexion </a></li>';
+                    }  ?>
                 </ul>
 
             </div>
