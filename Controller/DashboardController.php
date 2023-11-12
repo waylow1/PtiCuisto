@@ -58,9 +58,21 @@ class DashboardController extends Controller
             }
             $_GET['action'] = '';
             echo '<script>window.location.href = "index.php";</script>';
-        } else {
+        } elseif (isset($_POST['deleteRecipe']) && isset($_POST['radioRecipes'])) {
+            $recipe  = $_POST['radioRecipes'][0];
+            $this->manager->deleteRecipe($recipe);
+            $_GET['action'] = '';
+            echo '<script>window.location.href = "index.php";</script>';
+        } elseif (isset($_POST['modifyRecipe']) && isset($_POST['radioRecipes'])) {
+
+            $recipe = $_POST['radioRecipes'][0];
+            $_SESSION['radioRecipes'] = $this->manager->getRecipe($recipe);            
+            echo '<script>window.location.href = "?action=ModifyRecipe";</script>';
+        }
+        else {
             $_SESSION['allUsers'] = $this->manager->getAllUsers();
             $_SESSION['recipesToAccept'] = $this->manager->getRecipesToAccept();
+            $_SESSION['allRecipes'] = $this->manager->getAllRecipes();
         }
         include $_SESSION['dir'] . '/View/DashboardView.php';
     }
