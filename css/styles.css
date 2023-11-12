@@ -110,6 +110,16 @@ Custom CSS Styling
   margin: 40px;
 }
 
+.container-big {
+  width: 73%;
+  margin: 40px;
+}
+
+.container-small {
+  width:27%;
+  margin: 40px;
+}
+
 .container-flex {
   display: flex;
 }
@@ -128,6 +138,16 @@ Custom CSS Styling
 .small-masthead {
   padding-top: calc(1rem + 37px);
   padding-bottom: 1rem;
+}
+
+.repice-card {
+  max-width: 117vh;
+}
+
+.recipe-list-container {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height:500px;
 }
 
 /*
