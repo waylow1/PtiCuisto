@@ -12,6 +12,11 @@ class AllRecipesController extends Controller
 
     public function run(){
         $allRecipes =  $this->manager->getAllRecipes();
+        $ingredients = array();
+        foreach($allRecipes as $recipe) {
+            $ingredientsParRecette = $this->manager->getIngredientsParRecetteId($recipe['RE_ID']);
+            array_push($ingredients, $ingredientsParRecette);
+        }
         include $_SESSION['dir'] . '/View/AllRecipesView.php';
     }
 

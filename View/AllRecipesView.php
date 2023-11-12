@@ -7,7 +7,7 @@ ob_start();
 
 <script src="../js/RecipeDisplay.js"></script>
 <script>
-    Display = new RecipeDisplay(<?php echo json_encode($allRecipes); ?>);
+    Display = new RecipeDisplay(<?php echo json_encode($allRecipes); ?>, <?php echo json_encode($ingredients); ?>);
     Display.DisplayForAllRecipes(false);
 </script>
 

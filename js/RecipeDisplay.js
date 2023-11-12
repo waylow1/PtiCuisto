@@ -1,13 +1,12 @@
 class RecipeDisplay {
-  constructor(tab) {
-    this.tab = tab;
+  constructor(recipes, ingredients) {
+    this.recipes = recipes;
+    this.ingredients = ingredients;
   }
 
   DisplayForAllRecipes(format) {
-
-    const container = document.getElementById("container");
-
-    this.tab.forEach((element, index) => {
+    console.log(this.ingredients);
+    this.recipes.forEach((element, index) => {
       const recipeContainer = document.createElement("div");
       recipeContainer.className = "collection-item mx-auto";
       recipeContainer.setAttribute("data-bs-toggle", "modal");
@@ -35,15 +34,19 @@ class RecipeDisplay {
       }
 
       let formating = "";
+      let radio = "";
       if(format) {
         formating = "repice-card";
+      }
+      else {
+        radio = "style=\"display: none;\"";
       }
 
       recipeContainer.innerHTML = `
     <div class="container mx-5 my-2">
       <div class="d-flex flex-row p-3 ${card_color} text-white rounded ${formating}">
         <div class="justify-content-center mr-3">
-          <input class="form-check form-check-input" type="radio" name="radioRecipes[]" value="' . $recipes['RE_ID'] .'">
+          <input ${radio} class="form-check form-check-input" type="radio" name="radioRecipes[]" value="' . $recipes['RE_ID'] .'">
         </div>
         <img class="img recipe-image smaller-image rounded" alt="Recipe Image" src="../assets/dish/${element.RE_IMAGE}"/>
         <div class="d-flex flex-column px-3">
@@ -54,11 +57,21 @@ class RecipeDisplay {
             </div>
             </div>
           <div class="p-2">${element.RE_SUMMARY}</div>
+          <div class="ingredient-container">
+          </div>
         </div>
       </div>
     </div>
   `;
-
+      
+      const ingredientContainer = recipeContainer.querySelector(".ingredient-container");
+      this.ingredients[index].forEach((element) => {
+        let ingredientDiv = document.createElement("p");
+        ingredientDiv.innerHTML = `
+          ${element[index].IN_TITLE}
+        `;
+        ingredientContainer.appendChild(ingredientDiv);
+      }); 
       const recipeImage = recipeContainer.querySelector(".recipe-image");
       recipeImage.src = "../assets/dish/" + element.RE_IMAGE;
 
@@ -104,8 +117,6 @@ class RecipeDisplay {
         </div>
     </div>
   `;
-
-
       document.body.appendChild(recipeModal);
     });
 
