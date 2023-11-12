@@ -22,12 +22,13 @@ ob_start();
 
         </tr> 
     </thead>
-    <form method="post" action=<?php $_SESSION['dir'] . '/Controller/ModifyUserController.php'?>>
+<form method="post" action=<?php $_SESSION['dir'] . '/Controller/ModifyUserController.php' ?>>
+
     <tbody>
         <tr>
         <div class="input-group mb-3">
         <div class="input-group-prepend">
-        <?php       
+        <?php 
         for($i = 0; $i<(count($_SESSION['radioUsers'][0])/2)-2;$i++){
             switch ($i){
                 case 0: 

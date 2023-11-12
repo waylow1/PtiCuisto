@@ -2,56 +2,59 @@
 ob_start();
 ?>
 <br><br><br><br><br>
-<form method="post" enctype="multipart/form-data" action=<?php $_SESSION['dir'] . '/Controller/CreateRecipeController.php' ?>>
-    <div class="form-outline mb-4">
-        <label class="form-label" for="recipeName">Nom de la Recette</label>
-        <input type="text" id="recipeName" name="recipeName" class="form-control" required />
-        <div id="nameCharacterCount">Caractères restants : <span id="remainingCharactersName"></span></div>
+<div class="d-flex justify-content-center">
+<form method="post" enctype="multipart/form-data" action=<?php $_SESSION['dir'] . '/Controller/CreateRecipeController.php' ?> class="container">
+    <div class="form-group mb-3">
+        <label for="recipeName"><strong>Nom de la Recette</strong></label>
+        <input type="text" id="recipeName" name="recipeName" class="form-control form-control-sm" required />
+        <small id="nameCharacterCount" class="form-text text-muted">Caractères restants : <span id="remainingCharactersName"></span></small>
     </div>
 
-    <div class="form-outline mb-4">
-        <label class="form-label" for="recipeDescription">Brève description</label>
-        <input type="textarea" name="recipeDescription" id="recipeDescription" class="form-control" required />
-        <div id="descriptionCharacterCount">Caractères restants : <span id="remainingCharactersDesc"></span></div>
+    <div class="form-group mb-3">
+        <label for="recipeDescription"><strong>Brève description</strong></label>
+        <textarea name="recipeDescription" id="recipeDescription" class="form-control form-control-sm" required></textarea>
+        <small id="descriptionCharacterCount" class="form-text text-muted">Caractères restants : <span id="remainingCharactersDesc"></span></small>
     </div>
 
-
-    <div class="form-outline mb-4">
-        <label class="form-label" for="recipeContent">Contenu</label>
-        <input type="textarea" name="recipeContent" id="recipeContent" class="form-control" required />
-        <div id="characterCountDisplay">Caractères restants : <span id="remainingCharacters"></span></div>
+    <div class="form-group mb-3">
+        <label for="recipeContent"><strong>Contenu</strong></label>
+        <textarea name="recipeContent" id="recipeContent" class="form-control form-control-sm" required></textarea>
+        <small id="characterCountDisplay" class="form-text text-muted">Caractères restants : <span id="remainingCharacters"></span></small>
     </div>
 
-    <label class="form-label" for="recipeType">Type de Plat</label><br>
-    <ul>
-        <li><input type="radio" name="recipeType" value="Entrée" />
-            <p>Entrée</p>
-        </li>
-        <li><input type="radio" name="recipeType" value="Plat Principal" />
-            <p>Plat Principal</p>
-        </li>
-        <li><input type="radio" name="recipeType" value="Dessert" />
-            <p>Dessert</p>
-        </li>
-    </ul>
+    <div class="form-group mb-3">
+        <label for="recipeType"><strong>Type de Plat</strong></label><br>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="recipeType" id="entree" value="Entrée">
+            <label class="form-check-label" for="entree">Entrée</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="recipeType" id="platPrincipal" value="Plat Principal">
+            <label class="form-check-label" for="platPrincipal">Plat Principal</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="recipeType" id="dessert" value="Dessert">
+            <label class="form-check-label" for="dessert">Dessert</label>
+        </div>
+    </div>
 
-    <div class="form-outline mb-4">
-        <label class="form-label" for="ingredientName">Nom de l'ingrédient</label>
-        <input type="text" id="ingredientName" list="ingredientSuggestions" name="ingredientName" class="form-control" />
+    <div class="form-group mb-3">
+        <label for="ingredientName"><strong>Nom de l'ingrédient</strong></label>
+        <input type="text" id="ingredientName" list="ingredientSuggestions" name="ingredientName" class="form-control form-control-sm" />
         <datalist id="ingredientSuggestions"></datalist>
     </div>
-    
 
-    <ul id="ingredientList"></ul>
+    <ul id="ingredientList" class="list-group mb-3"></ul>
 
-
-    <div class="form-outline mb-4">
-        <label class="form-label" for="recipePicture">Choisir une image</label>
-        <input type="file" id="recipePicture" name="recipePicture" class="form-control" accept="image/png, image/jpeg" required />
+    <div class="form-group mb-3">
+        <label for="recipePicture"><strong>Choisir une image</strong></label>
+        <input type="file" id="recipePicture" name="recipePicture" class="form-control-file" accept="image/png, image/jpeg" required />
     </div>
-    <button type="submit" name="submitRecipe" class="btn btn-primary btn-block mb-3">Envoyer</button>
+    <div class="d-flex justify-content-center mb-5">
+        <button type="submit" name="submitRecipe" class="btn btn-primary">Envoyer</button>
+    </div>
 </form>
-
+</div>
 
 <script>
     const addIngredientButton = document.getElementById("addIngredientButton");
