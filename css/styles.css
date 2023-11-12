@@ -7334,6 +7334,10 @@ textarea.form-control-lg {
   max-width: 100% !important;
 }
 
+.mw-30 {
+  max-width: 30% !important;
+}
+
 .vw-100 {
   width: 100vw !important;
 }
@@ -11105,7 +11109,6 @@ img{
 user-select: none;
 }
 .smaller-image {
-  width: 400px; /* Ajustez la largeur maximale selon vos besoins */
+  max-width: 40vh;
   height: auto;
-  border-radius: 15px; /* Ajustez la hauteur en conséquence ou laissez-la automatique */
 }
