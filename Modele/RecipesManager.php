@@ -155,5 +155,12 @@ class RecipesManager extends Manager
           $insertUtilize->bindParam(':igID', $igID);
           $insertUtilize->execute();
    }
+   public function getRecipeByCategorie($Ca_id){
+      $connexion = $this->con();
+      $getCa = $connexion->prepare('SELECT * FROM RECIPE WHERE CA_ID = ?');
+      $getCa->bindParam(1,$Ca_id);
+      $getCa->execute();
+      $ca = $getCa->fetchall();
+   }
 }
 ?>
