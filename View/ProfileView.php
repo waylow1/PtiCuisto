@@ -70,13 +70,12 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
                     echo '<p> Résumé : ' . $recipes['RE_SUMMARY'] . '<br>';
                     echo '<p> Contenu : ' . $recipes['RE_CONTENT'] . '<br>';
                     echo $recipes['RE_IMAGE'] . '<br>';
-                    echo '<input class="form-check form-check-input" type="radio" name="radioRecipes[]" value="' . $recipes['RE_ID'] . '"><br>';
+                    echo '<input class="form-check form-check-input" type="radio" name="radioRecipes[]" value="' . $recipes['RE_ID'] .'"><br>';
                 }
                 ?>
                 <div class="container text-center">
                     <input type="submit" class="btn btn-warning btn-block mb-4" name="modifyRecipe" value="Modifier la recette"> 
                     <input type="submit" class="btn btn-danger btn-block mb-4" name="deleteRecipe" value="Supprimer la recette">
-
                 </div>
           
             <?php }?>

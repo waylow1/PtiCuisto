@@ -279,58 +279,14 @@ select * from RECIPE;
 
 select * from CATEGORY;
 
-update CATEGORY set CA_TITLE = 'Entrée' where CA_ID =1;
+update CATEGORY set CA_TITLE = 'Entrï¿½e' where CA_ID =1;
 
 update CATEGORY set CA_TITLE = 'Plat principal' where CA_ID  = 2;
 
-update CATEGORY set CA_DESCRIPTION = 'Cette recette est une entrée' where CA_ID=1;
+update CATEGORY set CA_DESCRIPTION = 'Cette recette est une entrï¿½e' where CA_ID=1;
 
 update CATEGORY set CA_DESCRIPTION = 'Cette recette est un plat principal' where CA_ID=2;
 update CATEGORY set CA_DESCRIPTION = 'Cette recette est un dessert ' where CA_ID=3;
 
 
 
-select * from INGREDIENT ;
-select * from RECIPE;
-select * from USERS ;
-select * from UTILIZE;
-
-SELECT RE_ID,RES_ID,US_ID,CA_ID,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_CATEGORY,RE_REGDATE,RE_IMAGE,RE_CREATIONDATE,RE_MODIFDATE from RECIPE order by RE_ID;
-
-SELECT RE_ID, US_ID,CA_ID,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_IMAGE from RECIPE where RE_ID ='2';
-
-SELECT RE_ID, US_ID,CA_ID,CA_TITLE,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_IMAGE from RECIPE join CATEGORY using(CA_ID) where RE_ID = 2;
-
-
-SELECT RE_ID, US_ID,CA_ID,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_IMAGE,CA_TITLE,US_PSEUDO
-from RECIPE 
-join CATEGORY using(CA_ID) 
-join USERS using(US_ID)
-join UTILIZE using(re_id)
-join INGREDIENT using(in_id)
-where in_title like '%Ingredient 1%';
-
-describe RECIPE;
-
-
-SELECT RE_ID, US_ID,CA_ID,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_IMAGE,CA_TITLE,US_PSEUDO
-      from RECIPE 
-      join CATEGORY using(CA_ID) 
-      join USERS using(US_ID)
-      join COMPOSE using(re_id)
-      join TAGS using(ta_id)
-      where ta_title like '%Tag 1%';
-
-
-
-
-
-
-
-SELECT RE_ID, US_ID,CA_ID,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_IMAGE,CA_TITLE,US_PSEUDO
-from RECIPE 
-join CATEGORY using(CA_ID) 
-join USERS using(US_ID)
-where RE_CREATIONDATE = 
-(select max(RE_CREATIONDATE) from RECIPE); 
-;
