@@ -5,7 +5,6 @@ class RecipeDisplay {
   }
 
   DisplayForAllRecipes(format) {
-    console.log(this.ingredients);
     this.recipes.forEach((element, index) => {
       const recipeContainer = document.createElement("div");
       recipeContainer.className = "collection-item mx-auto";
@@ -57,7 +56,7 @@ class RecipeDisplay {
             </div>
             </div>
           <div class="p-2">${element.RE_SUMMARY}</div>
-          <div class="ingredient-container">
+          <div class="ingredient-container d-flex flex-row">
           </div>
         </div>
       </div>
@@ -68,8 +67,13 @@ class RecipeDisplay {
       this.ingredients[index].forEach((element) => {
         let ingredientDiv = document.createElement("p");
         ingredientDiv.innerHTML = `
-          ${element[index].IN_TITLE}
+          ${element[0]}
         `;
+        ingredientDiv.classList.add("rounded");
+        ingredientDiv.classList.add("bg-white");
+        ingredientDiv.classList.add("text-black");
+        ingredientDiv.classList.add("mr-1");
+        ingredientDiv.classList.add("p-1");
         ingredientContainer.appendChild(ingredientDiv);
       }); 
       const recipeImage = recipeContainer.querySelector(".recipe-image");
