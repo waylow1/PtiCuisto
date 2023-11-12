@@ -18,7 +18,7 @@ class EditoController extends Controller
     public function run()
     {
         // Check user type (assuming a typo fix from = to ==)
-        if ($_SESSION['type'] == 1) {
+        if ($_SESSION['current_user_informations']['UST_ID'] == 1) {
             // If the user type is 1, display the EditoView
             include $_SESSION['dir'] . '/View/EditoView.php';
         }
