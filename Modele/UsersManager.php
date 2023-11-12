@@ -109,7 +109,7 @@ class UsersManager extends Manager
 
     public function recipeModifyReTitle($re_title,$re_id){
         $connexion = $this->con();
-        $recipe = $connexion->prepare('UPDATE RECIPE SET RE_TITLE = :re_title where re_id like :re_id' );
+        $recipe = $connexion->prepare('UPDATE RECIPE SET RE_TITLE = :re_title and RES_ID = 1 where re_id like :re_id' );
         $recipe->bindParam('re_title',$re_title);
         $recipe->bindParam('re_id',$re_id);
         $recipe->execute();
@@ -121,21 +121,21 @@ class UsersManager extends Manager
         $category->bindParam('ca_title',$ca_title);
         $category->execute();
         $ca_id = $category->fetchAll();
-        $recipe = $connexion->prepare('UPDATE RECIPE SET CA_ID = :ca_id where re_id like :re_id' );
+        $recipe = $connexion->prepare('UPDATE RECIPE SET CA_ID = :ca_id and RES_ID = 1 where re_id like :re_id' );
         $recipe->bindParam('ca_title',$ca_id[0]['CA_ID']);
         $recipe->bindParam('re_id',$re_id);
         $recipe->execute();
     }
     public function recipeModifyReSummary($re_summary,$re_id){
         $connexion = $this->con();
-        $recipe = $connexion->prepare('UPDATE RECIPE SET RE_SUMMARY = :re_summary where re_id like :re_id' );
+        $recipe = $connexion->prepare('UPDATE RECIPE SET RE_SUMMARY = :re_summary and RES_ID = 1 where re_id like :re_id' );
         $recipe->bindParam('re_summary',$re_summary);
         $recipe->bindParam('re_id',$re_id);
         $recipe->execute();
     }
     public function recipeModifyReContent($re_content,$re_id){
         $connexion = $this->con();
-        $recipe = $connexion->prepare('UPDATE RECIPE SET RE_CONTENT = :re_content where re_id like :re_id' );
+        $recipe = $connexion->prepare('UPDATE RECIPE SET RE_CONTENT = :re_content and RES_ID = 1 where re_id like :re_id' );
         $recipe->bindParam('re_content',$re_content);
         $recipe->bindParam('re_id',$re_id);
         $recipe->execute();
