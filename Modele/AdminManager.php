@@ -119,7 +119,7 @@ class AdminManager extends Manager
    public function getAllRecipes()
    {
       $connexion = $this->con();
-      $recipes = $connexion->query('SELECT RE_ID, US_ID,CA_ID,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_IMAGE,CA_TITLE,US_PSEUDO
+      $recipes = $connexion->query('SELECT RE_ID, RES_ID, RE_REGDATE,US_ID,CA_ID,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_IMAGE,CA_TITLE,US_PSEUDO
       from RECIPE
       join CATEGORY using(CA_ID) 
       join USERS using(US_ID)
@@ -127,6 +127,52 @@ class AdminManager extends Manager
       $res = $recipes->fetchAll(PDO::FETCH_ASSOC);
       return $res;
    }
+
+   public function getRecipe($re_id){
+    $connexion = $this->con();
+    $recipe = $connexion->prepare('SELECT RE_ID,RES_ID,RE_TITLE,CA_ID,CA_TITLE,RE_SUMMARY,RE_CONTENT FROM RECIPE
+    JOIN CATEGORY USING (CA_ID)
+    WHERE RE_ID like :re_id');
+    $recipe->bindParam('re_id',$re_id);
+    $recipe->execute();
+    $recipeID = $recipe->fetchAll();
+    return $recipeID;
+
+    }
+
+    public function recipeModifyReTitle($re_title,$re_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('UPDATE RECIPE SET RE_TITLE = :re_title and RES_ID = 1 where re_id like :re_id' );
+        $recipe->bindParam('re_title',$re_title);
+        $recipe->bindParam('re_id',$re_id);
+        $recipe->execute();
+    }
+    public function recipeModifyCaTitle($ca_title,$re_id){
+        
+        $connexion = $this->con();
+        $category = $connexion->prepare('SELECT CA_ID FROM CATEGORY WHERE CA_TITLE like :ca_title');
+        $category->bindParam('ca_title',$ca_title);
+        $category->execute();
+        $ca_id = $category->fetchAll();
+        $recipe = $connexion->prepare('UPDATE RECIPE SET CA_ID = :ca_id and RES_ID = 1 where re_id like :re_id' );
+        $recipe->bindParam('ca_title',$ca_id[0]['CA_ID']);
+        $recipe->bindParam('re_id',$re_id);
+        $recipe->execute();
+    }
+    public function recipeModifyReSummary($re_summary,$re_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('UPDATE RECIPE SET RE_SUMMARY = :re_summary and RES_ID = 1 where re_id like :re_id' );
+        $recipe->bindParam('re_summary',$re_summary);
+        $recipe->bindParam('re_id',$re_id);
+        $recipe->execute();
+    }
+    public function recipeModifyReContent($re_content,$re_id){
+        $connexion = $this->con();
+        $recipe = $connexion->prepare('UPDATE RECIPE SET RE_CONTENT = :re_content and RES_ID = 1 where re_id like :re_id' );
+        $recipe->bindParam('re_content',$re_content);
+        $recipe->bindParam('re_id',$re_id);
+        $recipe->execute();
+    }
 }
 
 ?>

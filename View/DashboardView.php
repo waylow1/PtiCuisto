@@ -67,7 +67,7 @@ $content = ob_get_clean();
     </thead>
     <form method="post" action=<?php $_SESSION['dir'] . '/Controller/DashboardController.php'?>>
         <tbody>
-        <?php   var_dump($_SESSION['recipesToAccept']);
+        <?php   
                 for($i = 0 ; $i < (count($_SESSION['recipesToAccept']));$i++){
                     echo '<tr>';
                     for($j  = 0; $j < (count($_SESSION['recipesToAccept'][$i])/2); $j++){
@@ -106,15 +106,21 @@ $content = ob_get_clean();
     <form method="post" action=<?php $_SESSION['dir'] . '/Controller/DashboardController.php'?> >
             <tbody>
                 <?php 
-                    for($i = 0 ; $i < (count($_SESSION['allRecipes']));$i++){
-                        var_dump($_SESSION['allRecipes'][$i]);
-                        echo '<tr>';
-                        for($j  = 0; $j < (count($_SESSION['allRecipes'][$i])/2); $j++){
-                            echo '<td>' . $_SESSION['allRecipes'][$i][$j] . '</td> ' ;                 
-                        }
-                        echo '<td> <input class="form-check form-check-input" type ="radio" name="radioRecipes" value="'. $_SESSION['allRecipes'][$i]['US_ID']. '"';
-                        echo '</tr>';
-                    }
+                foreach($_SESSION['allRecipes'] as $recette){
+                    echo '<tr>';
+                    
+                    echo '<td> '. $recette['RE_ID'] . '</td>';
+                    echo '<td> '. $recette['RES_ID'] . '</td>';
+                    echo '<td> '. $recette['US_PSEUDO'] . '</td>';
+                    echo '<td> '. $recette['CA_TITLE'] . '</td>';  
+                    echo '<td> '. $recette['RE_TITLE'] . '</td>';
+                    echo '<td> '. $recette['RE_CONTENT'] . '</td>';
+                    echo '<td> '. $recette['RE_SUMMARY'] . '</td>';
+                    echo '<td> '. $recette['RE_REGDATE'] . '</td>';
+                                      
+                    echo '<td> <input class="form-check form-check-input" type ="radio" name="radioRecipes" value="'. $recette['RE_ID']. '"';
+                    echo '</tr>';
+                }
                 ?> 
                 
             </tbody>  

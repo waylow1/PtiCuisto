@@ -64,8 +64,7 @@ class DashboardController extends Controller
             $_GET['action'] = '';
             echo '<script>window.location.href = "index.php";</script>';
         } elseif (isset($_POST['modifyRecipe']) && isset($_POST['radioRecipes'])) {
-
-            $recipe = $_POST['radioRecipes'][0];
+            $recipe = $_POST['radioRecipes'];
             $_SESSION['radioRecipes'] = $this->manager->getRecipe($recipe);            
             echo '<script>window.location.href = "?action=ModifyRecipe";</script>';
         }
