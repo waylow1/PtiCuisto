@@ -146,8 +146,10 @@ class RecipesManager extends Manager
       $getCa->bindParam(1,$Ca_id);
       $getCa->execute();
       $ca = $getCa->fetchall();
+      return $ca;
    }
-   
+
+
    public function insertIngredientInRecipe($ingredientName,$recipeID){
       $connexion = $this->con();
 
@@ -163,5 +165,7 @@ class RecipesManager extends Manager
           $insertUtilize->bindParam(':igID', $igID);
           $insertUtilize->execute();
    }
+
+   
 }
 ?>
