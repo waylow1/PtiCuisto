@@ -4,10 +4,10 @@ $content = ob_get_clean();
 
 if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
 ?>
-
+<script src="../js/RecipeDisplay.js"></script>
 <br><br>
 <div class="container-flex">
-    <section class="page-section bg-body collection one-third-width" id="user_info">
+    <section class="page-section bg-body collection container-small" id="user_info">
         <div class="container text-center">
             <!-- Logged user info-->
             <ul class="list-group list-group-flush mb-5">
@@ -43,9 +43,9 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
             </form>
         </div>
     </section>  
-    <section class="page-section text-white mb-0 two-thirds-width" id="user_recipe">
-        <div class="container text-center section-primary" style="overflow:scroll; height:500px">
-        <h2 class="page-section-heading text-center text-uppercase text-white">Mes Recettes</h2>
+    <section class="page-section text-white mb-0 container-big" id="user_recipe">
+        <div class="container text-center section-primary recipe-list-container" >
+            <h2 class="page-section-heading text-center text-uppercase text-white">Mes Recettes</h2>
             <!-- Icon Divider-->
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
@@ -54,32 +54,23 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
             </div>
             <form method="post" action=<?php $_SESSION['dir'] . '/Controller/ProfileController.php'; ?>>
             <?php 
-            if(isset($_SESSION['current_user_recipes'])){ ?>
-            
-                <?php
-                foreach($_SESSION['current_user_recipes'] as $recipes){   
-                    
-                    if($recipes['RES_ID'] == 2){
-                        echo '<p> Etat : Publiée </p>';
-                    }
-                    else{
-                        echo '<p> Etat : En attente de validation </p>' ;
-                    }
-                    echo '<p> Titre : ' . $recipes['RE_TITLE'] . '</p>';
-                    echo '<p> Catégorie : ' . $recipes['CA_TITLE'] . '<br>';
-                    echo '<p> Résumé : ' . $recipes['RE_SUMMARY'] . '<br>';
-                    echo '<p> Contenu : ' . $recipes['RE_CONTENT'] . '<br>';
-                    echo $recipes['RE_IMAGE'] . '<br>';
-                    echo '<input class="form-check form-check-input" type="radio" name="radioRecipes[]" value="' . $recipes['RE_ID'] . '"><br>';
-                }
-                ?>
+            if(!empty($_SESSION['current_user_recipes'])){ ?>
+                <div id="container"></div>
+                <script>
+                    Display = new RecipeDisplay(<?php echo json_encode($_SESSION['current_user_recipes']); ?>);
+                    Display.DisplayForAllRecipes(true);
+                </script>
                 <div class="container text-center">
                     <input type="submit" class="btn btn-warning btn-block mb-4" name="modifyRecipe" value="Modifier la recette"> 
                     <input type="submit" class="btn btn-danger btn-block mb-4" name="deleteRecipe" value="Supprimer la recette">
-
                 </div>
-          
-            <?php }?>
+            <?php 
+            } else {
+            ?>
+            <p>Rien à voir ici pour l'instant.</p>
+            <?php 
+            }
+            ?>
             </form>
             <input type="button" class="btn btn-light btn-outline-success btn-block mb-4 " value ="+ Recette" onclick="location.href ='?action=CreateRecipe';">
         </div>
