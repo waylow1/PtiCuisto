@@ -19,7 +19,9 @@ class TemplateController extends Controller
         // Get the latest recipes from the manager
         $Latest = $this->manager->getLatestRecipes();
         $_SESSION['Recipes'] = $this->manager->getAllRecipes();
-        $_SESSION['Ingredients'] = $this->manager->getAllIngredients();
+
+        //$_SESSION['Ingredient'] = $this->manager->getRecipesByIngredient();
+
         include $_SESSION['dir'] . '/View/Template.php';
     }
 }
