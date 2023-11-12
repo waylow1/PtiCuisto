@@ -57,7 +57,7 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
             if(!empty($_SESSION['current_user_recipes'])){ ?>
                 <div id="container"></div>
                 <script>
-                    Display = new RecipeDisplay(<?php echo json_encode($_SESSION['current_user_recipes']); ?>);
+                    Display = new RecipeDisplay(<?php echo json_encode($allRecipes); ?>, <?php echo json_encode($ingredients); ?>);
                     Display.DisplayForAllRecipes(true);
                 </script>
                 <div class="container text-center">

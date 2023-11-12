@@ -177,5 +177,14 @@ class RecipesManager extends Manager
       $getCa->execute();
       $ca = $getCa->fetchall();
    }
+
+   public function getIngredientsParRecetteId($re_id) {
+      $connexion = $this->con();
+      $req =$connexion->prepare('SELECT IN_TITLE FROM RECIPE JOIN UTILIZE USING (RE_ID) JOIN INGREDIENT USING (IN_ID) WHERE RE_ID = ?');
+      $req->bindParam(1, $re_id);
+      $req->execute();
+      $res = $req->fetchAll();
+      return $res;
+   }
 }
 ?>

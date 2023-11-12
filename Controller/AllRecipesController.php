@@ -16,8 +16,11 @@ class AllRecipesController extends Controller
     {
         // Retrieve all recipes using the manager
         $allRecipes =  $this->manager->getAllRecipes();
-
-        // Include the view to display all recipes
+        $ingredients = array();
+        foreach($allRecipes as $recipe) {
+            $ingredientsParRecette = $this->manager->getIngredientsParRecetteId($recipe['RE_ID']);
+            array_push($ingredients, $ingredientsParRecette);
+        }
         include $_SESSION['dir'] . '/View/AllRecipesView.php';
     }
 }

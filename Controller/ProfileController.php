@@ -61,7 +61,11 @@ class ProfileController extends Controller
         else {
             // Retrieve and store the user's recipes for display
             $_SESSION['current_user_recipes'] = $this->manager->getRecipesOfUser($_SESSION['username']);
-            // Include the ProfileView for displaying user's profile and recipes
+            $ingredients = array();
+            foreach($_SESSION['current_user_recipes'] as $recipe) {
+                $ingredientsParRecette = $this->manager->getIngredientsParRecetteId($recipe['RE_ID']);
+                array_push($ingredients, $ingredientsParRecette);
+            }
             include $_SESSION['dir'] . '/View/ProfileView.php';
         }
     }
