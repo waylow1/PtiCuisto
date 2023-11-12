@@ -156,8 +156,6 @@ class RecipesManager extends Manager
       $ingredientIdQuery = $connexion->prepare("SELECT IN_ID FROM INGREDIENT WHERE IN_TITLE = :title");
       $ingredientIdQuery->bindParam(':title', $ingredientName);
       $ingredientIdQuery->execute();
-  
-      
       $igID = $ingredientIdQuery->fetchColumn();
   
           $insertUtilize = $connexion->prepare('INSERT INTO UTILIZE (RE_ID, IN_ID) VALUES (:recipeID, :igID)');
