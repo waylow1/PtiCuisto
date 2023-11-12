@@ -20,7 +20,6 @@
 </head>
 <script>
     var AllRecipes = <?php echo json_encode($_SESSION['Recipes']); ?>;
-    var getAllIngredients = <?php echo json_encode($_SESSION['Ingredients']); ?>
 </script>
 
 

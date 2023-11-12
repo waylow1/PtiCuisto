@@ -5,11 +5,21 @@ ob_start();
 
 <div id="container"></div>
 
-<script src="../js/RecipeDisplay.js"></script>
-<script>
-    Display = new RecipeDisplay(<?php echo json_encode($allRecipes); ?>);
-    Display.DisplayForAllRecipes(false);
-</script>
+<?php
+if (isset($_GET['filteredRecipes'])) {
+    $encodedRecipes = $_GET['filteredRecipes'];
+    $filteredRecipes = json_decode(urldecode($encodedRecipes), true); 
+} 
+else {
+    
+}
+?>
+
+
+
+
+
+
 
 <?php
     $content = ob_get_clean();
