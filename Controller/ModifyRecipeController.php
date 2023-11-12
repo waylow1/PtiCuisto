@@ -27,11 +27,21 @@ class ModifyRecipeController extends Controller{
             }
     
             $_GET['action'] = '';
-            echo '<script>window.location.href = "?action=Dashboard";</script>';
+            if($_SESSION['current_user_informations']['UST_ID'] == 1){
+                echo '<script>window.location.href = "?action=Dashboard";</script>';
+            }
+            else{
+                echo '<script>window.location.href = "?action=Profile";</script>';
+            }
         }
         elseif(isset($_POST['annulateRecipeModif'])){
             $_GET['action'] = '';
-            echo '<script>window.location.href = "?action=Dashboard";</script>';
+            if($_SESSION['current_user_informations']['UST_ID'] == 1){
+                echo '<script>window.location.href = "?action=Dashboard";</script>';
+            }
+            else{
+                echo '<script>window.location.href = "?action=Profile";</script>';
+            }
         }
         else{
             include $_SESSION['dir'] . '/View/ModifyRecipeView.php';       
