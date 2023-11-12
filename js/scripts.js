@@ -51,4 +51,29 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    
+    $(document).ready(function () {
+        $('#filterModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var modal = $(this);
+    
+            // Vous pouvez personnaliser le titre de la modal en fonction du bouton cliqué
+            modal.find('.modal-title').text('Filtrer par ' + button.text());
+    
+            // Vous pouvez personnaliser le contenu de la modal en fonction du bouton cliqué
+            var modalContent = modal.find('#modalContent');
+            
+            // Effacez le contenu actuel de la modal
+            modalContent.empty();
+    
+            // Ajoutez le contenu spécifique en fonction du bouton cliqué
+            if (button.text() === 'Catégorie') {
+                modalContent.html('Contenu spécifique du filtre Catégorie');
+            } else if (button.text() === 'Titre') {
+                modalContent.html('Contenu spécifique du filtre Titre');
+            } else if (button.text() === 'Ingrédients') {
+                modalContent.html('Contenu spécifique du filtre Ingrédients');
+            }
+        });
+    });
 });
