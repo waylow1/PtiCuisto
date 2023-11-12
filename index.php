@@ -57,11 +57,12 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         $Mdp = new MdpController();
         $Mdp->run();
     }
-    if ($controller == "Filter"){
-        $Filter = new FilterController();
-        $Filter->run();
+    if(isset($_GET['filteredRecipes'])){
+        echo 'ici';
+        include 'View/FilterView.php';
     }
-} else {
+    } 
+    else {
     require 'Controller/TemplateController.php';
         $Contro = new TemplateController();
         $Contro->run(); 

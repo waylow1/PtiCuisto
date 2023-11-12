@@ -18,38 +18,11 @@ var recipeInputStartDish = document.getElementById("recipeInputStartDish");
 var recipeInputDish = document.getElementById("recipeInputDish");
 var recipeInputDessert = document.getElementById("recipeInputDessert");
 
-console.log(AllRecipes);
 
 var tab1 = [];
 var tab2 = [];
 var tab3 = [];
 
-recipeInputStartDish.addEventListener("click", function () {
-  AllRecipes.forEach(function (recipe, i) {
-    if (recipe["CA_ID"] == 1) {
-      tab1[i] = recipe;
-    }
-  });
-  window.location.href="?action=Filter";
-});
-
-recipeInputDish.addEventListener("click", function () {
-  AllRecipes.forEach(function (recipe, i) {
-    if (recipe["CA_ID"] == 2) {
-      tab2[i] = recipe;
-    }
-  });
-  window.location.href="?action=Filter";
-});
-
-recipeInputDessert.addEventListener("click", function () {
-  AllRecipes.forEach(function (recipe, i) {
-    if (recipe["CA_ID"] == 3) {
-      tab[i] = recipe;
-    }
-  });
-  window.location.href="?action=Filter";
-});
 
 var recipeInput = document.getElementById("recipeInput");
 var recipeList = document.getElementById("recipeListForTitle");
@@ -69,7 +42,33 @@ recipeInput.addEventListener("keydown", function (event) {
     });
   }
   if (isRecipeExists) {
-    recipeInput.value = "";
     window.location.href="?action=Filter";
   }
 });
+
+
+recipeInputStartDish.addEventListener("click", function () {
+  var filteredRecipes = AllRecipes.filter(function (recipe) {
+    return recipe["CA_ID"] == 1;
+  });
+  redirectToFilterPage(filteredRecipes);
+});
+
+recipeInputDish.addEventListener("click", function () {
+  var filteredRecipes = AllRecipes.filter(function (recipe) {
+    return recipe["CA_ID"] == 2;
+  });
+  redirectToFilterPage(filteredRecipes);
+});
+
+recipeInputDessert.addEventListener("click", function () {
+  var filteredRecipes = AllRecipes.filter(function (recipe) {
+    return recipe["CA_ID"] == 3;
+  });
+  redirectToFilterPage(filteredRecipes);
+});
+
+function redirectToFilterPage(filteredRecipes) {
+  var encodedRecipes = encodeURIComponent(JSON.stringify(filteredRecipes));
+  window.location.href = "?filteredRecipes=" + encodedRecipes;
+}
