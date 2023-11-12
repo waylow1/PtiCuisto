@@ -48,7 +48,6 @@ ob_start();
                     break;
             }
         }
-        var_dump($_SESSION['radioRecipes'][0]);
         echo '</div>';
         echo '</div>';
         echo '</div>';                  
