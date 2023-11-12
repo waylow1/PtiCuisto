@@ -67,15 +67,11 @@ class RecipesManager extends Manager
       return $res;
    }
 
-   public function getLatestRecipe()
+   public function getLatestRecipes()
    {
       $connexion = $this->con();
-      $recipe = $connexion->query("SELECT RE_ID, US_ID,CA_ID,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_IMAGE,CA_TITLE,US_PSEUDO
-      from RECIPE 
-      join CATEGORY using(CA_ID) 
-      join USERS using(US_ID)
-      where RE_CREATIONDATE = 
-      (select max(RE_CREATIONDATE) from RECIPE)");
+      $recipe = $connexion->query('SELECT RE_ID,
+      US_ID,CA_ID,RE_TITLE,RE_CONTENT,RE_SUMMARY,RE_IMAGE,CA_TITLE,US_PSEUDO from RECIPE join CATEGORY using(CA_ID) join USERS using(US_ID) order by RE_CREATIONDATE LIMIT 6 ');
       $res = $recipe->fetchAll(PDO::FETCH_ASSOC);
       return $res;
    }
@@ -132,5 +128,13 @@ class RecipesManager extends Manager
       $getIg = $connexion->prepare('INSERT INTO INGREDIENT VALUES((select max(in_id)+1),:title,:title)');
       $getIg->bindParam('title',$ingredientName);
       $getIg->execute();
+   }
+
+   public function getRecipeByCategorie($Ca_id){
+      $connexion = $this->con();
+      $getCa = $connexion->prepare('SELECT * FROM RECIPE WHERE CA_ID = ?');
+      $getCa->bindParam(1,$Ca_id);
+      $getCa->execute();
+      $ca = $getCa->fetchall();
    }
 }
