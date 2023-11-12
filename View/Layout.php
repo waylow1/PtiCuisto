@@ -8,7 +8,7 @@
     <meta name="author" content="" />
     <title>Pti Cuisto</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="..\assets\favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     
@@ -18,16 +18,17 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
 </head>
+
+
+
+<body>
 <script>
     var AllRecipes = <?php echo json_encode($_SESSION['Recipes']); ?>;
     var getAllIngredients = <?php echo json_encode($_SESSION['Ingredients']); ?>
     console.table(AllRecipes);
     console.table(getAllIngredients);
 </script>
-
-
-<body>
-    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" style="margin-bottom:50ox" id="mainNav">
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" style="margin-bottom:50px" id="mainNav">
         <div class="container">
             <a href="/index.php">
                 <?php
