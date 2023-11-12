@@ -5,6 +5,7 @@ class RecipeDisplay {
   }
 
   DisplayForAllRecipes(format) {
+    console.log(this.ingredients);
     this.recipes.forEach((element, index) => {
       const recipeContainer = document.createElement("div");
       recipeContainer.className = "collection-item mx-auto";
