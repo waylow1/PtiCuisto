@@ -62,8 +62,8 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         $User->run();
     }
     if ($controller =="ModifyRecipe"){
-        $User = new ModifyRecipeController();
-        $User->run();
+        $Recipe = new ModifyRecipeController();
+        $Recipe->run();
     }
     if ($controller == "Mdp"){
         $Mdp = new MdpController();
