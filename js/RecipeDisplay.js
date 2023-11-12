@@ -42,6 +42,9 @@ class RecipeDisplay {
       recipeContainer.innerHTML = `
     <div class="container mx-5 my-2">
       <div class="d-flex flex-row p-3 ${card_color} text-white rounded ${formating}">
+        <div class="justify-content-center mr-3">
+          <input class="form-check form-check-input" type="radio" name="radioRecipes[]" value="' . $recipes['RE_ID'] .'">
+        </div>
         <img class="img recipe-image smaller-image rounded" alt="Recipe Image" src="../assets/dish/${element.RE_IMAGE}"/>
         <div class="d-flex flex-column px-3">
           <div class="p-2"><h3>${element.RE_TITLE}</h3></div>
