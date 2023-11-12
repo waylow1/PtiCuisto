@@ -42,3 +42,4 @@ class CreateRecipeController extends Controller
         include $_SESSION['dir'] . '/View/RecipesView.php';
     }
 }
+?>

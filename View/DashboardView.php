@@ -67,7 +67,7 @@ $content = ob_get_clean();
     </thead>
     <form method="post" action=<?php $_SESSION['dir'] . '/Controller/DashboardController.php'?>>
         <tbody>
-        <?php 
+        <?php   
                 for($i = 0 ; $i < (count($_SESSION['recipesToAccept']));$i++){
                     echo '<tr>';
                     for($j  = 0; $j < (count($_SESSION['recipesToAccept'][$i])/2); $j++){
@@ -83,6 +83,51 @@ $content = ob_get_clean();
         <div class="container text-center">
             <button type=submit class="btn btn-success btn-block mb-4 " name='validateRecipe' value="Valider la recette">Valider la ou les recette(s)</button>
             <button type=submit class="btn btn-danger btn-block mb-4 " name='denyRecipe' value="Supprimer la recette">Supprimer la ou les recette(s)</button>
+        </div>
+    </form>
+
+    <div class="container text-center">
+    <h4 class="display-4"> Liste des Recettes </h4>
+</div>
+    <table class="table">
+        <thead class="thead-dark"> 
+            <tr>
+            <th scope="col"> N° Recette </th>
+            <th scope="col"> Statut Recette </th>
+            <th scope="col"> Pseudo Utilisateur </th>
+            <th scope="col"> Catégorie </th>
+            <th scope="col"> Titre </th>
+            <th scope="col"> Contenant </th>
+            <th scope="col"> Résumé </th>
+            <th scope="col"> Date d'inscription </th>
+            <th scope="col"> Action</th>
+            </tr> 
+        </thead>
+    <form method="post" action=<?php $_SESSION['dir'] . '/Controller/DashboardController.php'?> >
+            <tbody>
+                <?php 
+                foreach($_SESSION['allRecipes'] as $recette){
+                    echo '<tr>';
+                    
+                    echo '<td> '. $recette['RE_ID'] . '</td>';
+                    echo '<td> '. $recette['RES_ID'] . '</td>';
+                    echo '<td> '. $recette['US_PSEUDO'] . '</td>';
+                    echo '<td> '. $recette['CA_TITLE'] . '</td>';  
+                    echo '<td> '. $recette['RE_TITLE'] . '</td>';
+                    echo '<td> '. $recette['RE_CONTENT'] . '</td>';
+                    echo '<td> '. $recette['RE_SUMMARY'] . '</td>';
+                    echo '<td> '. $recette['RE_REGDATE'] . '</td>';
+                                      
+                    echo '<td> <input class="form-check form-check-input" type ="radio" name="radioRecipes" value="'. $recette['RE_ID']. '"';
+                    echo '</tr>';
+                }
+                ?> 
+                
+            </tbody>  
+    </table>
+        <div class="container text-center">
+            <button type=submit class="btn btn-warning btn-block mb-4 " name='modifyRecipe' value="Modifier Modifier la recette">Modifier la recette</button>
+            <button type=submit class="btn btn-danger btn-block mb-4 " name='deleteRecipe' value="Supprimer la recette">Supprimer la recette</button>
         </div>
     </form>
 

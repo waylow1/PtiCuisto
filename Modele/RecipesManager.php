@@ -156,3 +156,4 @@ class RecipesManager extends Manager
           $insertUtilize->execute();
    }
 }
+?>

@@ -14,3 +14,4 @@ class TemplateController extends Controller
         include $_SESSION['dir'] . '/View/Template.php';
     }
 }
+?>
