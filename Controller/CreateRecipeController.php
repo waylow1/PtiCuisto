@@ -12,17 +12,6 @@ class CreateRecipeController extends Controller
     public function run()
     {
         $allIngredient = $this->manager->getAllIngredients();
-        if (isset($_GET['Ingredient'])) {
-            $ingredientName = $_GET['Ingredient'];
-            $count = $this->manager->getIngredient($ingredientName);
-            if ($count == 0) {
-                $this->manager->insertIngredient($ingredientName);
-                
-            } else {
-                
-            }
-        }
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitRecipe'])) {
 
             $uploadDirectory = $_SESSION['dir'] . '/assets/dish/';
@@ -31,12 +20,17 @@ class CreateRecipeController extends Controller
             $tmpFilePath = $file['tmp_name'];
             $destination = $uploadDirectory . $fileName;
 
-            $recipeId = $this->manager->createRecipe($fileName);
+            $ingredientArray = json_decode($_POST['ingredientContainer']);
 
+            $recipeId = $this->manager->createRecipe($fileName);
             if (!empty($ingredientArray)) {
                 foreach ($ingredientArray as $ingredient) {
+                    $count = $this->manager->getIngredient($ingredient);
+                    if ($count == 0) {
+                        $this->manager->insertIngredient($ingredient);
+                    }
                     $this->manager->insertIngredientInRecipe($ingredient, $recipeId);
-                } 
+                }
             }
             if (move_uploaded_file($tmpFilePath, $destination)) {
                 echo "<script> alert('Recette téléversée'); </script>";
