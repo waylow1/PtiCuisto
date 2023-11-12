@@ -2,10 +2,10 @@
 session_start();
 $_SESSION['dir'] = __DIR__;
 if(!(isset($_SESSION['edito1']))) {
-    $_SESSION['edito1'] = "Bienvenue sur le site du PtiCuisto ! ";
+    $_SESSION['edito1'] = "Bienvenue sur le site du PtiCuisto !  Le blog pour cuisiner les meilleures recettes pour les pitchounes ";
 }
 if(!(isset($_SESSION['edito2']))) {
-    $_SESSION['edito2'] =  "Connectez-vous";
+    $_SESSION['edito2'] =  "Connectez-vous pour partager vos propres recettes avec les autres cuistos !s";
 }
 if (isset($_GET['action']) && $_GET['action'] !== '') {
     $controller = $_GET['action'];
@@ -55,9 +55,13 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
     if ($controller == "Dashboard"){
         $Dashboard = new DashboardController();
         $Dashboard->run();
+        
+    }
+    if ($controller =="ModifyUser"){
+        $User = new ModifyUserController();
+        $User->run();
     }
     if ($controller == "Mdp"){
-        echo "<script>console.log('aa')</script>";
         $Mdp = new MdpController();
         $Mdp->run();
     }

@@ -87,7 +87,7 @@ ob_start();
 
         const xhr = new XMLHttpRequest();
         xhr.open('GET', currentURL + `&Ingredient=${ingredientValue}`, true);
-        xhr.withCredentials = true; 
+        xhr.withCredentials = true;
         xhr.send();
 
         const recipeIngredientsList = document.getElementById("ingredientList");
@@ -95,7 +95,8 @@ ob_start();
         listItem.textContent = ingredientName.value;
         recipeIngredientsList.appendChild(listItem);
 
-        ingredientName.value = ""; 
+        ingredientName.value = "";
+         
     }
 });
 

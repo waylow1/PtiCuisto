@@ -47,7 +47,7 @@ class UsersManager extends Manager
     }
 
     public function insertUser($max, $pseudo, $password, $mail, $firstname, $lastname){
-        $db = $this->con();
+        $db = $this->con();    
         $reponse = $db->prepare('INSERT INTO `USERS`(`US_ID`, `UST_ID`, `USS_JD`, `US_PSEUDO`, `US_MAIL`, `US_FIRSTNAME`, `US_LASTNAME`, `US_REGDATE`, `US_PASSWORD`) VALUES (:max, 2, 1, :pseudo, :mail, :firstname, :lastname, NOW(), :password);');
         $reponse->bindParam(':max', $max);
         $reponse->bindParam(':pseudo', $pseudo);
@@ -101,14 +101,11 @@ class UsersManager extends Manager
 
     public function changePassword($newPassword) {
         $db = $this->con();
-        $user = $db->prepare('SELECT US_ID from USERS where US_PSEUDO like :name');
-        $user->bindParam('name', $_SESSION['username']);
-        $user->execute();
-        $userID = $user->fetchall()['0']['US_ID'];
-        $req = $db->prepare('UPDATE USERS SET US_PASSWORD = ? WHERE US_ID = ?');
-        print_r($password);
+       
+        $req = $db->prepare('UPDATE USERS SET US_PASSWORD = ? WHERE US_PSEUDO = ?');
+        $password = password_hash($newPassword,PASSWORD_DEFAULT);
         $req->bindParam(1, $password);
-        $req->bindParam(2, $userID);
+        $req->bindParam(2, $_SESSION['username']);
         $req->execute();
     }
 }
