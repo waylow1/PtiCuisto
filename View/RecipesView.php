@@ -94,17 +94,15 @@ ob_start();
 
         var listItem = document.createElement("li");
         listItem.textContent = ingredientValue;
+        listItem.className = "list-group-item"; // Ajout de la classe Bootstrap
         ingredientList.appendChild(listItem);
 
         ingredientArray.push(ingredientValue);
         ingredientName.value = "";
        
         ingredientContainer.value = JSON.stringify(ingredientArray);
-
     }
 });
-
-
     recipeNameInput.addEventListener("input", function() {
         const currentLength = recipeNameInput.value.length;
         const charactersRemainingName = maxContentCharacters - currentLength;
