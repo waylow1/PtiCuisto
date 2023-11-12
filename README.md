@@ -57,7 +57,13 @@ Pour utiliser PTICUISTO, suivez ces étapes :
 2. Vous pouvez vous connecter en tant qu'internaute, éditeur ou administrateur en utilisant les comptes préexistants ou en créant un nouveau compte.
 3. Explorez les différentes fonctionnalités du site en fonction de votre rôle.
 
-## 👥Contributeurs
+## 👥Auteurs 
+
+- Maxence Levesque (alias [@waylow1](https://github.com/waylow1))
+- Martin Ballu (alias [@TimAlbanUrl](https://github.com/TimAlbanUrl))
+- Baptiste Cureau (alias [@baptistec712](https://github.com/baptistec712))
+- Noé Tourbillon (alias [@Noetou](https://github.com/Noetou))
+
 
 ## 📄Licence
 Ce projet est sous licence MIT.
