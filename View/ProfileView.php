@@ -54,10 +54,10 @@ if(isset($_SESSION['username'])  && isset($_SESSION['password'])){
             </div>
             <form method="post" action=<?php $_SESSION['dir'] . '/Controller/ProfileController.php'; ?>>
             <?php 
-            if(!empty($_SESSION['current_user_recipes'])){ ?>
+            if(!empty($_SESSION['current_user_recipes'])){?>
                 <div id="container"></div>
                 <script>
-                    Display = new RecipeDisplay(<?php echo json_encode($allRecipes); ?>, <?php echo json_encode($ingredients); ?>);
+                    Display = new RecipeDisplay(<?php echo json_encode($_SESSION['current_user_recipes']); ?>, <?php echo json_encode($ingredientsParRecette); ?>);
                     Display.DisplayForAllRecipes(true);
                 </script>
                 <div class="container text-center">

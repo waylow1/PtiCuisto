@@ -5,7 +5,6 @@ class RecipeDisplay {
   }
 
   DisplayForAllRecipes(format) {
-    console.log(this.ingredients);
     this.recipes.forEach((element, index) => {
       const recipeContainer = document.createElement("div");
       recipeContainer.className = "collection-item mx-auto";
@@ -64,7 +63,8 @@ class RecipeDisplay {
     </div>
   `;
       
-      const ingredientContainer = recipeContainer.querySelector(".ingredient-container");
+    if(!format) {  
+    const ingredientContainer = recipeContainer.querySelector(".ingredient-container");
       this.ingredients[index].forEach((element) => {
         let ingredientDiv = document.createElement("p");
         ingredientDiv.innerHTML = `
@@ -76,7 +76,8 @@ class RecipeDisplay {
         ingredientDiv.classList.add("mr-1");
         ingredientDiv.classList.add("p-1");
         ingredientContainer.appendChild(ingredientDiv);
-      }); 
+      });
+      }
       const recipeImage = recipeContainer.querySelector(".recipe-image");
       recipeImage.src = "../assets/dish/" + element.RE_IMAGE;
 
