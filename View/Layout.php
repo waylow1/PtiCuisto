@@ -21,8 +21,6 @@
 <script>
     var AllRecipes = <?php echo json_encode($_SESSION['Recipes']); ?>;
     var getAllIngredients = <?php echo json_encode($_SESSION['Ingredients']); ?>
-    console.table(AllRecipes);
-    console.table(getAllIngredients);
 </script>
 
 
